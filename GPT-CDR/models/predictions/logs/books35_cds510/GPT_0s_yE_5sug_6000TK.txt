@@ -1,0 +1,3036 @@
+
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1HVV7OSIXVW5Y
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                          title                                brand                                                                         category
+2344  A1HVV7OSIXVW5Y  0972048111      5  1389744000                                  Cereal Killer    Visit Amazon's Alan L Watson Page           ['Books', 'Health, Fitness & Dieting', 'Diseases & Physical Ailments']
+3180  A1HVV7OSIXVW5Y  1616086203      4  1362355200            O.J. is Innocent and I Can Prove It  Visit Amazon's William C. Dear Page                                                 ['Books', 'History', 'Americas']
+3214  A1HVV7OSIXVW5Y  1843107341      5  1122249600  Asperger Syndrome and Long-Term Relationships  Visit Amazon's Ashley Stanford Page  ['Books', 'New, Used &amp; Rental Textbooks', 'Medicine &amp; Health Sciences']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                              title            brand                                                                                                category
+0  A1HVV7OSIXVW5Y  B000002K9B      5  1385683200                                                Sinatra &amp; Basie    Frank Sinatra                                               ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+1  A1HVV7OSIXVW5Y  B00000IMYM      5  1385683200                               First Time: The Count Meets the Duke   Duke Ellington                                               ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+2  A1HVV7OSIXVW5Y  B0000027ED      5  1376784000                                                       Three Suites   Duke Ellington                                               ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+3  A1HVV7OSIXVW5Y  B000001K1Z      5  1403913600  Gershwin: The Complete Works for Orchestra, Piano &amp; Orchestra  George Gershwin  ['CDs & Vinyl', 'Classical', 'Forms & Genres', 'Theatrical, Incidental & Program Music', 'Tone Poems']
+4  A1HVV7OSIXVW5Y  B000002K9C      5  1385683200                                                    Concert Sinatra    Frank Sinatra                                                     ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+Correct items for test user:
+['B0000027ED', 'B000002K9B', 'B00000IMYM', 'B000002K9C', 'B000001K1Z']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Cereal Killer
+	Brand: Visit Amazon's Alan L Watson Page
+	Categories: ['Books', 'Health, Fitness & Dieting', 'Diseases & Physical Ailments']
+	2.
+	Title: Asperger Syndrome and Long-Term Relationships
+	Brand: Visit Amazon's Ashley Stanford Page
+	Categories: ['Books', 'New, Used &amp; Rental Textbooks', 'Medicine &amp; Health Sciences']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: O.J. is Innocent and I Can Prove It
+	Brand: Visit Amazon's William C. Dear Page
+	Categories: ['Books', 'History', 'Americas']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002K9B
+	Title: Sinatra &amp; Basie
+	Brand: Frank Sinatra
+	Categories: ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+	2.
+	Id: B00000IMYM
+	Title: First Time: The Count Meets the Duke
+	Brand: Duke Ellington
+	Categories: ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+	3.
+	Id: B0000027ED
+	Title: Three Suites
+	Brand: Duke Ellington
+	Categories: ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+	4.
+	Id: B000001K1Z
+	Title: Gershwin: The Complete Works for Orchestra, Piano &amp; Orchestra
+	Brand: George Gershwin
+	Categories: ['CDs & Vinyl', 'Classical', 'Forms & Genres', 'Theatrical, Incidental & Program Music', 'Tone Poems']
+	5.
+	Id: B000002K9C
+	Title: Concert Sinatra
+	Brand: Frank Sinatra
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002K9B', 'B00000IMYM', 'B0000027ED', 'B000001K1Z', 'B000002K9C'].
+Explanation: Based on the user's liked books, which are related to health, fitness, and diseases, and the disliked book, which is related to history, the recommender system suggests CDs that are related to jazz and classical music. The top-ranked CDs are from artists such as Frank Sinatra, Duke Ellington, and George Gershwin, who are known for their contributions to jazz and classical genres. The system assumes that the user's preference for books in the health and medicine domain may extend to a preference for relaxing and soothing music genres like jazz and classical.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2WI503YTC6S2C
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                           title                               brand                                                                  category
+2356  A2WI503YTC6S2C  0974056022      5  1390176000                                                                             The Flight of the Feathered Serpent  Visit Amazon's Armando Cosani Page                                             ['Books', 'History', 'World']
+2363  A2WI503YTC6S2C  0974591688      4  1342396800                                                                        GNOSTIC BIBLE: THE PISTIS SOPHIA UNVEILE                          First Last  ['Books', 'Christian Books &amp; Bibles', 'Bible Study &amp; Reference']
+2664  A2WI503YTC6S2C  1451620829      5  1371427200                                                                   Makeup to Breakup: My Life In and Out of Kiss     Visit Amazon's Peter Criss Page                              ['Books', 'Arts &amp; Photography', 'Music']
+3067  A2WI503YTC6S2C  1594731039      3  1389139200  PhilokaliaThe Eastern Christian Spiritual Texts: Selections Annotated &amp; Explained (SkyLight Illuminations)                     G. E. H. Palmer             ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                      title               brand                                                                 category
+0  A2WI503YTC6S2C  B000002JEV      5  1374969600                               BBC Sessions        Led Zeppelin                ['CDs & Vinyl', 'Rock', 'Rock Guitarists', 'Guitar Gods']
+1  A2WI503YTC6S2C  B000002J0B      4  1391904000                         Houses Of The Holy        Led Zeppelin                ['CDs & Vinyl', 'Rock', 'Rock Guitarists', 'Guitar Gods']
+2  A2WI503YTC6S2C  B0000084AS      3  1374710400                                 Still Life  The Rolling Stones             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+3  A2WI503YTC6S2C  B000002MOJ      3  1371600000           Songs Of Faith and Devotion Live        Depeche Mode  ['CDs & Vinyl', 'Alternative Rock', 'New Wave & Post-Punk', 'New Wave']
+4  A2WI503YTC6S2C  B000000W5F      5  1374710400                                 Tattoo You  The Rolling Stones             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+5  A2WI503YTC6S2C  B000001ELL      2  1307923200                         Dynasty Remastered                Kiss             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+6  A2WI503YTC6S2C  B000001ELN      1  1307923200                        Unmasked Remastered                Kiss             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+7  A2WI503YTC6S2C  B000005JU3      4  1374710400  Jump Back: The Best of the Rolling Stones  The Rolling Stones             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+8  A2WI503YTC6S2C  B000002JSJ      5  1336089600                                   Presence        Led Zeppelin                ['CDs & Vinyl', 'Rock', 'Rock Guitarists', 'Guitar Gods']
+Correct items for test user:
+['B000002JSJ', 'B000000W5F', 'B000002JEV', 'B000005JU3', 'B000002J0B']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: The Flight of the Feathered Serpent
+	Brand: Visit Amazon's Armando Cosani Page
+	Categories: ['Books', 'History', 'World']
+	2.
+	Title: Makeup to Breakup: My Life In and Out of Kiss
+	Brand: Visit Amazon's Peter Criss Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: GNOSTIC BIBLE: THE PISTIS SOPHIA UNVEILE
+	Brand: First Last
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Bible Study &amp; Reference']
+	2.
+	Title: PhilokaliaThe Eastern Christian Spiritual Texts: Selections Annotated &amp; Explained (SkyLight Illuminations)
+	Brand: G. E. H. Palmer
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002JEV
+	Title: BBC Sessions
+	Brand: Led Zeppelin
+	Categories: ['CDs & Vinyl', 'Rock', 'Rock Guitarists', 'Guitar Gods']
+	2.
+	Id: B000002J0B
+	Title: Houses Of The Holy
+	Brand: Led Zeppelin
+	Categories: ['CDs & Vinyl', 'Rock', 'Rock Guitarists', 'Guitar Gods']
+	3.
+	Id: B0000084AS
+	Title: Still Life
+	Brand: The Rolling Stones
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	4.
+	Id: B000002MOJ
+	Title: Songs Of Faith and Devotion Live
+	Brand: Depeche Mode
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'New Wave & Post-Punk', 'New Wave']
+	5.
+	Id: B000000W5F
+	Title: Tattoo You
+	Brand: The Rolling Stones
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	6.
+	Id: B000001ELL
+	Title: Dynasty Remastered
+	Brand: Kiss
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	7.
+	Id: B000001ELN
+	Title: Unmasked Remastered
+	Brand: Kiss
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	8.
+	Id: B000005JU3
+	Title: Jump Back: The Best of the Rolling Stones
+	Brand: The Rolling Stones
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	9.
+	Id: B000002JSJ
+	Title: Presence
+	Brand: Led Zeppelin
+	Categories: ['CDs & Vinyl', 'Rock', 'Rock Guitarists', 'Guitar Gods']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002J0B', 'B000002JEV', 'B000002JSJ', 'B000000W5F', 'B0000084AS'].
+Explanation: Based on the user's liked books, which include "Makeup to Breakup: My Life In and Out of Kiss" and "The Flight of the Feathered Serpent," it seems that the user has an interest in music-related books. Therefore, it is likely that the user would also be interested in CDs from the same genre. 
+
+Among the candidate CDs, "Houses Of The Holy" by Led Zeppelin and "BBC Sessions" by Led Zeppelin are ranked at the top because Led Zeppelin is a rock band, and the user has shown an interest in rock music through their liked books. 
+
+"Presence" by Led Zeppelin is also ranked high because it falls under the rock genre and features rock guitarists, which aligns with the user's preferences. 
+
+"Tattoo You" by The Rolling Stones is ranked next because it is a classic rock album, similar to the user's liked books. 
+
+Finally, "Still Life" by The Rolling Stones is ranked fifth because it is categorized as classic rock and album-oriented rock, which are genres that the user might enjoy based on their liked books.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A314M677NI82H
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                               title                                brand                                                 category
+2373  A314M677NI82H  0976291770      5  1211500800  A Vulgar Display Of Power: Courage and Carnage At The Alrosa Villa                         Chris Armold                         ['Books', 'History', 'Americas']
+2796  A314M677NI82H  1556527705      5  1228348800                                   Zombie Movies: The Ultimate Guide        Visit Amazon's Glenn Kay Page         ['Books', 'Humor &amp; Entertainment', 'Movies']
+3280  A314M677NI82H  1903254469      5  1193443200    NIGHTMARE USA: The Untold Story of the Exploitation Independents  Visit Amazon's Stephen Thrower Page         ['Books', 'Humor &amp; Entertainment', 'Movies']
+3384  A314M677NI82H  B001GSFEG0      3  1227744000                                                     He Came to Rock  Visit Amazon's Dimebag Darrell Page  ['Books', 'Biographies & Memoirs', 'Arts & Literature']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                              title           brand                                                      category
+0  A314M677NI82H  B000O3C54C      4  1184803200                                                                        Commandment  Six Feet Under                       ['CDs & Vinyl', 'Metal', 'Death Metal']
+1  A314M677NI82H  B000IOM0YM      5  1162944000                                                         Kiss - Kissology: Volume 1            KISS  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+2  A314M677NI82H  B000002KZX      5  1182124800                                                                             Danzig          Danzig                 ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+3  A314M677NI82H  B000003B74      5  1182124800                                                                        Niggaz4life          N.W.A.        ['CDs & Vinyl', 'Rap & Hip-Hop', 'Gangsta & Hardcore']
+4  A314M677NI82H  B000002KZT      5  1182297600                                                                     Reign in Blood          Slayer              ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+5  A314M677NI82H  B00004YX2V      5  1173744000                                                                            Crowbar         Crowbar                 ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+6  A314M677NI82H  B000KHYOUK      5  1169769600                                                              Live: With Full Force            <NA>                 ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+7  A314M677NI82H  B000008IKS      5  1181606400                                                                      Imperial Doom     Monstrosity                       ['CDs & Vinyl', 'Metal', 'Death Metal']
+8  A314M677NI82H  B000UGG39Q      3  1190851200  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"            Down                       ['CDs & Vinyl', 'Metal', 'Death Metal']
+Correct items for test user:
+['B000IOM0YM', 'B000KHYOUK', 'B00004YX2V', 'B000008IKS', 'B000002KZX']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: A Vulgar Display Of Power: Courage and Carnage At The Alrosa Villa
+	Brand: Chris Armold
+	Categories: ['Books', 'History', 'Americas']
+	2.
+	Title: Zombie Movies: The Ultimate Guide
+	Brand: Visit Amazon's Glenn Kay Page
+	Categories: ['Books', 'Humor &amp; Entertainment', 'Movies']
+	3.
+	Title: NIGHTMARE USA: The Untold Story of the Exploitation Independents
+	Brand: Visit Amazon's Stephen Thrower Page
+	Categories: ['Books', 'Humor &amp; Entertainment', 'Movies']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: He Came to Rock
+	Brand: Visit Amazon's Dimebag Darrell Page
+	Categories: ['Books', 'Biographies & Memoirs', 'Arts & Literature']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000O3C54C
+	Title: Commandment
+	Brand: Six Feet Under
+	Categories: ['CDs & Vinyl', 'Metal', 'Death Metal']
+	2.
+	Id: B000IOM0YM
+	Title: Kiss - Kissology: Volume 1
+	Brand: KISS
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	3.
+	Id: B000002KZX
+	Title: Danzig
+	Brand: Danzig
+	Categories: ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+	4.
+	Id: B000003B74
+	Title: Niggaz4life
+	Brand: N.W.A.
+	Categories: ['CDs & Vinyl', 'Rap & Hip-Hop', 'Gangsta & Hardcore']
+	5.
+	Id: B000002KZT
+	Title: Reign in Blood
+	Brand: Slayer
+	Categories: ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+	6.
+	Id: B00004YX2V
+	Title: Crowbar
+	Brand: Crowbar
+	Categories: ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+	7.
+	Id: B000KHYOUK
+	Title: Live: With Full Force
+	Categories: ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+	8.
+	Id: B000008IKS
+	Title: Imperial Doom
+	Brand: Monstrosity
+	Categories: ['CDs & Vinyl', 'Metal', 'Death Metal']
+	9.
+	Id: B000UGG39Q
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: Down
+	Categories: ['CDs & Vinyl', 'Metal', 'Death Metal']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002KZX', 'B000002KZT', 'B000O3C54C', 'B00004YX2V', 'B000008IKS'].
+Explanation: Based on the user's liked books, which are related to history, movies, and entertainment, and the disliked book, which is a biography, it seems that the user has a preference for books and media related to history, movies, and entertainment. Therefore, the recommended CDs are selected based on their categories. The top 5 recommended CDs are:
+1. Danzig - This CD falls under the category of Metal, which is similar to the user's interest in books related to history and movies.
+2. Reign in Blood by Slayer - This CD also falls under the category of Metal, specifically Thrash & Speed Metal, which aligns with the user's interest in books related to history and movies.
+3. Commandment by Six Feet Under - This CD falls under the category of Death Metal, which is similar to the user's interest in books related to history and movies.
+4. Crowbar - This CD falls under the category of Alternative Metal, which aligns with the user's interest in books related to history and movies.
+5. Imperial Doom by Monstrosity - This CD falls under the category of Death Metal, which is similar to the user's interest in books related to history and movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: ABQUVUO40X9TB
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                                                       title                                   brand                                                               category
+2404  ABQUVUO40X9TB  0981584012      3  1396828800                            Ormus Modern Day Alchemy: Primer of Ormus Collection Processes Reference Edition                            Chris Emmons                                   ['Books', 'Religion & Spirituality']
+2631  ABQUVUO40X9TB  1440321582      3  1392595200                               Secrets of Acrylic - Landscapes Start to Finish (Essential Artist Techniques)       Visit Amazon's Jerry Yarnell Page         ['Books', 'Arts &amp; Photography', 'History &amp; Criticism']
+2754  ABQUVUO40X9TB  149094706X      4  1396828800                                                     The Final Babylon: America and the Coming of Antichrist  Visit Amazon's S Douglas Woodward Page                  ['Books', 'Christian Books &amp; Bibles', 'Theology']
+2942  ABQUVUO40X9TB  1581809514      4  1355961600                                                                  Jerry Yarnell's Landscape Painting Secrets       Visit Amazon's Jerry Yarnell Page                 ['Books', 'Arts & Photography', 'History & Criticism']
+3164  ABQUVUO40X9TB  1611735270      4  1358640000  The Harbinger: The Ancient Mystery That Holds the Secret of America's Future (Thorndike Christian Mystery)       Visit Amazon's Jonathan Cahn Page  ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp         title                   brand                                            category
+0  ABQUVUO40X9TB  B00G9C28SK      5  1396310400        Thrive          Casting Crowns  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+1  ABQUVUO40X9TB  B004ZBIJEO      5  1358640000       On Fire            Peter Furler  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+2  ABQUVUO40X9TB  B00DPH7QI4      5  1392595200         Tides            Bethel Music  ['CDs & Vinyl', 'Christian', 'Rock & Alternative']
+3  ABQUVUO40X9TB  B00E8RVSM0      5  1396310400  Kingdom Come   Bryan & Katie Torwalt  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+4  ABQUVUO40X9TB  B0070VDS3S      5  1392595200    Breathe In  Phillips, Craig & Dean  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+Correct items for test user:
+['B004ZBIJEO', 'B00DPH7QI4', 'B0070VDS3S', 'B00G9C28SK', 'B00E8RVSM0']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+ 
+Instead, I disliked the following books : 
+1.
+	Title: Ormus Modern Day Alchemy: Primer of Ormus Collection Processes Reference Edition
+	Brand: Chris Emmons
+	Categories: ['Books', 'Religion & Spirituality']
+	2.
+	Title: Secrets of Acrylic - Landscapes Start to Finish (Essential Artist Techniques)
+	Brand: Visit Amazon's Jerry Yarnell Page
+	Categories: ['Books', 'Arts &amp; Photography', 'History &amp; Criticism']
+	3.
+	Title: The Final Babylon: America and the Coming of Antichrist
+	Brand: Visit Amazon's S Douglas Woodward Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Theology']
+	4.
+	Title: Jerry Yarnell's Landscape Painting Secrets
+	Brand: Visit Amazon's Jerry Yarnell Page
+	Categories: ['Books', 'Arts & Photography', 'History & Criticism']
+	5.
+	Title: The Harbinger: The Ancient Mystery That Holds the Secret of America's Future (Thorndike Christian Mystery)
+	Brand: Visit Amazon's Jonathan Cahn Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00G9C28SK
+	Title: Thrive
+	Brand: Casting Crowns
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	2.
+	Id: B004ZBIJEO
+	Title: On Fire
+	Brand: Peter Furler
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	3.
+	Id: B00DPH7QI4
+	Title: Tides
+	Brand: Bethel Music
+	Categories: ['CDs & Vinyl', 'Christian', 'Rock & Alternative']
+	4.
+	Id: B00E8RVSM0
+	Title: Kingdom Come
+	Brand: Bryan & Katie Torwalt
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	5.
+	Id: B0070VDS3S
+	Title: Breathe In
+	Brand: Phillips, Craig & Dean
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00G9C28SK', 'B004ZBIJEO', 'B00DPH7QI4', 'B00E8RVSM0', 'B0070VDS3S'].
+Explanation: Based on the user's liked books, which are mainly in the categories of 'Books', 'Religion & Spirituality', 'Arts & Photography', and 'Christian Books & Bibles', the recommended CDs are also in the 'Christian' category. The recommended CDs are from various artists and genres within the Christian music genre, including pop, contemporary, rock, and alternative. These CDs are likely to align with the user's interests in religious and spiritual content, as well as arts and creativity.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1SBVESHFBLMP8
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                    title                               brand                                                          category
+2405  A1SBVESHFBLMP8  0981650678      5  1357948800         Earth Song: Inside Michael Jackson's Magnum Opus    Visit Amazon's Joseph Vogel Page                      ['Books', 'Arts &amp; Photography', 'Music']
+2437  A1SBVESHFBLMP8  1118167651      5  1362009600          Batman and Psychology: A Dark and Stormy Knight  Visit Amazon's Travis Langley Page  ['Books', 'Literature &amp; Fiction', 'History &amp; Criticism']
+2677  A1SBVESHFBLMP8  1452118159      5  1367020800                                  Star Wars: Book of Sith  Visit Amazon's Daniel Wallace Page                  ['Books', 'Humor &amp; Entertainment', 'Movies']
+3083  A1SBVESHFBLMP8  159582832X      4  1362960000     Star Wars Omnibus: Episodes I - VI The Complete Saga                      Archie Goodwin            ['Books', 'Comics & Graphic Novels', 'Graphic Novels']
+3199  A1SBVESHFBLMP8  1742203051      5  1325721600  Lonely Planet's Best in Travel 2012 (General Reference)          Lonely Planet Publications                                  ['Books', 'Travel', 'Reference']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                                                                                                                      title            brand                                                                                  category
+0  A1SBVESHFBLMP8  B0002XDODU      5  1378080000                                                                                                                                                                                                               Reise, Reise        Rammstein  ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial', 'Alt Industrial']
+1  A1SBVESHFBLMP8  B0000057C5      5  1377907200                                                                                                                                                                                                                  Sehnsucht        Rammstein                    ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial']
+2  A1SBVESHFBLMP8  B00000269M      5  1368144000                                                                                                                                                                                                                        Bad  Michael Jackson                                            ['CDs & Vinyl', 'Dance & Electronic', 'Disco']
+3  A1SBVESHFBLMP8  B002OOG6RQ      5  1378252800  Rammstein,Liebe Ist F&uuml;r Alle Da (standard version),Universal Music,Pop,Digipak,Industrial/Gothic,Metal,Pop/Rock Music,Rock,Rock / Hard Rock &amp; Metal,Recorded Music - Rock &amp; Pop,Rock &amp; Pop - General" />        Rammstein                               ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+4  A1SBVESHFBLMP8  B000003RCY      5  1377820800                                                                                                                                                                                                                  Herzeleid        Rammstein  ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial', 'Alt Industrial']
+Correct items for test user:
+['B00000269M', 'B000003RCY', 'B0000057C5', 'B0002XDODU', 'B002OOG6RQ']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Earth Song: Inside Michael Jackson's Magnum Opus
+	Brand: Visit Amazon's Joseph Vogel Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	2.
+	Title: Batman and Psychology: A Dark and Stormy Knight
+	Brand: Visit Amazon's Travis Langley Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'History &amp; Criticism']
+	3.
+	Title: Star Wars: Book of Sith
+	Brand: Visit Amazon's Daniel Wallace Page
+	Categories: ['Books', 'Humor &amp; Entertainment', 'Movies']
+	4.
+	Title: Lonely Planet's Best in Travel 2012 (General Reference)
+	Brand: Lonely Planet Publications
+	Categories: ['Books', 'Travel', 'Reference']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Star Wars Omnibus: Episodes I - VI The Complete Saga
+	Brand: Archie Goodwin
+	Categories: ['Books', 'Comics & Graphic Novels', 'Graphic Novels']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0002XDODU
+	Title: Reise, Reise
+	Brand: Rammstein
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial', 'Alt Industrial']
+	2.
+	Id: B0000057C5
+	Title: Sehnsucht
+	Brand: Rammstein
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial']
+	3.
+	Id: B00000269M
+	Title: Bad
+	Brand: Michael Jackson
+	Categories: ['CDs & Vinyl', 'Dance & Electronic', 'Disco']
+	4.
+	Id: B002OOG6RQ
+	Title: Rammstein,Liebe Ist F&uuml;r Alle Da (standard version),Universal Music,Pop,Digipak,Industrial/Gothic,Metal,Pop/Rock Music,Rock,Rock / Hard Rock &amp; Metal,Recorded Music - Rock &amp; Pop,Rock &amp; Pop - General" />
+	Brand: Rammstein
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+	5.
+	Id: B000003RCY
+	Title: Herzeleid
+	Brand: Rammstein
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial', 'Alt Industrial']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00000269M', 'B0000057C5', 'B000003RCY', 'B0002XDODU', 'B002OOG6RQ'].
+Explanation: Based on the user's liked books, which include books about music, arts, and entertainment, and the user's dislike for a Star Wars graphic novel, the recommender system suggests CDs that are related to music and entertainment. The top-ranked CD, "Bad" by Michael Jackson, is recommended because the user liked a book about Michael Jackson's music. The next recommended CD, "Sehnsucht" by Rammstein, is suggested because the user liked a book about industrial music and the brand Rammstein is associated with industrial music. The other recommended CDs, "Herzeleid" and "Reise, Reise" by Rammstein, are also related to industrial and alternative rock music, which aligns with the user's preferences. Finally, "Liebe Ist F&uuml;r Alle Da" by Rammstein is recommended because it is associated with the same brand and genre as the other recommended CDs.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AAEEXHRP4QBQ1
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                           title                                       brand                                                    category
+2408  AAEEXHRP4QBQ1  0982004109      5  1297728000                                                 Norman Saunders          Visit Amazon's David Saunders Page       ['Books', 'Arts & Photography', 'Individual Artists']
+2409  AAEEXHRP4QBQ1  0982004133      5  1334966400                                                       H.J. Ward          Visit Amazon's David Saunders Page   ['Books', 'Arts &amp; Photography', 'Individual Artists']
+2746  AAEEXHRP4QBQ1  1483930262      4  1369180800                                       Headfirst off the Caprock        Visit Amazon's Henry D. Terrell Page      ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+3148  AAEEXHRP4QBQ1  1606994948      3  1334966400  ACTION! MYSTERY! THRILLS!: Great Comic Book Covers 1936-45  SC                               Greg Sadowski  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+3271  AAEEXHRP4QBQ1  1893905853      5  1263340800                          Modern Masters Volume 15: Mark Schultz  Visit Amazon's Eric Nolen-Weathington Page  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                          title                    brand                                                          category
+0  AAEEXHRP4QBQ1  B000EU1PEG      4  1277078400                                     Side Three             Adrian Belew        ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+1  AAEEXHRP4QBQ1  B006OLTRB2      5  1327017600                                         P'dice              Paul Cusick                             ['CDs & Vinyl', 'Metal', 'Pop Metal']
+2  AAEEXHRP4QBQ1  B009439HEY      5  1354579200                           Genesis Revisited II            Steve Hackett        ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+3  AAEEXHRP4QBQ1  B0000A14TX      4  1304640000  Siouxsie &amp; the Banshees - Seven Year Itch  Siouxsie & the Banshees  ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Goth']
+4  AAEEXHRP4QBQ1  B009F91YHA      3  1354492800                  Porcupine Tree Octane Twisted           Porcupine Tree        ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+Correct items for test user:
+['B006OLTRB2', 'B009439HEY', 'B000EU1PEG', 'B0000A14TX', 'B009F91YHA']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Norman Saunders
+	Brand: Visit Amazon's David Saunders Page
+	Categories: ['Books', 'Arts & Photography', 'Individual Artists']
+	2.
+	Title: H.J. Ward
+	Brand: Visit Amazon's David Saunders Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Individual Artists']
+	3.
+	Title: Modern Masters Volume 15: Mark Schultz
+	Brand: Visit Amazon's Eric Nolen-Weathington Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Headfirst off the Caprock
+	Brand: Visit Amazon's Henry D. Terrell Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	2.
+	Title: ACTION! MYSTERY! THRILLS!: Great Comic Book Covers 1936-45  SC
+	Brand: Greg Sadowski
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000EU1PEG
+	Title: Side Three
+	Brand: Adrian Belew
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	2.
+	Id: B006OLTRB2
+	Title: P'dice
+	Brand: Paul Cusick
+	Categories: ['CDs & Vinyl', 'Metal', 'Pop Metal']
+	3.
+	Id: B009439HEY
+	Title: Genesis Revisited II
+	Brand: Steve Hackett
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	4.
+	Id: B0000A14TX
+	Title: Siouxsie &amp; the Banshees - Seven Year Itch
+	Brand: Siouxsie & the Banshees
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Goth']
+	5.
+	Id: B009F91YHA
+	Title: Porcupine Tree Octane Twisted
+	Brand: Porcupine Tree
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B009F91YHA', 'B0000A14TX', 'B009439HEY', 'B006OLTRB2', 'B000EU1PEG'].
+Explanation: Based on the user's liked books, which are focused on arts, photography, and graphic novels, I recommend the following CDs:
+1. 'Porcupine Tree Octane Twisted' - This CD is recommended because Porcupine Tree is known for their progressive rock sound, which aligns with the user's interest in progressive music.
+2. 'Siouxsie & the Banshees - Seven Year Itch' - This CD is recommended because Siouxsie & the Banshees falls under the alternative rock genre, which may appeal to the user's interest in diverse and unique artistic expressions.
+3. 'Genesis Revisited II' - This CD is recommended because Steve Hackett, the artist behind this album, is known for his contributions to progressive rock, which matches the user's preference for progressive music.
+4. 'P'dice' - This CD is recommended because Paul Cusick's music falls under the metal genre, specifically pop metal, which may resonate with the user's interest in dynamic and energetic art forms.
+5. 'Side Three' - This CD is recommended because Adrian Belew, the artist behind this album, is known for his work in progressive rock, which aligns with the user's preference for progressive music.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1RKACXM2SF8OT
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                              title                                brand                                                    category
+2417  A1RKACXM2SF8OT  0983505306      4  1307750400                                      The Road Home      Visit Amazon's Andrew Baze Page     ['Books', "Children's Books", 'Action &amp; Adventure']
+2481  A1RKACXM2SF8OT  1401235271      5  1396742400  MAD Presents: Spy Vs. Spy - The Top Secret Files!                              Various  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+2667  A1RKACXM2SF8OT  1451621299      2  1328227200        U.S.S. Enterprise Haynes Manual (Star Trek)     Visit Amazon's Ben Robinson Page        ['Books', 'Humor &amp; Entertainment', 'Television']
+3395  A1RKACXM2SF8OT  B00DWEREPU      4  1394582400                              Mad Magazine #1 eBook  Visit Amazon's Harvey Kurtzman Page      ['Books', 'Comics & Graphic Novels', 'Graphic Novels']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                  title                 brand                                           category
+0  A1RKACXM2SF8OT  B0016B6ZDS      5  1364342400  The Very Best of Confederate Railroad  Confederate Railroad      ['CDs & Vinyl', 'Country', "Today's Country"]
+1  A1RKACXM2SF8OT  B000002W1U      5  1364515200               Rocky Mountain Christmas           John Denver  ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+2  A1RKACXM2SF8OT  B000006LEV      5  1364515200              Rocky Mountain Collection           John Denver           ['CDs & Vinyl', 'Pop', 'Easy Listening']
+3  A1RKACXM2SF8OT  B0076FJ2R4      5  1332720000                      Precious Memories          Alan Jackson      ['CDs & Vinyl', 'Country', "Today's Country"]
+4  A1RKACXM2SF8OT  B0002YJ2DU      5  1364515200          Ultimate Alabama:  20 #1 Hits               Alabama      ['CDs & Vinyl', 'Country', "Today's Country"]
+Correct items for test user:
+['B0076FJ2R4', 'B0016B6ZDS', 'B000002W1U', 'B000006LEV', 'B0002YJ2DU']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: MAD Presents: Spy Vs. Spy - The Top Secret Files!
+	Brand: Various
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: The Road Home
+	Brand: Visit Amazon's Andrew Baze Page
+	Categories: ['Books', "Children's Books", 'Action &amp; Adventure']
+	2.
+	Title: U.S.S. Enterprise Haynes Manual (Star Trek)
+	Brand: Visit Amazon's Ben Robinson Page
+	Categories: ['Books', 'Humor &amp; Entertainment', 'Television']
+	3.
+	Title:  Mad Magazine #1 eBook
+	Brand: Visit Amazon's Harvey Kurtzman Page
+	Categories: ['Books', 'Comics & Graphic Novels', 'Graphic Novels']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0016B6ZDS
+	Title: The Very Best of Confederate Railroad
+	Brand: Confederate Railroad
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	2.
+	Id: B000002W1U
+	Title: Rocky Mountain Christmas
+	Brand: John Denver
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	3.
+	Id: B000006LEV
+	Title: Rocky Mountain Collection
+	Brand: John Denver
+	Categories: ['CDs & Vinyl', 'Pop', 'Easy Listening']
+	4.
+	Id: B0076FJ2R4
+	Title: Precious Memories
+	Brand: Alan Jackson
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	5.
+	Id: B0002YJ2DU
+	Title: Ultimate Alabama:  20 #1 Hits
+	Brand: Alabama
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002W1U', 'B000006LEV', 'B0016B6ZDS', 'B0076FJ2R4', 'B0002YJ2DU'].
+Explanation: Based on the user's liked books, which are in the category of 'Comics & Graphic Novels', I recommend CDs that are in the category of 'Country' and 'Easy Listening'. The top-ranked CD, 'Rocky Mountain Christmas' by John Denver, is a holiday album that may appeal to the user's taste for graphic novels. The other recommended CDs, such as 'The Very Best of Confederate Railroad' and 'Ultimate Alabama: 20 #1 Hits', are also in the country genre, which aligns with the user's preference for graphic novels. Overall, these recommendations are based on the similarity in genre and the potential for the user to enjoy the storytelling aspect of both comics and country music.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AP8JWRAMSNPDN
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                          title                                  brand                                                                   category
+2423  AP8JWRAMSNPDN  0984568204      5  1288656000                                                         Bill at Rainbow Bridge                           Dan Carrison                                                                         []
+2681  AP8JWRAMSNPDN  1453887857      5  1314576000                                                                   Fifth Avenue  Visit Amazon's Christopher Smith Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+2940  AP8JWRAMSNPDN  1581805039      5  1182902400  Pet Crafts: 28 Great Toys, Gifts and Accessories for Your Favorite Dog or Cat         Visit Amazon's Heidi Boyd Page                    ['Books', 'Crafts, Hobbies & Home', 'Crafts & Hobbies']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                title          brand                                                          category
+0  AP8JWRAMSNPDN  B0011UFAFS      5  1205280000                                     Backwoods Barbie   Dolly Parton                     ['CDs & Vinyl', 'Country', "Today's Country"]
+1  AP8JWRAMSNPDN  B000SMYTZ2      5  1190332800  Barry Manilow - The Greatest Songs of the Seventies  Barry Manilow                      ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+2  AP8JWRAMSNPDN  B000JLQPVS      5  1218067200                                   Greatest Hits Live  Tammy Wynette  ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+3  AP8JWRAMSNPDN  B004ZQRFK8      5  1308268800                                           15 Minutes  Barry Manilow                               ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+4  AP8JWRAMSNPDN  B00015HSO0      5  1218067200                              The Best of Dottie West    Dottie West  ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+5  AP8JWRAMSNPDN  B000HA4AAE      5  1162512000                    The Greatest Songs of the Sixties  Barry Manilow                      ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+6  AP8JWRAMSNPDN  B000CNDIZY      5  1139270400                    The Greatest Songs of the Fifties  Barry Manilow               ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+7  AP8JWRAMSNPDN  B000MTOQB8      5  1174003200         All I Can Do / New Harvest...First Gathering   Dolly Parton                           ['CDs & Vinyl', 'Country', 'Bluegrass']
+8  AP8JWRAMSNPDN  B009G7ZYPY      5  1356912000  Standing Ovation: The Greatest Songs From The Stage    Susan Boyle                               ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+Correct items for test user:
+['B000CNDIZY', 'B000HA4AAE', 'B000MTOQB8', 'B000SMYTZ2', 'B0011UFAFS']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Bill at Rainbow Bridge
+	Brand: Dan Carrison
+	Categories: []
+	2.
+	Title: Fifth Avenue
+	Brand: Visit Amazon's Christopher Smith Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	3.
+	Title: Pet Crafts: 28 Great Toys, Gifts and Accessories for Your Favorite Dog or Cat
+	Brand: Visit Amazon's Heidi Boyd Page
+	Categories: ['Books', 'Crafts, Hobbies & Home', 'Crafts & Hobbies']
+	 
+Instead, I disliked the following books : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0011UFAFS
+	Title: Backwoods Barbie
+	Brand: Dolly Parton
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	2.
+	Id: B000SMYTZ2
+	Title: Barry Manilow - The Greatest Songs of the Seventies
+	Brand: Barry Manilow
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+	3.
+	Id: B000JLQPVS
+	Title: Greatest Hits Live
+	Brand: Tammy Wynette
+	Categories: ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+	4.
+	Id: B004ZQRFK8
+	Title: 15 Minutes
+	Brand: Barry Manilow
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	5.
+	Id: B00015HSO0
+	Title: The Best of Dottie West
+	Brand: Dottie West
+	Categories: ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+	6.
+	Id: B000HA4AAE
+	Title: The Greatest Songs of the Sixties
+	Brand: Barry Manilow
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+	7.
+	Id: B000CNDIZY
+	Title: The Greatest Songs of the Fifties
+	Brand: Barry Manilow
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	8.
+	Id: B000MTOQB8
+	Title: All I Can Do / New Harvest...First Gathering
+	Brand: Dolly Parton
+	Categories: ['CDs & Vinyl', 'Country', 'Bluegrass']
+	9.
+	Id: B009G7ZYPY
+	Title: Standing Ovation: The Greatest Songs From The Stage
+	Brand: Susan Boyle
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000CNDIZY', 'B000HA4AAE', 'B000SMYTZ2', 'B00015HSO0', 'B000MTOQB8'].
+Explanation: Based on the user's liked books, which include "Bill at Rainbow Bridge" and "Fifth Avenue", we can infer that the user has an interest in mystery and thriller genres. Therefore, the recommended CDs are selected based on their categories. The top 5 recommended CDs are:
+1. "The Greatest Songs of the Fifties" by Barry Manilow: This CD falls under the "Pop" and "Traditional Pop" categories, which may appeal to the user's taste in music.
+2. "The Greatest Songs of the Sixties" by Barry Manilow: This CD also falls under the "Pop" and "Adult Contemporary" categories, which align with the user's interest in mystery and thriller genres.
+3. "Barry Manilow - The Greatest Songs of the Seventies": This CD falls under the "Pop" and "Adult Contemporary" categories, similar to the previous recommendation.
+4. "The Best of Dottie West" by Dottie West: This CD falls under the "Country" and "Classic Country" categories, which may provide a different musical experience for the user.
+5. "All I Can Do / New Harvest...First Gathering" by Dolly Parton: This CD falls under the "Country" and "Bluegrass" categories, which align with the user's interest in books about pets and crafts.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A170JSRHD87YNV
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                        title                                   brand                                                             category
+2427  A170JSRHD87YNV  0985358157      5  1381449600                                                                             Dear Bob and Sue                    Matt and Karen Smith  ['Books', 'Reference', 'Writing, Research &amp; Publishing Guides']
+2943  A170JSRHD87YNV  1581820461      5  1029110400  Christmas Songs Made in America: Favorite Holiday Melodies and the Stories of Their Origins  Visit Amazon's Albert J. Menendez Page                         ['Books', 'Arts &amp; Photography', 'Music']
+3392  A170JSRHD87YNV  B0078XGJXO      1  1331078400                                                                    The Rent Is Too Damn High    Visit Amazon's Matthew Yglesias Page     ['Books', 'Politics & Social Sciences', 'Politics & Government']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                 title             brand                                                        category
+0  A170JSRHD87YNV  B0050VMJ3K      5  1386115200                              An Appalachian Christmas     Mark O'Connor  ['CDs & Vinyl', 'World Music', 'North America', 'Appalachian']
+1  A170JSRHD87YNV  B00005BJ2O      4  1019088000          Moulin Rouge! Music from Baz Luhrmann's Film               Mya             ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+2  A170JSRHD87YNV  B0002X7GHK      5  1131667200                                  Christmas Collection  Michael W. Smith               ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+3  A170JSRHD87YNV  B000002974      5  1028678400                     Much Ado About Nothing Soundtrack     Patrick Doyle                  ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+4  A170JSRHD87YNV  B00005JYBD      5  1018310400                                          Pearl Harbor        Faith Hill                             ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+5  A170JSRHD87YNV  B001KL3H5I      1  1247184000                 Essential Disney Love Song Collection   Various Artists             ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+6  A170JSRHD87YNV  B00005LZR8      5  1025136000             Urinetown 2001 Original Off-Broadway Cast       John Cullum             ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+7  A170JSRHD87YNV  B0000024RX      5  1038182400                     The Andy Williams Christmas Album     Andy Williams             ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+8  A170JSRHD87YNV  B000066B4Y      4  1025136000  Thoroughly Modern Millie 2002 Original Broadway Cast    Jeanine Tesori             ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+9  A170JSRHD87YNV  B000002C0Y      4  1028678400                                      Appalachia Waltz          Yo-Yo Ma  ['CDs & Vinyl', 'World Music', 'North America', 'Appalachian']
+Correct items for test user:
+['B00005JYBD', 'B00005LZR8', 'B000002974', 'B0000024RX', 'B0002X7GHK']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Dear Bob and Sue
+	Brand: Matt and Karen Smith
+	Categories: ['Books', 'Reference', 'Writing, Research &amp; Publishing Guides']
+	2.
+	Title: Christmas Songs Made in America: Favorite Holiday Melodies and the Stories of Their Origins
+	Brand: Visit Amazon's Albert J. Menendez Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	 
+Instead, I disliked the following books : 
+1.
+	Title:  The Rent Is Too Damn High
+	Brand: Visit Amazon's Matthew Yglesias Page
+	Categories: ['Books', 'Politics & Social Sciences', 'Politics & Government']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0050VMJ3K
+	Title: An Appalachian Christmas
+	Brand: Mark O'Connor
+	Categories: ['CDs & Vinyl', 'World Music', 'North America', 'Appalachian']
+	2.
+	Id: B00005BJ2O
+	Title: Moulin Rouge! Music from Baz Luhrmann's Film
+	Brand: Mya
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	3.
+	Id: B0002X7GHK
+	Title: Christmas Collection
+	Brand: Michael W. Smith
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	4.
+	Id: B000002974
+	Title: Much Ado About Nothing Soundtrack
+	Brand: Patrick Doyle
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	5.
+	Id: B00005JYBD
+	Title: Pearl Harbor
+	Brand: Faith Hill
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	6.
+	Id: B001KL3H5I
+	Title: Essential Disney Love Song Collection
+	Brand: Various Artists
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	7.
+	Id: B00005LZR8
+	Title: Urinetown 2001 Original Off-Broadway Cast
+	Brand: John Cullum
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	8.
+	Id: B0000024RX
+	Title: The Andy Williams Christmas Album
+	Brand: Andy Williams
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	9.
+	Id: B000066B4Y
+	Title: Thoroughly Modern Millie 2002 Original Broadway Cast
+	Brand: Jeanine Tesori
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	10.
+	Id: B000002C0Y
+	Title: Appalachia Waltz
+	Brand: Yo-Yo Ma
+	Categories: ['CDs & Vinyl', 'World Music', 'North America', 'Appalachian']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002C0Y', 'B0050VMJ3K', 'B00005BJ2O', 'B000002974', 'B00005JYBD'].
+Explanation: Based on the user's liked books, which are related to writing, research, publishing guides, and music, and the user's disliked book, which is related to politics and government, I would recommend the following CDs:
+
+1. 'Appalachia Waltz' by Yo-Yo Ma: This CD is categorized as 'World Music' and 'Appalachian', which aligns with the user's interest in music and the Appalachian region.
+
+2. 'An Appalachian Christmas' by Mark O'Connor: This CD is also categorized as 'World Music' and 'Appalachian', making it a suitable recommendation based on the user's liked books.
+
+3. 'Moulin Rouge! Music from Baz Luhrmann's Film' by Mya: This CD falls under the category of 'Broadway & Vocalists' and 'Musicals', which relates to the user's interest in music.
+
+4. 'Much Ado About Nothing Soundtrack' by Patrick Doyle: This CD is categorized as 'Soundtracks' and 'Movie Scores', which may appeal to the user's interest in music and storytelling.
+
+5. 'Pearl Harbor' by Faith Hill: This CD is categorized as 'Pop' and 'Vocal Pop', which aligns with the user's interest in music.
+
+These recommendations are based on the similarity between the user's liked books and the CDs in terms of categories and themes.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3RGX2BC063H3U
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                 title                                 brand                                                                     category
+2441  A3RGX2BC063H3U  1118218086      5  1366502400                   Making Rumours: The Inside Story of the Classic Fleetwood Mac Album       Visit Amazon's Ken Caillat Page                                 ['Books', 'Arts &amp; Photography', 'Music']
+2520  A3RGX2BC063H3U  1412916550      5  1367020800                                     Introduction to Leadership: Concepts and Practice                    Peter G. Northouse     ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+2733  A3RGX2BC063H3U  1478300604      5  1402185600       Color Revival 3rd Edition: Undestanding Advanced Seasonal Color Analysis Theory                        Lora Alexander  ['Books', 'Health, Fitness &amp; Dieting', 'Beauty, Grooming, &amp; Style']
+2835  A3RGX2BC063H3U  1564149900      5  1366502400  Essential HR Handbook: A Quick and Handy Resource for Any Manager or HR Professional  Visit Amazon's Sharon Armstrong Page             ['Books', 'Business &amp; Money', 'Management &amp; Leadership']
+3113  A3RGX2BC063H3U  1601631898      5  1364688000                                                                    The Big Book of HR  Visit Amazon's Barbara Mitchell Page                             ['Books', 'Business & Money', 'Human Resources']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                    title            brand                                                                 category
+0  A3RGX2BC063H3U  B00000I8LO      4  1367020800  20th Century Masters: The Millennium Collection - The Best Of The Mamas &amp; The Papas    Mamas & Papas                                         ['CDs & Vinyl', 'Pop', 'Oldies']
+1  A3RGX2BC063H3U  B0096PAA6E      5  1362182400                                                                             Blak and Blu   Gary Clark Jr.                                    ['CDs & Vinyl', 'Rock', 'Blues Rock']
+2  A3RGX2BC063H3U  B000EXZI0A      5  1366502400                                                                         Greatest Hits Gh          Ramones  ['CDs & Vinyl', 'Alternative Rock', 'Hardcore & Punk', 'American Punk']
+3  A3RGX2BC063H3U  B0026NWBY2      5  1367020800                                                    Let It Roll: Songs by George Harrison  George Harrison             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+4  A3RGX2BC063H3U  B000002O1Q      3  1367020800                                                 Streets of Fire: A Rock &amp; Roll Fable     Jim Steimnan                           ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+Correct items for test user:
+['B0096PAA6E', 'B000EXZI0A', 'B0026NWBY2', 'B00000I8LO', 'B000002O1Q']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Making Rumours: The Inside Story of the Classic Fleetwood Mac Album
+	Brand: Visit Amazon's Ken Caillat Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	2.
+	Title: Introduction to Leadership: Concepts and Practice
+	Brand: Peter G. Northouse
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	3.
+	Title: Color Revival 3rd Edition: Undestanding Advanced Seasonal Color Analysis Theory
+	Brand: Lora Alexander
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Beauty, Grooming, &amp; Style']
+	4.
+	Title: Essential HR Handbook: A Quick and Handy Resource for Any Manager or HR Professional
+	Brand: Visit Amazon's Sharon Armstrong Page
+	Categories: ['Books', 'Business &amp; Money', 'Management &amp; Leadership']
+	5.
+	Title: The Big Book of HR
+	Brand: Visit Amazon's Barbara Mitchell Page
+	Categories: ['Books', 'Business & Money', 'Human Resources']
+	 
+Instead, I disliked the following books : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00000I8LO
+	Title: 20th Century Masters: The Millennium Collection - The Best Of The Mamas &amp; The Papas
+	Brand: Mamas & Papas
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies']
+	2.
+	Id: B0096PAA6E
+	Title: Blak and Blu
+	Brand: Gary Clark Jr.
+	Categories: ['CDs & Vinyl', 'Rock', 'Blues Rock']
+	3.
+	Id: B000EXZI0A
+	Title: Greatest Hits Gh
+	Brand: Ramones
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Hardcore & Punk', 'American Punk']
+	4.
+	Id: B0026NWBY2
+	Title: Let It Roll: Songs by George Harrison
+	Brand: George Harrison
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	5.
+	Id: B000002O1Q
+	Title: Streets of Fire: A Rock &amp; Roll Fable
+	Brand: Jim Steimnan
+	Categories: ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00000I8LO', 'B0096PAA6E', 'B000EXZI0A', 'B0026NWBY2', 'B000002O1Q'].
+Explanation: Based on the user's liked books, which cover a range of genres including music, leadership, color analysis, and HR, the recommender system suggests CDs that also cover a variety of genres. The top recommended CDs include a mix of pop, rock, blues, and alternative rock. This ensures that the user is exposed to different types of music that align with their diverse interests.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AUFSX092UGDUR
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                     title                               brand                                                category
+2460  AUFSX092UGDUR  1400032199      5  1331856000             1861: The Civil War Awakening  Visit Amazon's Adam Goodheart Page                        ['Books', 'History', 'Americas']
+2639  AUFSX092UGDUR  1442349131      5  1337212800  Mile 81: Includes bonus story 'The Dune'    Visit Amazon's Stephen King Page  ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2640  AUFSX092UGDUR  1442359889      5  1364774400                         In the Tall Grass    Visit Amazon's Stephen King Page  ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                              title            brand                                                              category
+0  AUFSX092UGDUR  B00021LPIS      5  1168387200                                                    Dino: The Essential Dean Martin      Dean Martin                   ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+1  AUFSX092UGDUR  B000HIVOCI      1  1219449600  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"     George Lopez            ['CDs & Vinyl', 'Comedy & Spoken Word', 'Stand-Up Comedy']
+2  AUFSX092UGDUR  B004FN1KZW      5  1307232000                                                              This Is Country Music     Brad Paisley                         ['CDs & Vinyl', 'Country', "Today's Country"]
+3  AUFSX092UGDUR  B000002LCU      4  1162512000                                                                         Cloud Nine  George Harrison  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+4  AUFSX092UGDUR  B0043URV5U      5  1403395200                                         Ultimate Hits: Rock And Roll Never Forgets        Bob Seger                                                ['CDs & Vinyl', 'Pop']
+5  AUFSX092UGDUR  B00IXLQLAG      5  1403395200                                                                          Storyline     Hunter Hayes                                            ['CDs & Vinyl', 'Country']
+6  AUFSX092UGDUR  B00FKQBNAA      5  1403308800                                                                  Far From Finished       Bill Cosby                               ['CDs & Vinyl', 'Comedy & Spoken Word']
+7  AUFSX092UGDUR  B000VFGQA2      5  1219449600                                                                  America's Mexican     George Lopez            ['CDs & Vinyl', 'Comedy & Spoken Word', 'Stand-Up Comedy']
+8  AUFSX092UGDUR  B007G3H8Y0      5  1337212800                                                                      California 37            Train                                  ['CDs & Vinyl', 'Rock', 'Folk Rock']
+Correct items for test user:
+['B00021LPIS', 'B000VFGQA2', 'B004FN1KZW', 'B007G3H8Y0', 'B00FKQBNAA']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: 1861: The Civil War Awakening
+	Brand: Visit Amazon's Adam Goodheart Page
+	Categories: ['Books', 'History', 'Americas']
+	2.
+	Title: Mile 81: Includes bonus story 'The Dune'
+	Brand: Visit Amazon's Stephen King Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	3.
+	Title: In the Tall Grass
+	Brand: Visit Amazon's Stephen King Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	 
+Instead, I disliked the following books : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00021LPIS
+	Title: Dino: The Essential Dean Martin
+	Brand: Dean Martin
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	2.
+	Id: B000HIVOCI
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: George Lopez
+	Categories: ['CDs & Vinyl', 'Comedy & Spoken Word', 'Stand-Up Comedy']
+	3.
+	Id: B004FN1KZW
+	Title: This Is Country Music
+	Brand: Brad Paisley
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	4.
+	Id: B000002LCU
+	Title: Cloud Nine
+	Brand: George Harrison
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	5.
+	Id: B0043URV5U
+	Title: Ultimate Hits: Rock And Roll Never Forgets
+	Brand: Bob Seger
+	Categories: ['CDs & Vinyl', 'Pop']
+	6.
+	Id: B00IXLQLAG
+	Title: Storyline
+	Brand: Hunter Hayes
+	Categories: ['CDs & Vinyl', 'Country']
+	7.
+	Id: B00FKQBNAA
+	Title: Far From Finished
+	Brand: Bill Cosby
+	Categories: ['CDs & Vinyl', 'Comedy & Spoken Word']
+	8.
+	Id: B000VFGQA2
+	Title: America's Mexican
+	Brand: George Lopez
+	Categories: ['CDs & Vinyl', 'Comedy & Spoken Word', 'Stand-Up Comedy']
+	9.
+	Id: B007G3H8Y0
+	Title: California 37
+	Brand: Train
+	Categories: ['CDs & Vinyl', 'Rock', 'Folk Rock']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000HIVOCI', 'B00FKQBNAA', 'B000VFGQA2', 'B0043URV5U', 'B000002LCU'].
+Explanation: Based on the user's liked books, which include works by Stephen King and a book about the Civil War, it seems that the user has an interest in literature and history. Therefore, the recommended CDs are selected based on similar themes or genres. 
+
+1. 'B000HIVOCI' - This CD is by George Lopez, a comedian known for his stand-up comedy. Since the user liked books in the genre fiction and literature & fiction categories, it is possible that they might enjoy comedy in a similar vein.
+
+2. 'B00FKQBNAA' - This CD is by Bill Cosby, another comedian known for his spoken word performances. Since the user disliked books by Stephen King, who is known for his horror genre works, it is possible that they might enjoy a different type of comedy.
+
+3. 'B000VFGQA2' - This CD is also by George Lopez, known for his stand-up comedy. Since the user disliked books by Stephen King, who is known for his horror genre works, it is possible that they might enjoy a different type of comedy.
+
+4. 'B0043URV5U' - This CD is by Bob Seger, known for his rock music. Although it is not directly related to the user's liked books, it is included as a recommendation based on the user's interest in literature and history.
+
+5. 'B000002LCU' - This CD is by George Harrison, known for his music in the British Isles. It is included as a recommendation based on the user's interest in history, specifically the Civil War.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3I2WE58OUUEXG
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                             title                               brand                                                        category
+2463  A3I2WE58OUUEXG  1400095506      3  1235692800                            The Unfinished Novel and Other Stories  Visit Amazon's Valerie Martin Page  ['Books', 'Arts &amp; Photography', 'History &amp; Criticism']
+2542  A3I2WE58OUUEXG  1416572848      5  1228003200                                                   Iodine: A Novel    Visit Amazon's Haven Kimmel Page          ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2544  A3I2WE58OUUEXG  1416585834      4  1231459200  Dog on It: A Chet and Bernie Mystery (Chet and Bernie Mysteries)   Visit Amazon's Spencer Quinn Page        ['Books', 'Mystery, Thriller &amp; Suspense', 'Mystery']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                        title                    brand                                                 category
+0  A3I2WE58OUUEXG  B000004CYG      5  1041292800                                                                                                  Mozart: La clemenza di Tito  Wolfgang Amadeus Mozart                             ['CDs & Vinyl', 'Classical']
+1  A3I2WE58OUUEXG  6305837430      4  1112313600                                                                                                              Tannh&auml;user             Alan Woodrow               ['CDs & Vinyl', 'Classical', 'Symphonies']
+2  A3I2WE58OUUEXG  B000002X3V      5  1155945600                                                                                                     Essential Jimmie Rodgers           Jimmie Rodgers            ['CDs & Vinyl', 'Country', "Today's Country"]
+3  A3I2WE58OUUEXG  B000002RXT      5  1171065600  Donizetti: Lucia Di Lammermoor with Maria Callas, Ferruccio Tagliavini, Tullio Serafin, Philharmonia Orchestra &amp; Chorus             Maria Callas  ['CDs & Vinyl', 'Opera & Classical Vocal', 'Operettas']
+4  A3I2WE58OUUEXG  B000AI8K04      5  1225065600                                                                                                           Bobby Darin Swings              Bobby Darin      ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+5  A3I2WE58OUUEXG  B000001GR8      5  1167436800                                                                                                             Mozart: Idomeneo  Wolfgang Amadeus Mozart  ['CDs & Vinyl', 'Opera & Classical Vocal', 'Operettas']
+Correct items for test user:
+['B000004CYG', 'B000002X3V', 'B000001GR8', 'B000002RXT', 'B000AI8K04']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Iodine: A Novel
+	Brand: Visit Amazon's Haven Kimmel Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: The Unfinished Novel and Other Stories
+	Brand: Visit Amazon's Valerie Martin Page
+	Categories: ['Books', 'Arts &amp; Photography', 'History &amp; Criticism']
+	2.
+	Title: Dog on It: A Chet and Bernie Mystery (Chet and Bernie Mysteries)
+	Brand: Visit Amazon's Spencer Quinn Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Mystery']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000004CYG
+	Title: Mozart: La clemenza di Tito
+	Brand: Wolfgang Amadeus Mozart
+	Categories: ['CDs & Vinyl', 'Classical']
+	2.
+	Id: 6305837430
+	Title: Tannh&auml;user
+	Brand: Alan Woodrow
+	Categories: ['CDs & Vinyl', 'Classical', 'Symphonies']
+	3.
+	Id: B000002X3V
+	Title: Essential Jimmie Rodgers
+	Brand: Jimmie Rodgers
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	4.
+	Id: B000002RXT
+	Title: Donizetti: Lucia Di Lammermoor with Maria Callas, Ferruccio Tagliavini, Tullio Serafin, Philharmonia Orchestra &amp; Chorus
+	Brand: Maria Callas
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Operettas']
+	5.
+	Id: B000AI8K04
+	Title: Bobby Darin Swings
+	Brand: Bobby Darin
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	6.
+	Id: B000001GR8
+	Title: Mozart: Idomeneo
+	Brand: Wolfgang Amadeus Mozart
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Operettas']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002X3V', 'B000AI8K04', 'B000004CYG', 'B000002RXT', '6305837430'].
+Explanation: Based on the user's liked books, which are in the genre fiction category, I recommend CDs that are in the classical and country genres. The top-ranked CD, 'Essential Jimmie Rodgers', is a country CD which aligns with the user's preference for genre fiction. The next recommended CD, 'Bobby Darin Swings', is a pop CD with traditional pop elements, which can be a good fit for the user's taste. 'Mozart: La clemenza di Tito' and 'Donizetti: Lucia Di Lammermoor' are classical CDs that can provide a different but potentially enjoyable experience for the user. Lastly, 'Tannhäuser' is a classical symphony CD that can offer a diverse musical experience.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AC49718QMAN1W
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                  title                               brand                                                    category
+2476  AC49718QMAN1W  1401220908      4  1345593600                                         Batman: R.I.P.  Visit Amazon's Grant Morrison Page  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+2477  AC49718QMAN1W  1401222811      5  1345593600                                           Final Crisis  Visit Amazon's Grant Morrison Page  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+2480  AC49718QMAN1W  1401234879      5  1345593600  Batman &amp; Robin, Vol. 1: Born to Kill (The New 52)                     Peter J. Tomasi  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+3288  AC49718QMAN1W  1926778847      5  1395964800         Street Fighter Classic Volume 2: Cannon Strike   Visit Amazon's Ken Siu-Chong Page  ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                 title         brand                                             category
+0  AC49718QMAN1W  B00G3SLVCE      5  1395964800  Castlevania: Lords of Shadow-Mirror of Fate Original Game Soundtrack  Oscar Araujo       ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+1  AC49718QMAN1W  B00DOQK2V4      5  1379203200                                                     Elysium Ryan Amon     Ryan Amon                               ['CDs & Vinyl', 'Pop']
+2  AC49718QMAN1W  B00HZMRZI6      5  1396569600                                     300: Rise Of An Empire Soundtrack     Junkie XL       ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+3  AC49718QMAN1W  B00I4WG7Q2      5  1395964800             CASTLEVANIA: Lords of Shadow 2 - Original Game Soundtrack  Oscar Araujo  ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+4  AC49718QMAN1W  B0090SVDFY      5  1375315200                                           Halo 4: Original Soundtrack  Neil Davidge                               ['CDs & Vinyl', 'Pop']
+Correct items for test user:
+['B0090SVDFY', 'B00DOQK2V4', 'B00G3SLVCE', 'B00I4WG7Q2', 'B00HZMRZI6']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Final Crisis
+	Brand: Visit Amazon's Grant Morrison Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	2.
+	Title: Batman &amp; Robin, Vol. 1: Born to Kill (The New 52)
+	Brand: Peter J. Tomasi
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	3.
+	Title: Street Fighter Classic Volume 2: Cannon Strike
+	Brand: Visit Amazon's Ken Siu-Chong Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Batman: R.I.P.
+	Brand: Visit Amazon's Grant Morrison Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00G3SLVCE
+	Title: Castlevania: Lords of Shadow-Mirror of Fate Original Game Soundtrack
+	Brand: Oscar Araujo
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	2.
+	Id: B00DOQK2V4
+	Title: Elysium Ryan Amon
+	Brand: Ryan Amon
+	Categories: ['CDs & Vinyl', 'Pop']
+	3.
+	Id: B00HZMRZI6
+	Title: 300: Rise Of An Empire Soundtrack
+	Brand: Junkie XL
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	4.
+	Id: B00I4WG7Q2
+	Title: CASTLEVANIA: Lords of Shadow 2 - Original Game Soundtrack
+	Brand: Oscar Araujo
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+	5.
+	Id: B0090SVDFY
+	Title: Halo 4: Original Soundtrack
+	Brand: Neil Davidge
+	Categories: ['CDs & Vinyl', 'Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00G3SLVCE', 'B00HZMRZI6', 'B00I4WG7Q2', 'B00DOQK2V4', 'B0090SVDFY'].
+Explanation: Based on the user's liked books, which are all in the "Comics & Graphic Novels" category, I recommend CDs that are also related to the entertainment domain. The top-ranked CD, "Castlevania: Lords of Shadow-Mirror of Fate Original Game Soundtrack", is a soundtrack from a video game, which is similar to the user's liked books in terms of being a form of entertainment. The other recommended CDs, such as "300: Rise Of An Empire Soundtrack" and "CASTLEVANIA: Lords of Shadow 2 - Original Game Soundtrack", are also movie/game soundtracks that can provide a similar immersive experience as reading graphic novels. Additionally, the CD "Elysium Ryan Amon" is included as it falls under the "Pop" category, which may appeal to the user's broader taste in music. Finally, "Halo 4: Original Soundtrack" is recommended as it is another popular video game soundtrack that aligns with the user's interest in entertainment-related content.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A16VH7SPVPVJKV
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                                                  title                                       brand                                                                category
+2539  A16VH7SPVPVJKV  1416553428      5  1208390400  We Would Have Played for Nothing: Baseball Stars of the 1950s and 1960s Talk About the Game They Loved (Baseball Oral History Poject)             Visit Amazon's Fay Vincent Page                     ['Books', 'Sports &amp; Outdoors', 'Miscellaneous']
+2605  A16VH7SPVPVJKV  1438945612      4  1391817600                                                                                              The Grassy Knoll Witnesses: Who Shot JFK?                             Harry A. Yardum  ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+2625  A16VH7SPVPVJKV  1439243166      2  1307750400                                                                   101 Cool Buildings: the best of New York City architecture 1999-2009        Visit Amazon's Richard McMillan Page                     ['Books', 'Arts &amp; Photography', 'Architecture']
+3298  A16VH7SPVPVJKV  193218600X      5  1213833600                                                                                     Upside-Down Brilliance: The Visual-Spatial Learner  Visit Amazon's Linda Kreger Silverman Page       ['Books', 'Health, Fitness & Dieting', 'Psychology & Counseling']
+3359  A16VH7SPVPVJKV  3822816272      5  1082419200                                                                                                        Goat: A Tribute to Muhammad Ali                                  Jeff Koons                  ['Books', 'Arts & Photography', 'Photography & Video']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                      title                  brand                                                                 category
+0  A16VH7SPVPVJKV  B000005H4K      5  1069891200               Money Jungle         Duke Ellington                ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+1  A16VH7SPVPVJKV  B00065XJ48      3  1125187200  The Capitol Albums Vol. 1            The Beatles                      ['CDs & Vinyl', 'Classic Rock', 'British Invasion']
+2  A16VH7SPVPVJKV  B0000024SD      5  1365897600  Bringing It All Back Home              Bob Dylan                           ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+3  A16VH7SPVPVJKV  B000002AS3      5  1401580800           Definitely Maybe                  Oasis    ['CDs & Vinyl', 'Alternative Rock', 'British Alternative', 'Britpop']
+4  A16VH7SPVPVJKV  B000003TBB      5  1304294400                   Elastica               Elastica    ['CDs & Vinyl', 'Alternative Rock', 'British Alternative', 'Britpop']
+5  A16VH7SPVPVJKV  B00028L1MG      4  1211760000                  Revisited  Cowboys International  ['CDs & Vinyl', 'Alternative Rock', 'New Wave & Post-Punk', 'New Wave']
+6  A16VH7SPVPVJKV  B0000DJZA5      1  1071187200         Let It Be... Naked            The Beatles             ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+Correct items for test user:
+['B000005H4K', 'B000003TBB', 'B0000024SD', 'B000002AS3', 'B00028L1MG']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: We Would Have Played for Nothing: Baseball Stars of the 1950s and 1960s Talk About the Game They Loved (Baseball Oral History Poject)
+	Brand: Visit Amazon's Fay Vincent Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Miscellaneous']
+	2.
+	Title: Upside-Down Brilliance: The Visual-Spatial Learner
+	Brand: Visit Amazon's Linda Kreger Silverman Page
+	Categories: ['Books', 'Health, Fitness & Dieting', 'Psychology & Counseling']
+	3.
+	Title: Goat: A Tribute to Muhammad Ali
+	Brand: Jeff Koons
+	Categories: ['Books', 'Arts & Photography', 'Photography & Video']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: The Grassy Knoll Witnesses: Who Shot JFK?
+	Brand: Harry A. Yardum
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+	2.
+	Title: 101 Cool Buildings: the best of New York City architecture 1999-2009
+	Brand: Visit Amazon's Richard McMillan Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Architecture']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000005H4K
+	Title: Money Jungle
+	Brand: Duke Ellington
+	Categories: ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Classic Big Band']
+	2.
+	Id: B00065XJ48
+	Title: The Capitol Albums Vol. 1
+	Brand: The Beatles
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'British Invasion']
+	3.
+	Id: B0000024SD
+	Title: Bringing It All Back Home
+	Brand: Bob Dylan
+	Categories: ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+	4.
+	Id: B000002AS3
+	Title: Definitely Maybe
+	Brand: Oasis
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'British Alternative', 'Britpop']
+	5.
+	Id: B000003TBB
+	Title: Elastica
+	Brand: Elastica
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'British Alternative', 'Britpop']
+	6.
+	Id: B00028L1MG
+	Title: Revisited
+	Brand: Cowboys International
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'New Wave & Post-Punk', 'New Wave']
+	7.
+	Id: B0000DJZA5
+	Title: Let It Be... Naked
+	Brand: The Beatles
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0000024SD', 'B000003TBB', 'B00065XJ48', 'B000002AS3', 'B00028L1MG'].
+Explanation: Based on the user's liked books, which include a baseball oral history, a book about visual-spatial learners, and a tribute to Muhammad Ali, I would recommend the following CDs:
+
+1. Bringing It All Back Home - Bob Dylan: This CD falls under the categories of Blues and Contemporary Blues, which may appeal to the user's interest in oral history and tribute books.
+
+2. Elastica - Elastica: This CD falls under the categories of Alternative Rock and Britpop, which may resonate with the user's diverse interests in different genres.
+
+3. The Capitol Albums Vol. 1 - The Beatles: This CD falls under the categories of Classic Rock and British Invasion, which align with the user's interest in historical topics and influential figures.
+
+4. Definitely Maybe - Oasis: This CD falls under the categories of Alternative Rock, British Alternative, and Britpop, which again align with the user's interest in different genres and British culture.
+
+5. Revisited - Cowboys International: This CD falls under the categories of Alternative Rock, New Wave & Post-Punk, and New Wave, which may appeal to the user's interest in diverse and experimental music.
+
+These recommendations are based on the assumption that the user's interests in books may extend to related themes in music, such as historical influences, diverse genres, and experimental sounds.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3J3NGEIHCAT4E
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                         title                             brand                                                                  category
+2555  A3J3NGEIHCAT4E  1419700758      4  1330646400                   Star Trek Vault: 40 Years from the Archives                      Scott Tipton                          ['Books', 'Humor &amp; Entertainment', 'Movies']
+2637  A3J3NGEIHCAT4E  1442347120      5  1350432000  No, They Can't: Why Government Fails-But Individuals Succeed  Visit Amazon's John Stossel Page  ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+2828  A3J3NGEIHCAT4E  1561631728      5  1367020800                           One Big Happy: Should I Spit on Him  Visit Amazon's Rick Detorie Page                  ['Books', 'Comics &amp; Graphic Novels', 'Comic Strips']
+2829  A3J3NGEIHCAT4E  1561632392      5  1366329600                              One Big Happy: Nice Costs Extra!  Visit Amazon's Rick Detorie Page                  ['Books', 'Comics &amp; Graphic Novels', 'Comic Strips']
+3129  A3J3NGEIHCAT4E  1603200053      5  1330646400                                            The Life of Christ        The American Bible Society                 ['Books', 'Christian Books & Bibles', 'Christian Living']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                       title                     brand                                                                category
+0  A3J3NGEIHCAT4E  B008R3EYWM      5  1350777600                                Songs From The Silver Screen            Jackie Evancho            ['CDs & Vinyl', 'Broadway & Vocalists', 'Classic Vocalists']
+1  A3J3NGEIHCAT4E  B0000DG5NW      5  1334880000                                         Ultimate Collection            Connie Francis        ['CDs & Vinyl', 'Broadway & Vocalists', 'Traditional Vocal Pop']
+2  A3J3NGEIHCAT4E  B000002P2Q      5  1356652800                                            Christmas Island             Jimmy Buffett                       ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+3  A3J3NGEIHCAT4E  B005UY48TU      5  1355529600                                          Heavenly Christmas            Jackie Evancho                                     ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+4  A3J3NGEIHCAT4E  B000K93T2W      5  1338595200  The Very Best of Connie Francis: Connie's 21 Biggest Hits!            Connie Francis        ['CDs & Vinyl', 'Broadway & Vocalists', 'Traditional Vocal Pop']
+5  A3J3NGEIHCAT4E  B000002H4B      5  1363996800                                     Urban Cowboy Soundtrack                Johnny Lee                                    ['CDs & Vinyl', 'Country', 'Cowboy']
+6  A3J3NGEIHCAT4E  B000003OMX      5  1356652800                       America's 25 Favorite Christmas Songs  Va-America's 25 Favorite  ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Noels']
+7  A3J3NGEIHCAT4E  B00001ZTU9      5  1328054400                        Knock Three Times - 20 Greatest Hits              Tony Orlando                                ['CDs & Vinyl', 'Pop', 'Easy Listening']
+8  A3J3NGEIHCAT4E  B000001A8T      5  1332460800                                                   Anthology              The Supremes                         ['CDs & Vinyl', 'Pop', 'Oldies', 'Girl Groups']
+Correct items for test user:
+['B00001ZTU9', 'B000001A8T', 'B0000DG5NW', 'B000K93T2W', 'B008R3EYWM']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: No, They Can't: Why Government Fails-But Individuals Succeed
+	Brand: Visit Amazon's John Stossel Page
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	2.
+	Title: One Big Happy: Should I Spit on Him
+	Brand: Visit Amazon's Rick Detorie Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Comic Strips']
+	3.
+	Title: One Big Happy: Nice Costs Extra!
+	Brand: Visit Amazon's Rick Detorie Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Comic Strips']
+	4.
+	Title: The Life of Christ
+	Brand: The American Bible Society
+	Categories: ['Books', 'Christian Books & Bibles', 'Christian Living']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Star Trek Vault: 40 Years from the Archives
+	Brand: Scott Tipton
+	Categories: ['Books', 'Humor &amp; Entertainment', 'Movies']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B008R3EYWM
+	Title: Songs From The Silver Screen
+	Brand: Jackie Evancho
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Classic Vocalists']
+	2.
+	Id: B0000DG5NW
+	Title: Ultimate Collection
+	Brand: Connie Francis
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Traditional Vocal Pop']
+	3.
+	Id: B000002P2Q
+	Title: Christmas Island
+	Brand: Jimmy Buffett
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	4.
+	Id: B005UY48TU
+	Title: Heavenly Christmas
+	Brand: Jackie Evancho
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	5.
+	Id: B000K93T2W
+	Title: The Very Best of Connie Francis: Connie's 21 Biggest Hits!
+	Brand: Connie Francis
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Traditional Vocal Pop']
+	6.
+	Id: B000002H4B
+	Title: Urban Cowboy Soundtrack
+	Brand: Johnny Lee
+	Categories: ['CDs & Vinyl', 'Country', 'Cowboy']
+	7.
+	Id: B000003OMX
+	Title: America's 25 Favorite Christmas Songs
+	Brand: Va-America's 25 Favorite
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Noels']
+	8.
+	Id: B00001ZTU9
+	Title: Knock Three Times - 20 Greatest Hits
+	Brand: Tony Orlando
+	Categories: ['CDs & Vinyl', 'Pop', 'Easy Listening']
+	9.
+	Id: B000001A8T
+	Title: Anthology
+	Brand: The Supremes
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Girl Groups']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0000DG5NW', 'B000001A8T', 'B000002H4B', 'B000K93T2W', 'B000002P2Q'].
+Explanation: Based on the user's liked books, which include political and social sciences, comics, and Christian books, the recommended CDs are ranked as follows:
+1. 'Ultimate Collection' by Connie Francis: This CD falls under the category of Broadway and Vocalists, which aligns with the user's interest in books related to comics and graphic novels. 
+2. 'Anthology' by The Supremes: This CD falls under the category of Pop and Oldies, which aligns with the user's interest in books related to Christian living. 
+3. 'Urban Cowboy Soundtrack' by Johnny Lee: This CD falls under the category of Country, which may appeal to the user's diverse interests in politics, social sciences, and Christian books. 
+4. 'The Very Best of Connie Francis: Connie's 21 Biggest Hits!' by Connie Francis: This CD falls under the category of Broadway and Vocalists, which aligns with the user's interest in books related to comics and graphic novels. 
+5. 'Christmas Island' by Jimmy Buffett: This CD falls under the category of Holiday and Wedding, specifically Christmas, which aligns with the user's interest in Christian books.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A4YU7TVYP6QAO
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                          title                                 brand                                                         category
+2559  A4YU7TVYP6QAO  1419708627      5  1382140800  Star Wars Art: Concept (Star Wars Art Series)                         Lucasfilm LTD                 ['Books', 'Humor &amp; Entertainment', 'Movies']
+2705  A4YU7TVYP6QAO  1465408681      5  1383696000            LEGO Star Wars: The Yoda Chronicles  Visit Amazon's Daniel Lipkowitz Page   ['Books', "Children's Books", 'Science Fiction &amp; Fantasy']
+3049  A4YU7TVYP6QAO  1593521995      5  1399507200     What It Is to Be Me!: An Asperger Kid Book                           Angela Wine  ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+3055  A4YU7TVYP6QAO  1593621760      3  1257724800                      Pinocchio: Vampire Slayer    Visit Amazon's Dustin Higgins Page           ['Books', 'Comics & Graphic Novels', 'Graphic Novels']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                              title                         brand                                                                                  category
+0  A4YU7TVYP6QAO  B001GJ2ZP2      5  1232496000                                                                           The Fame                     Lady Gaga                                                       ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+1  A4YU7TVYP6QAO  B000BCE8VE      5  1178928000  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"             She Wants Revenge                        ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+2  A4YU7TVYP6QAO  B000008IQB      5  1399507200                                                                       Muppet Movie  Muppets (Related Recordings)                                         ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+3  A4YU7TVYP6QAO  B000005RWY      5  1178928000                                                                        Closer Pt.2               Nine Inch Nails  ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial', 'Alt Industrial']
+4  A4YU7TVYP6QAO  B000JJRIN4      5  1178928000  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"                  Gwen Stefani                                               ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+Correct items for test user:
+['B000BCE8VE', 'B000005RWY', 'B000JJRIN4', 'B001GJ2ZP2', 'B000008IQB']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Star Wars Art: Concept (Star Wars Art Series)
+	Brand: Lucasfilm LTD
+	Categories: ['Books', 'Humor &amp; Entertainment', 'Movies']
+	2.
+	Title: LEGO Star Wars: The Yoda Chronicles
+	Brand: Visit Amazon's Daniel Lipkowitz Page
+	Categories: ['Books', "Children's Books", 'Science Fiction &amp; Fantasy']
+	3.
+	Title: What It Is to Be Me!: An Asperger Kid Book
+	Brand: Angela Wine
+	Categories: ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Pinocchio: Vampire Slayer
+	Brand: Visit Amazon's Dustin Higgins Page
+	Categories: ['Books', 'Comics & Graphic Novels', 'Graphic Novels']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B001GJ2ZP2
+	Title: The Fame
+	Brand: Lady Gaga
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	2.
+	Id: B000BCE8VE
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: She Wants Revenge
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	3.
+	Id: B000008IQB
+	Title: Muppet Movie
+	Brand: Muppets (Related Recordings)
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	4.
+	Id: B000005RWY
+	Title: Closer Pt.2
+	Brand: Nine Inch Nails
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Industrial', 'Alt Industrial']
+	5.
+	Id: B000JJRIN4
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: Gwen Stefani
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000BCE8VE', 'B000JJRIN4', 'B001GJ2ZP2', 'B000005RWY', 'B000008IQB'].
+Explanation: Based on the user's liked books, which include Star Wars and LEGO Star Wars, it can be inferred that the user has an interest in science fiction and fantasy. Therefore, the recommended CDs are chosen based on their relevance to this genre. 
+
+1. 'She Wants Revenge' (B000BCE8VE) is recommended because it falls under the alternative rock genre, which can be associated with the science fiction and fantasy themes.
+2. 'Gwen Stefani' (B000JJRIN4) is recommended as it is categorized as pop with adult alternative, which can appeal to the user's interest in entertainment.
+3. 'Lady Gaga' (B001GJ2ZP2) is recommended as it is categorized as pop with vocal pop, which aligns with the user's interest in entertainment.
+4. 'Nine Inch Nails' (B000005RWY) is recommended as it falls under the alternative rock genre, which can be associated with the user's interest in science fiction and fantasy.
+5. 'Muppets' (B000008IQB) is recommended as it is categorized as holiday and wedding with Christmas, which can be associated with the user's interest in entertainment and movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2DONFXNT3O9JQ
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                         title                                 brand                                                            category
+2561  A2DONFXNT3O9JQ  1421513463      5  1302307200                       Inuyasha Manga Profiles  Visit Amazon's Rumiko Takahashi Page                   ['Books', 'Comics &amp; Graphic Novels', 'Manga']
+2562  A2DONFXNT3O9JQ  142151978X      5  1302307200             Inuyasha Vol. 1 (Library Edition)  Visit Amazon's Rumiko Takahashi Page                   ['Books', 'Comics &amp; Graphic Novels', 'Manga']
+3002  A2DONFXNT3O9JQ  1591160766      5  1306972800  Wedding Peach, Vol. 1 (Wedding Peach Series)                       Sukehiro Tomita            ['Books', "Children's Books", 'Comics & Graphic Novels']
+3085  A2DONFXNT3O9JQ  1596142405      5  1349395200           The Chaplet of Divine Mercy In Song       Visit Amazon's Trish Short Page  ['Books', 'Religion &amp; Spirituality', 'Worship &amp; Devotion']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                  title                            brand                                             category
+0  A2DONFXNT3O9JQ  B000654Z9G      5  1301788800                                     Garfield the Movie                  Christophe Beck                               ['CDs & Vinyl', 'Pop']
+1  A2DONFXNT3O9JQ  B00006JOET      5  1352678400                                         Holy Holy Holy                    Crystal Lewis   ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+2  A2DONFXNT3O9JQ  B00000JZAZ      5  1301702400                      Scooby-Doo! and the Witch's Ghost  Scooby-Doo (Related Recordings)  ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+3  A2DONFXNT3O9JQ  B001NR44T2      5  1350518400                               Innocence &amp; Instinct                              Red        ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+4  A2DONFXNT3O9JQ  B000FIHJLU      5  1335830400                                         End Of Silence                              Red   ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+5  A2DONFXNT3O9JQ  B00000J637      5  1301788800      Sailor Moon And The Scouts: Lunarock Anime Series                 Takanori Arisawa  ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+6  A2DONFXNT3O9JQ  B0001ENY6M      5  1352073600                        The Passion of the Christ Score                      John Debney       ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+7  A2DONFXNT3O9JQ  B0050QNOMA      5  1352678400                                       Plain and Simple                    Crystal Lewis                               ['CDs & Vinyl', 'Pop']
+8  A2DONFXNT3O9JQ  B00002MZ5I      5  1289606400  Pokemon Music from and Inspired by the Motion Picture     Pokemon (Related Recordings)       ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+9  A2DONFXNT3O9JQ  B0006BKHR4      5  1324252800                          Zen and the Art of Relaxation                            Anzan             ['CDs & Vinyl', 'New Age', 'Meditation']
+Correct items for test user:
+['B00002MZ5I', 'B00000JZAZ', 'B000654Z9G', 'B00000J637', 'B0006BKHR4']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Inuyasha Manga Profiles
+	Brand: Visit Amazon's Rumiko Takahashi Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Manga']
+	2.
+	Title: Inuyasha Vol. 1 (Library Edition)
+	Brand: Visit Amazon's Rumiko Takahashi Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Manga']
+	3.
+	Title: Wedding Peach, Vol. 1 (Wedding Peach Series)
+	Brand: Sukehiro Tomita
+	Categories: ['Books', "Children's Books", 'Comics & Graphic Novels']
+	4.
+	Title: The Chaplet of Divine Mercy In Song
+	Brand: Visit Amazon's Trish Short Page
+	Categories: ['Books', 'Religion &amp; Spirituality', 'Worship &amp; Devotion']
+	 
+Instead, I disliked the following books : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000654Z9G
+	Title: Garfield the Movie
+	Brand: Christophe Beck
+	Categories: ['CDs & Vinyl', 'Pop']
+	2.
+	Id: B00006JOET
+	Title: Holy Holy Holy
+	Brand: Crystal Lewis
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	3.
+	Id: B00000JZAZ
+	Title: Scooby-Doo! and the Witch's Ghost
+	Brand: Scooby-Doo (Related Recordings)
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+	4.
+	Id: B001NR44T2
+	Title: Innocence &amp; Instinct
+	Brand: Red
+	Categories: ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+	5.
+	Id: B000FIHJLU
+	Title: End Of Silence
+	Brand: Red
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	6.
+	Id: B00000J637
+	Title: Sailor Moon And The Scouts: Lunarock Anime Series
+	Brand: Takanori Arisawa
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+	7.
+	Id: B0001ENY6M
+	Title: The Passion of the Christ Score
+	Brand: John Debney
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	8.
+	Id: B0050QNOMA
+	Title: Plain and Simple
+	Brand: Crystal Lewis
+	Categories: ['CDs & Vinyl', 'Pop']
+	9.
+	Id: B00002MZ5I
+	Title: Pokemon Music from and Inspired by the Motion Picture
+	Brand: Pokemon (Related Recordings)
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	10.
+	Id: B0006BKHR4
+	Title: Zen and the Art of Relaxation
+	Brand: Anzan
+	Categories: ['CDs & Vinyl', 'New Age', 'Meditation']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00006JOET', 'B0001ENY6M', 'B00000JZAZ', 'B00002MZ5I', 'B000654Z9G'].
+Explanation: Based on the user's liked books, which are mainly in the categories of 'Books', 'Comics & Graphic Novels', and 'Manga', I recommend CDs that are related to these categories. 
+
+1. 'Holy Holy Holy' by Crystal Lewis: This CD is categorized as 'Christian' and 'Pop & Contemporary', which aligns with the user's interest in religious and spiritual books. 
+
+2. 'The Passion of the Christ Score' by John Debney: This CD is categorized as 'Soundtracks' and 'Movie Scores', which is similar to the user's interest in 'Comics & Graphic Novels'. It may provide a similar immersive experience through music.
+
+3. 'Scooby-Doo! and the Witch's Ghost' by Scooby-Doo (Related Recordings): This CD is categorized as 'Soundtracks' and 'Movie Soundtracks', which is similar to the user's interest in 'Comics & Graphic Novels'. It may provide a similar entertainment experience through music.
+
+4. 'Pokemon Music from and Inspired by the Motion Picture' by Pokemon (Related Recordings): This CD is categorized as 'Soundtracks' and 'Movie Scores', which is similar to the user's interest in 'Comics & Graphic Novels'. It may provide a similar immersive experience through music.
+
+5. 'Garfield the Movie' by Christophe Beck: This CD is categorized as 'Pop', which aligns with the user's interest in 'Comics & Graphic Novels'. It may provide a similar light-hearted and fun experience.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2N2C8O2RYL3M3
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                               title                              brand                                                                  category
+2591  A2N2C8O2RYL3M3  1433672758      5  1330905600  Dispatches from Bitter America: A Gun Toting, Chicken Eating Son of a Baptists Culture War Stories   Visit Amazon's Todd Starnes Page  ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+2819  A2N2C8O2RYL3M3  1560258756      1  1255651200                                                          101 People Who Are Really Screwing America  Visit Amazon's Jack Huberman Page  ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+3381  A2N2C8O2RYL3M3  B000QCQ1RS      5  1269907200                                                           Secrets of the Ica Stones and Nazca Lines                       Dennis Swift                                                                        []
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                           title              brand                                                            category
+0  A2N2C8O2RYL3M3  B000002US5      5  1280880000                                      Spilt Milk          Jellyfish  ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Jangle Pop']
+1  A2N2C8O2RYL3M3  B0000025C6      5  1044403200  You Can Tune a Piano But You Can't Tune a Fish     REO Speedwagon        ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+2  A2N2C8O2RYL3M3  B000002BGM      3  1020816000                                   Trial By Fire            Journey        ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+3  A2N2C8O2RYL3M3  B00005M987      4  1043539200                                 The Spirit Room    Michelle Branch           ['CDs & Vinyl', 'Alternative Rock', 'Singer-Songwriters']
+4  A2N2C8O2RYL3M3  B000089RVX      5  1064793600                                          Fallen        Evanescence    ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Goth']
+5  A2N2C8O2RYL3M3  B000002BMV      5   982972800                                          Escape            Journey        ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+6  A2N2C8O2RYL3M3  B00005MJZP      5  1018742400                                           Voice         Neal Schon                              ['CDs & Vinyl', 'Jazz', 'Jazz Fusion']
+7  A2N2C8O2RYL3M3  B000V8I2QU      3  1192060800                                           Magic  Bruce Springsteen        ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+Correct items for test user:
+['B00005MJZP', 'B0000025C6', 'B000089RVX', 'B000002US5', 'B000002BMV']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Dispatches from Bitter America: A Gun Toting, Chicken Eating Son of a Baptists Culture War Stories
+	Brand: Visit Amazon's Todd Starnes Page
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	2.
+	Title: Secrets of the Ica Stones and Nazca Lines
+	Brand: Dennis Swift
+	Categories: []
+	 
+Instead, I disliked the following books : 
+1.
+	Title: 101 People Who Are Really Screwing America
+	Brand: Visit Amazon's Jack Huberman Page
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002US5
+	Title: Spilt Milk
+	Brand: Jellyfish
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Jangle Pop']
+	2.
+	Id: B0000025C6
+	Title: You Can Tune a Piano But You Can't Tune a Fish
+	Brand: REO Speedwagon
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	3.
+	Id: B000002BGM
+	Title: Trial By Fire
+	Brand: Journey
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	4.
+	Id: B00005M987
+	Title: The Spirit Room
+	Brand: Michelle Branch
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Singer-Songwriters']
+	5.
+	Id: B000089RVX
+	Title: Fallen
+	Brand: Evanescence
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Goth & Industrial', 'Goth']
+	6.
+	Id: B000002BMV
+	Title: Escape
+	Brand: Journey
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	7.
+	Id: B00005MJZP
+	Title: Voice
+	Brand: Neal Schon
+	Categories: ['CDs & Vinyl', 'Jazz', 'Jazz Fusion']
+	8.
+	Id: B000V8I2QU
+	Title: Magic
+	Brand: Bruce Springsteen
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002US5', 'B0000025C6', 'B000002BGM', 'B00005M987', 'B000089RVX'].
+Explanation: Based on the user's liked books, which are related to politics and government, I recommend the following CDs that are also related to alternative rock, classic rock, and singer-songwriters. These CDs have similar genres and themes to the user's liked books, making them potentially appealing to the user's taste.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A5E2STAADQ176
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                 title                                  brand                                                         category
+2660  A5E2STAADQ176  1450845274      5  1372291200  Disney: Jake and the Neverland Pirates: Play-a-Sound  Editors of Publications International  ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+2713  A5E2STAADQ176  1475120346      5  1375056000       Her Magic Touch: Hell Yeah! (Hell Yeah! Book 3)       Visit Amazon's Sable Hunter Page                 ['Books', 'Literature &amp; Fiction', 'Erotica']
+2717  A5E2STAADQ176  1476741182      5  1362700800                      Wallbanger (The Cocktail Series)      Visit Amazon's Alice Clayton Page         ['Books', 'Literature &amp; Fiction', "Women's Fiction"]
+2738  A5E2STAADQ176  1480199265      5  1382486400                                  Luca's Magic Embrace         Visit Amazon's Kym Grosso Page                               ['Books', 'Romance', 'Paranormal']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                     title                  brand                                                            category
+0  A5E2STAADQ176  B00BEJ5O6Q      5  1365552000  Based On A True Story...          Blake Shelton                       ['CDs & Vinyl', 'Country', "Today's Country"]
+1  A5E2STAADQ176  B00DTVVHJA      5  1382486400             Redneck Crazy             Tyler Farr                       ['CDs & Vinyl', 'Country', "Today's Country"]
+2  A5E2STAADQ176  B0015519VS      5  1365552000              Here I Stand                  Usher                                      ['CDs & Vinyl', 'R&B', 'Soul']
+3  A5E2STAADQ176  B000OZ2CZW      5  1365552000        Good Girl Gone Bad                Rihanna                                 ['CDs & Vinyl', 'Pop', 'Dance Pop']
+4  A5E2STAADQ176  B00164W9JO      5  1360800000             Greatest Hits  New Kids On The Block                                  ['CDs & Vinyl', 'Pop', 'Teen Pop']
+5  A5E2STAADQ176  B001C3KCSY      5  1362700800         Only By The Night          Kings of Leon  ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+6  A5E2STAADQ176  B00BSXXWIU      5  1379030400                  Annie Up          Pistol Annies                                          ['CDs & Vinyl', 'Country']
+Correct items for test user:
+['B00164W9JO', 'B001C3KCSY', 'B00BEJ5O6Q', 'B0015519VS', 'B000OZ2CZW']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Disney: Jake and the Neverland Pirates: Play-a-Sound
+	Brand: Editors of Publications International
+	Categories: ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+	2.
+	Title: Her Magic Touch: Hell Yeah! (Hell Yeah! Book 3)
+	Brand: Visit Amazon's Sable Hunter Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Erotica']
+	3.
+	Title: Wallbanger (The Cocktail Series)
+	Brand: Visit Amazon's Alice Clayton Page
+	Categories: ['Books', 'Literature &amp; Fiction', "Women's Fiction"]
+	4.
+	Title: Luca's Magic Embrace
+	Brand: Visit Amazon's Kym Grosso Page
+	Categories: ['Books', 'Romance', 'Paranormal']
+	 
+Instead, I disliked the following books : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00BEJ5O6Q
+	Title: Based On A True Story...
+	Brand: Blake Shelton
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	2.
+	Id: B00DTVVHJA
+	Title: Redneck Crazy
+	Brand: Tyler Farr
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	3.
+	Id: B0015519VS
+	Title: Here I Stand
+	Brand: Usher
+	Categories: ['CDs & Vinyl', 'R&B', 'Soul']
+	4.
+	Id: B000OZ2CZW
+	Title: Good Girl Gone Bad
+	Brand: Rihanna
+	Categories: ['CDs & Vinyl', 'Pop', 'Dance Pop']
+	5.
+	Id: B00164W9JO
+	Title: Greatest Hits
+	Brand: New Kids On The Block
+	Categories: ['CDs & Vinyl', 'Pop', 'Teen Pop']
+	6.
+	Id: B001C3KCSY
+	Title: Only By The Night
+	Brand: Kings of Leon
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	7.
+	Id: B00BSXXWIU
+	Title: Annie Up
+	Brand: Pistol Annies
+	Categories: ['CDs & Vinyl', 'Country']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B001C3KCSY', 'B00BEJ5O6Q', 'B00DTVVHJA', 'B0015519VS', 'B000OZ2CZW'].
+Explanation: Based on the user's liked books, which include children's books, fiction, and romance, I would recommend the following CDs:
+1. 'Only By The Night' by Kings of Leon: This CD falls under the alternative rock and indie rock genres, which may appeal to the user's interest in fiction and romance.
+2. 'Based On A True Story...' by Blake Shelton: This CD is in the country genre, which aligns with the user's interest in children's books and growing up themes.
+3. 'Redneck Crazy' by Tyler Farr: This CD is also in the country genre and may resonate with the user's preference for children's books and growing up themes.
+4. 'Here I Stand' by Usher: This CD falls under the R&B and soul genres, which may provide a different musical experience for the user.
+5. 'Good Girl Gone Bad' by Rihanna: This CD is in the pop and dance pop genres, offering a diverse musical style for the user to explore.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1BDA52OZVIN1J
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                               title                               brand                                                       category
+2684  A1BDA52OZVIN1J  1454908130      5  1394409600  Secrets of Disneyland: Weird and Wonderful Facts about the Happiest Place on Earth  Visit Amazon's Dinah Williams Page      ['Books', "Children's Books", 'Geography &amp; Cultures']
+2760  A1BDA52OZVIN1J  1493119273      5  1394409600                Reckoning in Normandy: The Last Gathering of the Greatest Generation    Visit Amazon's Donald Rosen Page                                  ['Books', 'History', 'World']
+3026  A1BDA52OZVIN1J  1592575994      4  1381017600                             The Complete Idiot's Guide to the World of Harry Potter   Visit Amazon's Tere Stouffer Page  ['Books', 'Science Fiction &amp; Fantasy', 'Science Fiction']
+3396  A1BDA52OZVIN1J  B00IGISYYW      5  1394409600                     Sports Illustrated 50th Anniversary Swimsuit Issue 2014 2/23/14                  Sports Illustrated                                                             []
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                      title                brand                                             category
+0  A1BDA52OZVIN1J  B000003JVE      4  1000252800  Charles Gerhardt Conducts the Film Music of Lee Holdridge        Lee Holdridge                         ['CDs & Vinyl', 'Classical']
+1  A1BDA52OZVIN1J  B004VDSWBG      5  1400371200                                                     Always         Kelli O'Hara                  ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+2  A1BDA52OZVIN1J  B00GNKOYCG      5  1404691200                                Awakening: Live at 54 BELOW       Sierra Boggess  ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+3  A1BDA52OZVIN1J  B000000CY0      5  1287878400                            Andrews Sisters - Greatest Hits  The Andrews Sisters  ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+4  A1BDA52OZVIN1J  B000007SNS      5   950832000                                          Ultimate Broadway              Various  ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+5  A1BDA52OZVIN1J  B003XQG0JI      4  1338508800                                               Dream of You          Sharon Corr                               ['CDs & Vinyl', 'Pop']
+Correct items for test user:
+['B000000CY0', 'B004VDSWBG', 'B00GNKOYCG', 'B000007SNS', 'B000003JVE']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Secrets of Disneyland: Weird and Wonderful Facts about the Happiest Place on Earth
+	Brand: Visit Amazon's Dinah Williams Page
+	Categories: ['Books', "Children's Books", 'Geography &amp; Cultures']
+	2.
+	Title: Reckoning in Normandy: The Last Gathering of the Greatest Generation
+	Brand: Visit Amazon's Donald Rosen Page
+	Categories: ['Books', 'History', 'World']
+	3.
+	Title: Sports Illustrated 50th Anniversary Swimsuit Issue 2014 2/23/14
+	Brand: Sports Illustrated
+	Categories: []
+	 
+Instead, I disliked the following books : 
+1.
+	Title: The Complete Idiot's Guide to the World of Harry Potter
+	Brand: Visit Amazon's Tere Stouffer Page
+	Categories: ['Books', 'Science Fiction &amp; Fantasy', 'Science Fiction']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000003JVE
+	Title: Charles Gerhardt Conducts the Film Music of Lee Holdridge
+	Brand: Lee Holdridge
+	Categories: ['CDs & Vinyl', 'Classical']
+	2.
+	Id: B004VDSWBG
+	Title: Always
+	Brand: Kelli O'Hara
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	3.
+	Id: B00GNKOYCG
+	Title: Awakening: Live at 54 BELOW
+	Brand: Sierra Boggess
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	4.
+	Id: B000000CY0
+	Title: Andrews Sisters - Greatest Hits
+	Brand: The Andrews Sisters
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	5.
+	Id: B000007SNS
+	Title: Ultimate Broadway
+	Brand: Various
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	6.
+	Id: B003XQG0JI
+	Title: Dream of You
+	Brand: Sharon Corr
+	Categories: ['CDs & Vinyl', 'Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000003JVE', 'B004VDSWBG', 'B00GNKOYCG', 'B000000CY0', 'B000007SNS'].
+Explanation: Based on the user's liked books, which are related to geography, cultures, and history, and the user's disliked book, which is related to science fiction and fantasy, I would recommend the following CDs:
+
+1. Charles Gerhardt Conducts the Film Music of Lee Holdridge: This CD falls under the classical category, which can be associated with the user's interest in history and world-related topics.
+
+2. Always by Kelli O'Hara: This CD falls under the pop and vocal pop categories, which can be a good fit for the user's interest in music and entertainment.
+
+3. Awakening: Live at 54 BELOW by Sierra Boggess: This CD falls under the Broadway & Vocalists and Musicals categories, which can be a good match for the user's interest in history and culture.
+
+4. Andrews Sisters - Greatest Hits: This CD falls under the pop, oldies, and traditional pop categories, which can be a good fit for the user's interest in music and entertainment.
+
+5. Ultimate Broadway by Various: This CD falls under the pop, oldies, and traditional pop categories, which can be a good match for the user's interest in history and culture.
+
+Overall, these recommendations are based on the similarity between the user's liked books and the CDs in terms of their categories and themes.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1HG3V33717I73
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                              title                                 brand                                                  category
+2744  A1HG3V33717I73  1482652226      5  1375228800                                 Shattered Promises  Visit Amazon's Jessica Sorensen Page                        ['Books', 'Romance', 'Paranormal']
+3172  A1HG3V33717I73  1613430442      5  1404432000                                 Rise of the Dunamy  Visit Amazon's James R. Landrum Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Mystery']
+3389  A1HG3V33717I73  B006HJIH08      1  1375142400  The Left Behind Series Complete Set, Volumes 1-16  Visit Amazon's Jerry B. Jenkins Page                      ['Books', 'Religion & Spirituality']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                            title             brand                                                      category
+0  A1HG3V33717I73  B00A18KCSQ      5  1375142400                        Holy Fire             Foals                   ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+1  A1HG3V33717I73  B009NPA3MS      5  1375142400  World From the Side of the Moon  Phillip Phillips                                        ['CDs & Vinyl', 'Pop']
+2  A1HG3V33717I73  B009LXEBD4      5  1396137600      Greatest Hits - Chapter One    Kelly Clarkson                           ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+3  A1HG3V33717I73  B0014CBXOK      5  1375228800                  Lady Antebellum   Lady Antebellum                 ['CDs & Vinyl', 'Country', "Today's Country"]
+4  A1HG3V33717I73  B000002KD5      5  1396137600                    Fleetwood Mac     Fleetwood Mac  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+5  A1HG3V33717I73  B000PAU2VW      5  1375228800                       Relentless      Jason Aldean                 ['CDs & Vinyl', 'Country', "Today's Country"]
+6  A1HG3V33717I73  B00AO7HPXO      5  1396137600                It Goes Like This      Thomas Rhett                                    ['CDs & Vinyl', 'Country']
+Correct items for test user:
+['B00A18KCSQ', 'B009NPA3MS', 'B0014CBXOK', 'B000PAU2VW', 'B009LXEBD4']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Shattered Promises
+	Brand: Visit Amazon's Jessica Sorensen Page
+	Categories: ['Books', 'Romance', 'Paranormal']
+	2.
+	Title: Rise of the Dunamy
+	Brand: Visit Amazon's James R. Landrum Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Mystery']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: The Left Behind Series Complete Set, Volumes 1-16
+	Brand: Visit Amazon's Jerry B. Jenkins Page
+	Categories: ['Books', 'Religion & Spirituality']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00A18KCSQ
+	Title: Holy Fire
+	Brand: Foals
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+	2.
+	Id: B009NPA3MS
+	Title: World From the Side of the Moon
+	Brand: Phillip Phillips
+	Categories: ['CDs & Vinyl', 'Pop']
+	3.
+	Id: B009LXEBD4
+	Title: Greatest Hits - Chapter One
+	Brand: Kelly Clarkson
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	4.
+	Id: B0014CBXOK
+	Title: Lady Antebellum
+	Brand: Lady Antebellum
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	5.
+	Id: B000002KD5
+	Title: Fleetwood Mac
+	Brand: Fleetwood Mac
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	6.
+	Id: B000PAU2VW
+	Title: Relentless
+	Brand: Jason Aldean
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	7.
+	Id: B00AO7HPXO
+	Title: It Goes Like This
+	Brand: Thomas Rhett
+	Categories: ['CDs & Vinyl', 'Country']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B009NPA3MS', 'B009LXEBD4', 'B000PAU2VW', 'B0014CBXOK', 'B00AO7HPXO'].
+Explanation: Based on the user's liked books, which are in the Romance and Mystery genres, I recommend CDs that are in the Pop and Country genres. The top-ranked CD, 'World From the Side of the Moon' by Phillip Phillips, is a Pop album that may appeal to the user's taste for romance. The second-ranked CD, 'Greatest Hits - Chapter One' by Kelly Clarkson, is also a Pop album that offers a variety of vocal pop songs. The third-ranked CD, 'Relentless' by Jason Aldean, is a Country album that may resonate with the user's interest in mystery and suspense. The fourth-ranked CD, 'Lady Antebellum' by Lady Antebellum, is a Country album that features today's country music. The fifth-ranked CD, 'It Goes Like This' by Thomas Rhett, is another Country album that may be of interest to the user.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2Q55MUDNRWCP
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                                                           title                                  brand                                                                     category
+2785  A2Q55MUDNRWCP  1555610609      5  1388448000  Learning About and Living With Insects of the Southwest: How to Identify Helpful, Harmful and Venomous Insects                  Ph.D. Floyd G. Werner  ['Books', 'Crafts, Hobbies &amp; Home', 'Gardening &amp; Landscape Design']
+2957  A2Q55MUDNRWCP  1583334688      3  1388448000                                                                            Haldol and Hyacinths: A Bipolar Life      Visit Amazon's Melody Moezzi Page              ['Books', 'Biographies & Memoirs', 'Professionals & Academics']
+3259  A2Q55MUDNRWCP  1886679487      5  1388448000     A Natural History of the Santa Catalina Mountains, Arizona; with an Introduction to the Madrean Sky Islands  Visit Amazon's Richard C. Brusca Page                      ['Books', 'Science &amp; Math', 'Nature &amp; Ecology']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                         title               brand                                                 category
+0  A2Q55MUDNRWCP  B000002W3R      5  1388448000                                    Moody Blue       Elvis Presley                         ['CDs & Vinyl', 'Pop', 'Oldies']
+1  A2Q55MUDNRWCP  B00005B7FA      5  1388448000  Millennium Collection - 20th Century Masters       Freddy Fender            ['CDs & Vinyl', 'Country', "Today's Country"]
+2  A2Q55MUDNRWCP  B0008GISK0      5  1388448000                     The Definitive Collection     Jerry Lee Lewis  ['CDs & Vinyl', 'Rock', 'Oldies & Retro', 'Rockabilly']
+3  A2Q55MUDNRWCP  B0095OK8TK      5  1388448000                                Feeling Mortal  Kris Kristofferson            ['CDs & Vinyl', 'Country', "Today's Country"]
+4  A2Q55MUDNRWCP  B000FC2F2E      5  1388448000                              Best of the Best           Moe Bandy            ['CDs & Vinyl', 'Country', "Today's Country"]
+Correct items for test user:
+['B000002W3R', 'B00005B7FA', 'B0008GISK0', 'B0095OK8TK', 'B000FC2F2E']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Learning About and Living With Insects of the Southwest: How to Identify Helpful, Harmful and Venomous Insects
+	Brand: Ph.D. Floyd G. Werner
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Gardening &amp; Landscape Design']
+	2.
+	Title: A Natural History of the Santa Catalina Mountains, Arizona; with an Introduction to the Madrean Sky Islands
+	Brand: Visit Amazon's Richard C. Brusca Page
+	Categories: ['Books', 'Science &amp; Math', 'Nature &amp; Ecology']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Haldol and Hyacinths: A Bipolar Life
+	Brand: Visit Amazon's Melody Moezzi Page
+	Categories: ['Books', 'Biographies & Memoirs', 'Professionals & Academics']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002W3R
+	Title: Moody Blue
+	Brand: Elvis Presley
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies']
+	2.
+	Id: B00005B7FA
+	Title: Millennium Collection - 20th Century Masters
+	Brand: Freddy Fender
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	3.
+	Id: B0008GISK0
+	Title: The Definitive Collection
+	Brand: Jerry Lee Lewis
+	Categories: ['CDs & Vinyl', 'Rock', 'Oldies & Retro', 'Rockabilly']
+	4.
+	Id: B0095OK8TK
+	Title: Feeling Mortal
+	Brand: Kris Kristofferson
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	5.
+	Id: B000FC2F2E
+	Title: Best of the Best
+	Brand: Moe Bandy
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002W3R', 'B00005B7FA', 'B0008GISK0', 'B0095OK8TK', 'B000FC2F2E'].
+Explanation: Based on the user's liked books, which are related to gardening, landscape design, and nature, I recommend CDs that are also related to nature and have a similar vibe. The top-ranked CD, 'Moody Blue' by Elvis Presley, is a pop and oldies album that might appeal to the user's interest in nature and ecology. The second-ranked CD, 'Millennium Collection - 20th Century Masters' by Freddy Fender, is a country album that could resonate with the user's interest in gardening and landscape design. The third-ranked CD, 'The Definitive Collection' by Jerry Lee Lewis, is a rock and rockabilly album that might provide a different but still enjoyable musical experience. The fourth-ranked CD, 'Feeling Mortal' by Kris Kristofferson, is another country album that could match the user's preference for country music. Finally, the fifth-ranked CD, 'Best of the Best' by Moe Bandy, is another country album that aligns with the user's interest in country and today's country music.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2237DFIW1SK2V
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                    title                             brand                                                          category
+2977  A2237DFIW1SK2V  1587142805      2  1369094400                                         CCNP Security Secure 642-637 Official Cert Guide  Visit Amazon's Sean Wilkins Page          ['Books', 'Computers &amp; Technology', 'Certification']
+2980  A2237DFIW1SK2V  1587204266      4  1367280000                         CCNA Security 640-554 Official Certification Guide + Livelessons                      Keith Barker              ['Books', 'Computers & Technology', 'Certification']
+2981  A2237DFIW1SK2V  1587204371      5  1365120000             CCNA 640-802 Official Cert Library, Simulator Edition, Updated (3rd Edition)  Visit Amazon's Wendell Odom Page          ['Books', 'Computers &amp; Technology', 'Certification']
+3216  A2237DFIW1SK2V  1843536358      4  1167868800  The Rough Guide to Mandarin Chinese Dictionary Phrasebook 3 (Rough Guides Phrase Books)                             Lexus  ['Books', 'Reference', 'Foreign Language Study &amp; Reference']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                         title                     brand                                                                 category
+0  A2237DFIW1SK2V  B000CPH9XY      4  1167868800  Deep Purple: Live in California '74 - The Archive Collection                      <NA>     ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+1  A2237DFIW1SK2V  B0002WZTDO      5  1167868800                                         The 1996 Dep Sessions              Iommi/Hughes                                    ['CDs & Vinyl', 'Metal', 'Pop Metal']
+2  A2237DFIW1SK2V  B000B5Y03C      4  1167868800                                           Rapture of the Deep               Deep Purple     ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+3  A2237DFIW1SK2V  B000006Y3Z      4   961632000                              On The Wings Of A Russian Foxbat               Deep Purple     ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+4  A2237DFIW1SK2V  B00000AFXN      4  1167868800                                                 Dance Remixes  K.C. & The Sunshine Band                           ['CDs & Vinyl', 'Dance & Electronic', 'Disco']
+5  A2237DFIW1SK2V  B0000584U8      4  1167868800                                                           1.0             Fiamma Fumana  ['CDs & Vinyl', 'World Music', 'Europe', 'Continental Europe', 'Italy']
+Correct items for test user:
+['B0002WZTDO', 'B000CPH9XY', 'B000B5Y03C', 'B00000AFXN', 'B0000584U8']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: CCNA 640-802 Official Cert Library, Simulator Edition, Updated (3rd Edition)
+	Brand: Visit Amazon's Wendell Odom Page
+	Categories: ['Books', 'Computers &amp; Technology', 'Certification']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: CCNP Security Secure 642-637 Official Cert Guide
+	Brand: Visit Amazon's Sean Wilkins Page
+	Categories: ['Books', 'Computers &amp; Technology', 'Certification']
+	2.
+	Title: CCNA Security 640-554 Official Certification Guide + Livelessons
+	Brand: Keith Barker
+	Categories: ['Books', 'Computers & Technology', 'Certification']
+	3.
+	Title: The Rough Guide to Mandarin Chinese Dictionary Phrasebook 3 (Rough Guides Phrase Books)
+	Brand: Lexus
+	Categories: ['Books', 'Reference', 'Foreign Language Study &amp; Reference']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000CPH9XY
+	Title: Deep Purple: Live in California '74 - The Archive Collection
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	2.
+	Id: B0002WZTDO
+	Title: The 1996 Dep Sessions
+	Brand: Iommi/Hughes
+	Categories: ['CDs & Vinyl', 'Metal', 'Pop Metal']
+	3.
+	Id: B000B5Y03C
+	Title: Rapture of the Deep
+	Brand: Deep Purple
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	4.
+	Id: B000006Y3Z
+	Title: On The Wings Of A Russian Foxbat
+	Brand: Deep Purple
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	5.
+	Id: B00000AFXN
+	Title: Dance Remixes
+	Brand: K.C. & The Sunshine Band
+	Categories: ['CDs & Vinyl', 'Dance & Electronic', 'Disco']
+	6.
+	Id: B0000584U8
+	Title: 1.0
+	Brand: Fiamma Fumana
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'Continental Europe', 'Italy']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000006Y3Z', 'B000B5Y03C', 'B0002WZTDO', 'B000CPH9XY', 'B0000584U8'].
+Explanation: Based on the user's liked and disliked books, it seems that the user is interested in books related to computers and technology, specifically certification. Therefore, the recommended CDs should also be related to technology or have a similar theme. 
+
+Among the candidate CDs, 'Deep Purple: Live in California '74 - The Archive Collection' (B000CPH9XY) and 'Rapture of the Deep' (B000B5Y03C) are recommended because they have the category 'World Music' which could be associated with the user's interest in technology. 
+
+The CD 'The 1996 Dep Sessions' (B0002WZTDO) is recommended because it falls under the category 'Metal', which could be related to the user's interest in technology and certification. 
+
+'Dance Remixes' (B00000AFXN) by K.C. & The Sunshine Band is recommended because it falls under the category 'Dance & Electronic', which could be associated with the user's interest in technology. 
+
+Lastly, '1.0' (B0000584U8) by Fiamma Fumana is recommended because it falls under the category 'World Music', which could be related to the user's interest in technology.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3FQ9WYUHG9CD
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                                title                            brand                                                              category
+2993  A3FQ9WYUHG9CD  1590307607      4  1388793600  Yoga for Emotional Balance: Simple Practices to Help Relieve Anxiety and Depression    Visit Amazon's Bo Forbes Page  ['Books', 'Health, Fitness &amp; Dieting', 'Exercise &amp; Fitness']
+3196  A3FQ9WYUHG9CD  1740594916      5  1378512000                                                     Korean: Lonely Planet Phrasebook                    Minkyoung Kim                                                                    []
+3237  A3FQ9WYUHG9CD  1857333659      4  1382659200                 Korea - Culture Smart!: The Essential Guide to Culture &amp; Customs  Visit Amazon's James Hoare Page                 ['Books', 'Business &amp; Money', 'Business Culture']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                         title                         brand                                                      category
+0  A3FQ9WYUHG9CD  B00006RY70      4  1385424000                               Cosmo's Factory  Creedence Clearwater Revival              ['CDs & Vinyl', 'Classic Rock', 'Southern Rock']
+1  A3FQ9WYUHG9CD  B0007YXQQO      5  1377043200                       Folk Singer HDAD Master                  Muddy Waters   ['CDs & Vinyl', 'Blues', 'Regional Blues', 'Chicago Blues']
+2  A3FQ9WYUHG9CD  B00006EXDO      5  1382313600  More Hot Rocks: Big Hits &amp; Fazed Cookies            The Rolling Stones  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+3  A3FQ9WYUHG9CD  B000002GW7      5  1388880000                                 Excitable Boy                  Warren Zevon  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+4  A3FQ9WYUHG9CD  B00000J7S8      5  1383436800                      When I Look in Your Eyes                   Diana Krall           ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+Correct items for test user:
+['B0007YXQQO', 'B00006EXDO', 'B00000J7S8', 'B000002GW7', 'B00006RY70']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Korean: Lonely Planet Phrasebook
+	Brand: Minkyoung Kim
+	Categories: []
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Yoga for Emotional Balance: Simple Practices to Help Relieve Anxiety and Depression
+	Brand: Visit Amazon's Bo Forbes Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Exercise &amp; Fitness']
+	2.
+	Title: Korea - Culture Smart!: The Essential Guide to Culture &amp; Customs
+	Brand: Visit Amazon's James Hoare Page
+	Categories: ['Books', 'Business &amp; Money', 'Business Culture']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00006RY70
+	Title: Cosmo's Factory
+	Brand: Creedence Clearwater Revival
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Southern Rock']
+	2.
+	Id: B0007YXQQO
+	Title: Folk Singer HDAD Master
+	Brand: Muddy Waters
+	Categories: ['CDs & Vinyl', 'Blues', 'Regional Blues', 'Chicago Blues']
+	3.
+	Id: B00006EXDO
+	Title: More Hot Rocks: Big Hits &amp; Fazed Cookies
+	Brand: The Rolling Stones
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	4.
+	Id: B000002GW7
+	Title: Excitable Boy
+	Brand: Warren Zevon
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	5.
+	Id: B00000J7S8
+	Title: When I Look in Your Eyes
+	Brand: Diana Krall
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00006RY70', 'B0007YXQQO', 'B00006EXDO', 'B000002GW7', 'B00000J7S8'].
+Explanation: Based on the user's liked book "Korean: Lonely Planet Phrasebook", which is a travel guide, I recommend CDs that are related to travel or have a similar cultural theme. The top-ranked CD is "Cosmo's Factory" by Creedence Clearwater Revival, which falls under the category of Classic Rock. Although it may not have a direct connection to the user's liked book, it is a popular and well-regarded album that could be enjoyed during travel or exploration. The other recommended CDs also fall under the categories of Classic Rock, Blues, and Pop, providing a diverse range of musical options for the user.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1EKA9XSI641C9
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                        title                               brand                                                       category
+3034  A1EKA9XSI641C9  1593077270      4  1236470400                       Aliens Omnibus, Vol. 1  Visit Amazon's Mark Verheiden Page     ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+3035  A1EKA9XSI641C9  1593077327      4  1238630400             Predator Omnibus Volume 1 (v. 1)                             Various     ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+3036  A1EKA9XSI641C9  1593077351      5  1236470400          Aliens vs. Predator Omnibus, Vol. 1                             Various     ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+3039  A1EKA9XSI641C9  1593078285      4  1236470400                      Aliens Omnibus Volume 2                             Various     ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+3040  A1EKA9XSI641C9  1593078293      2  1236384000  Aliens vs. Predator Omnibus Volume 2 (v. 2)                             Various  ['Books', 'Science Fiction &amp; Fantasy', 'Science Fiction']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                              title           brand                                                     category
+0  A1EKA9XSI641C9  B000056BAG      5  1111881600  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"        Gorillaz                          ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+1  A1EKA9XSI641C9  B00005A7TW      3  1117065600                                                                          ANThology  Alien Ant Farm  ['CDs & Vinyl', 'Alternative Rock', 'American Alternative']
+2  A1EKA9XSI641C9  B00005M0MJ      2  1116892800                                                                   God Hates Us All          Slayer             ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+3  A1EKA9XSI641C9  B00082IJ08      5  1116979200                                                                         Demon Days        Gorillaz                  ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+4  A1EKA9XSI641C9  B0001NBMBC      5  1118016000                                                      Vol. 3: The Subliminal Verses        Slipknot                ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+5  A1EKA9XSI641C9  B000002MOV      4  1116892800                                                                Divine Intervention          Slayer             ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+6  A1EKA9XSI641C9  B00006L7XQ      5  1116028800                                                  American IV: The Man Comes Around     Johnny Cash       ['CDs & Vinyl', 'Comedy & Spoken Word', 'Spoken Word']
+7  A1EKA9XSI641C9  B000002KZT      5  1128556800                                                                     Reign in Blood          Slayer             ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+8  A1EKA9XSI641C9  B000000OU2      5  1118534400                                                          MTV Unplugged in New York         Nirvana                          ['CDs & Vinyl', 'Alternative Rock']
+9  A1EKA9XSI641C9  B000009QPK      5  1118361600  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"          Slayer             ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+Correct items for test user:
+['B000056BAG', 'B00006L7XQ', 'B00082IJ08', 'B0001NBMBC', 'B000009QPK']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following books : 
+1.
+	Title: Aliens vs. Predator Omnibus, Vol. 1
+	Brand: Various
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	 
+Instead, I disliked the following books : 
+1.
+	Title: Aliens Omnibus, Vol. 1
+	Brand: Visit Amazon's Mark Verheiden Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	2.
+	Title: Predator Omnibus Volume 1 (v. 1)
+	Brand: Various
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	3.
+	Title: Aliens Omnibus Volume 2
+	Brand: Various
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	4.
+	Title: Aliens vs. Predator Omnibus Volume 2 (v. 2)
+	Brand: Various
+	Categories: ['Books', 'Science Fiction &amp; Fantasy', 'Science Fiction']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000056BAG
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: Gorillaz
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	2.
+	Id: B00005A7TW
+	Title: ANThology
+	Brand: Alien Ant Farm
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'American Alternative']
+	3.
+	Id: B00005M0MJ
+	Title: God Hates Us All
+	Brand: Slayer
+	Categories: ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+	4.
+	Id: B00082IJ08
+	Title: Demon Days
+	Brand: Gorillaz
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+	5.
+	Id: B0001NBMBC
+	Title: Vol. 3: The Subliminal Verses
+	Brand: Slipknot
+	Categories: ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+	6.
+	Id: B000002MOV
+	Title: Divine Intervention
+	Brand: Slayer
+	Categories: ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+	7.
+	Id: B00006L7XQ
+	Title: American IV: The Man Comes Around
+	Brand: Johnny Cash
+	Categories: ['CDs & Vinyl', 'Comedy & Spoken Word', 'Spoken Word']
+	8.
+	Id: B000002KZT
+	Title: Reign in Blood
+	Brand: Slayer
+	Categories: ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+	9.
+	Id: B000000OU2
+	Title: MTV Unplugged in New York
+	Brand: Nirvana
+	Categories: ['CDs & Vinyl', 'Alternative Rock']
+	10.
+	Id: B000009QPK
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: Slayer
+	Categories: ['CDs & Vinyl', 'Metal', 'Thrash & Speed Metal']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00005A7TW', 'B000002MOV', 'B000009QPK', 'B00082IJ08', 'B000056BAG'].
+Explanation: Based on the user's liked and disliked books, we can see that the user is interested in science fiction and fantasy genres. The user liked the book "Aliens vs. Predator Omnibus, Vol. 1" and disliked books from the "Aliens" and "Predator" series. 
+
+To recommend CDs that align with the user's preferences, we can look for CDs that are related to science fiction and fantasy themes or have a similar tone. 
+
+Among the candidate CDs, "ANThology" by Alien Ant Farm stands out as a potential recommendation. Although it is not directly related to science fiction, the title and the band's name suggest a connection to aliens and otherworldly themes. 
+
+"Divine Intervention" by Slayer is another recommendation. Slayer is a metal band known for their dark and aggressive music, which can resonate with the user's preference for science fiction and fantasy themes. 
+
+"Reign in Blood" by Slayer is also a good recommendation as it falls under the same metal genre and has a similar tone to "Divine Intervention". 
+
+"Demon Days" by Gorillaz is a recommendation based on the user's liked book "Aliens vs. Predator Omnibus, Vol. 1". Gorillaz is a virtual band known for their eclectic music style, which can appeal to the user's interest in science fiction and fantasy. 
+
+Lastly, "B000056BAG" by Gorillaz is recommended as it shares the same artist as "Demon Days" and falls under the pop genre, which can be a good alternative for the user's preference.
+-------------------

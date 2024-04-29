@@ -1,0 +1,54 @@
+original_model_path: "meta-llama/Llama-2-7b-chat-hf"
+new_model_path: "llama-CDR"
+out_model_id: 'llama-CDR'
+dataset_path: data/adapt_llama_CDR_Zero_plain.jsonl
+
+################################################################################
+# General parameters
+################################################################################
+
+load_in_8_bit: false
+max_seq_length: 1640
+packing: false
+
+################################################################################
+# Pretrained model parameters
+################################################################################
+
+pretrained_parameters:
+  torch_dtype: "bf16"
+
+################################################################################
+# TrainingArguments parameters
+################################################################################
+
+training_arguments:
+
+  num_train_epochs: 15
+
+  per_device_train_batch_size: 16
+
+  gradient_accumulation_steps: 16
+
+  gradient_checkpointing: true
+
+  optim: "adamw_torch"
+
+  bf16: true
+  fp16: false
+  tf32: true
+
+  learning_rate: 0.00005
+
+  lr_scheduler_type: "cosine"
+
+  warmup_ratio: 0.0
+
+  weight_decay: 0.0001
+
+  max_grad_norm: 1.0
+
+  logging_steps: 5
+
+  seed: 22
+  save_strategy: 'epoch'

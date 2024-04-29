@@ -1,0 +1,2958 @@
+
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3Q7WCGW664I0C
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                          title          brand                                                                                    category
+4064  A3Q7WCGW664I0C  B004AC6PXA      5  1327622400  LeapFrog: The Amazing Alphabet Amusement Park           <NA>  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4161  A3Q7WCGW664I0C  B004YK29BK      5  1327622400              LeapFrog: Sing and Learn With Us!  T.j. Cummings  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4360  A3Q7WCGW664I0C  B005T3P28I      5  1327622400               Meet the Phonics - Letter Sounds      Animation                       ['Movies & TV', 'Genre for Featured Categories', 'Special Interests']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                            title                          brand                                             category
+0  A3Q7WCGW664I0C  B000251YUS      5  1323993600                              Gospel Action Songs                 Cedarmont Kids  ['CDs & Vinyl', "Children's Music", 'Sing-A-Longs']
+1  A3Q7WCGW664I0C  B0002M5TGG      4  1247270400  Worship Together: Here I Am to Worship for Kids  Here I Am to Worship for Kids   ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+2  A3Q7WCGW664I0C  B000002AZG      3  1228521600                                          Best of                Mahalia Jackson   ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+3  A3Q7WCGW664I0C  B000008UPI      4  1317340800                               Action Bible Songs                 Cedarmont Kids  ['CDs & Vinyl', "Children's Music", 'Sing-A-Longs']
+4  A3Q7WCGW664I0C  B001DZE5VG      5  1304380800                  Car Ride Fun : Kids' Sing-Along                    Nikki Loney                  ['CDs & Vinyl', "Children's Music"]
+5  A3Q7WCGW664I0C  B0000645IG      5  1317168000              Songs 4 Worship: Kids - Awesome God                Songs 4 Worship   ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+Correct items for test user:
+['B001DZE5VG', 'B0000645IG', 'B000251YUS', 'B0002M5TGG', 'B000008UPI']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: LeapFrog: The Amazing Alphabet Amusement Park
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	2.
+	Title: LeapFrog: Sing and Learn With Us!
+	Brand: T.j. Cummings
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	3.
+	Title: Meet the Phonics - Letter Sounds
+	Brand: Animation
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Special Interests']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000251YUS
+	Title: Gospel Action Songs
+	Brand: Cedarmont Kids
+	Categories: ['CDs & Vinyl', "Children's Music", 'Sing-A-Longs']
+	2.
+	Id: B0002M5TGG
+	Title: Worship Together: Here I Am to Worship for Kids
+	Brand: Here I Am to Worship for Kids
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	3.
+	Id: B000002AZG
+	Title: Best of
+	Brand: Mahalia Jackson
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	4.
+	Id: B000008UPI
+	Title: Action Bible Songs
+	Brand: Cedarmont Kids
+	Categories: ['CDs & Vinyl', "Children's Music", 'Sing-A-Longs']
+	5.
+	Id: B001DZE5VG
+	Title: Car Ride Fun : Kids' Sing-Along
+	Brand: Nikki Loney
+	Categories: ['CDs & Vinyl', "Children's Music"]
+	6.
+	Id: B0000645IG
+	Title: Songs 4 Worship: Kids - Awesome God
+	Brand: Songs 4 Worship
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0002M5TGG', 'B000008UPI', 'B000251YUS', 'B001DZE5VG', 'B0000645IG'].
+Explanation: Based on the user's liked movies, which are educational and targeted towards children, the recommended CDs are also targeted towards children. The recommended CDs have categories such as "Children's Music" and "Sing-A-Longs", which align with the user's preference for educational and interactive content. Additionally, the brands of the recommended CDs, such as Cedarmont Kids and Here I Am to Worship for Kids, are known for producing children's music. Therefore, these CDs are likely to be enjoyable for the user and align with their interests.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3CTX4B1E3IK6G
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                 title           brand                                                                                            category
+4073  A3CTX4B1E3IK6G  B004DCM5RW      5  1325462400                                          Mean Girls 2  Meaghan Martin                                           ['Movies & TV', 'Paramount Home Entertainment', 'Comedy']
+4374  A3CTX4B1E3IK6G  B005YDLJ76      5  1325462400  Beyonc&Atilde;&copy; Live at Roseland: Elements of 4         Beyonce  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4568  A3CTX4B1E3IK6G  B009AVCA94      5  1358812800                      Step Up Revolution Dance Workout     Micki Duran          ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                   title             brand                                             category
+0  A3CTX4B1E3IK6G  B000002B1U      4  1167868800                            Off The Hook            Xscape                  ['CDs & Vinyl', 'Pop', 'Dance Pop']
+1  A3CTX4B1E3IK6G  B000008PV0      5  1350086400                        Remix Collection       Boyz II Men       ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+2  A3CTX4B1E3IK6G  B000002L0U      5  1167868800                         Jade to the Max              Jade         ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+3  A3CTX4B1E3IK6G  B000002HHP      5  1167868800                      Do You Wanna Ride?      Adina Howard       ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+4  A3CTX4B1E3IK6G  B000000OM9      5  1167868800  Dreamgirls 1982 Original Broadway Cast  Sheryl Lee Ralph  ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+5  A3CTX4B1E3IK6G  B000002WMU      5  1167868800                         It's About Time               SWV       ['CDs & Vinyl', 'Dance & Electronic', 'House']
+6  A3CTX4B1E3IK6G  B000001A63      5  1167868800                         21 Ways to Grow           Shanice                   ['CDs & Vinyl', 'Pop', 'Teen Pop']
+Correct items for test user:
+['B000002L0U', 'B000002HHP', 'B000000OM9', 'B000002WMU', 'B000001A63']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Mean Girls 2
+	Brand: Meaghan Martin
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Comedy']
+	2.
+	Title: Beyonc&Atilde;&copy; Live at Roseland: Elements of 4
+	Brand: Beyonce
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	3.
+	Title: Step Up Revolution Dance Workout
+	Brand: Micki Duran
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002B1U
+	Title: Off The Hook
+	Brand: Xscape
+	Categories: ['CDs & Vinyl', 'Pop', 'Dance Pop']
+	2.
+	Id: B000008PV0
+	Title: Remix Collection
+	Brand: Boyz II Men
+	Categories: ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+	3.
+	Id: B000002L0U
+	Title: Jade to the Max
+	Brand: Jade
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+	4.
+	Id: B000002HHP
+	Title: Do You Wanna Ride?
+	Brand: Adina Howard
+	Categories: ['CDs & Vinyl', 'Blues', 'Contemporary Blues']
+	5.
+	Id: B000000OM9
+	Title: Dreamgirls 1982 Original Broadway Cast
+	Brand: Sheryl Lee Ralph
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	6.
+	Id: B000002WMU
+	Title: It's About Time
+	Brand: SWV
+	Categories: ['CDs & Vinyl', 'Dance & Electronic', 'House']
+	7.
+	Id: B000001A63
+	Title: 21 Ways to Grow
+	Brand: Shanice
+	Categories: ['CDs & Vinyl', 'Pop', 'Teen Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002B1U', 'B000002L0U', 'B000002HHP', 'B000000OM9', 'B000002WMU'].
+Explanation: Based on the user's liked movies, which are in the categories of 'Movies & TV', 'Paramount Home Entertainment', 'Comedy', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles', we can recommend CDs that are in similar categories. 
+
+The top 5 recommended CDs are:
+1. Off The Hook by Xscape: This CD is in the category of 'CDs & Vinyl', 'Pop', 'Dance Pop', which is similar to the user's liked movies in the 'Comedy' category.
+2. Jade to the Max by Jade: This CD is in the category of 'CDs & Vinyl', 'Pop', 'Adult Contemporary', which is similar to the user's liked movies in the 'Comedy' category.
+3. Do You Wanna Ride? by Adina Howard: This CD is in the category of 'CDs & Vinyl', 'Blues', 'Contemporary Blues', which is not directly related to the user's liked movies, but it shares the 'Blues' category.
+4. Dreamgirls 1982 Original Broadway Cast by Sheryl Lee Ralph: This CD is in the category of 'CDs & Vinyl', 'Broadway & Vocalists', 'Musicals', which is not directly related to the user's liked movies, but it shares the 'Musicals' category.
+5. It's About Time by SWV: This CD is in the category of 'CDs & Vinyl', 'Dance & Electronic', 'House', which is not directly related to the user's liked movies, but it shares the 'Dance & Electronic' category.
+
+These recommendations are based on the similarity of categories between the user's liked movies and the candidate CDs.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2T19CI7GUT9HE
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                               title            brand                                                                                     category
+4094  A2T19CI7GUT9HE  B004HO6I4M      4  1400630400                                                                 Rio  Jesse Eisenberg  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+4137  A2T19CI7GUT9HE  B004QL7K70      4  1344988800                                                           Project X      Thomas Mann                        ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4357  A2T19CI7GUT9HE  B005SV9X22      2  1400630400  Lady Gaga Presents: The Monster Ball Tour At Madison Square Garden             <NA>                  ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4679  A2T19CI7GUT9HE  B00C7BZYRO      4  1402099200                                                 The Spectacular Now             <NA>                                                                    ['Movies & TV', 'Movies']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                              title              brand                                                              category
+0  A2T19CI7GUT9HE  B009DKFSRI      5  1353456000  <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"            Pitbull                           ['CDs & Vinyl', 'Rap & Hip-Hop', 'Pop Rap']
+1  A2T19CI7GUT9HE  B00004WJE9      3   970617600                                                                           Stronger         Kristine W                                   ['CDs & Vinyl', 'Pop', 'Dance Pop']
+2  A2T19CI7GUT9HE  B000I5X82O      5  1184457600                                                                       An Other Cup  Yusuf/Cat Stevens  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+3  A2T19CI7GUT9HE  B0043FO1ZI      5  1365552000                                                                         Breathless           Schiller                  ['CDs & Vinyl', 'Dance & Electronic', 'Electronica']
+4  A2T19CI7GUT9HE  B00005O6HS      5  1071532800                                                                Songs of the Season        Jane Olivor                   ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+5  A2T19CI7GUT9HE  B005NKIQ4E      5  1327536000                                                                                Red       Dia Frampton                                                ['CDs & Vinyl', 'Pop']
+6  A2T19CI7GUT9HE  B0000026LJ      4  1101168000                                                                   Yakety Sax! Sony     Boots Randolph      ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+7  A2T19CI7GUT9HE  B003MC5CNS      5  1290988800                                                                         Live It Up         Lee DeWyze                                                ['CDs & Vinyl', 'Pop']
+Correct items for test user:
+['B00005O6HS', 'B000I5X82O', 'B003MC5CNS', 'B005NKIQ4E', 'B009DKFSRI']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: Rio
+	Brand: Jesse Eisenberg
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+	2.
+	Title: Project X
+	Brand: Thomas Mann
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	3.
+	Title: Lady Gaga Presents: The Monster Ball Tour At Madison Square Garden
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	4.
+	Title: The Spectacular Now
+	Categories: ['Movies & TV', 'Movies']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B009DKFSRI
+	Title: <span id="parentalAdvisory" class="a-size-medium a-color-secondary a-text-normal"
+	Brand: Pitbull
+	Categories: ['CDs & Vinyl', 'Rap & Hip-Hop', 'Pop Rap']
+	2.
+	Id: B00004WJE9
+	Title: Stronger
+	Brand: Kristine W
+	Categories: ['CDs & Vinyl', 'Pop', 'Dance Pop']
+	3.
+	Id: B000I5X82O
+	Title: An Other Cup
+	Brand: Yusuf/Cat Stevens
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	4.
+	Id: B0043FO1ZI
+	Title: Breathless
+	Brand: Schiller
+	Categories: ['CDs & Vinyl', 'Dance & Electronic', 'Electronica']
+	5.
+	Id: B00005O6HS
+	Title: Songs of the Season
+	Brand: Jane Olivor
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	6.
+	Id: B005NKIQ4E
+	Title: Red
+	Brand: Dia Frampton
+	Categories: ['CDs & Vinyl', 'Pop']
+	7.
+	Id: B0000026LJ
+	Title: Yakety Sax! Sony
+	Brand: Boots Randolph
+	Categories: ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+	8.
+	Id: B003MC5CNS
+	Title: Live It Up
+	Brand: Lee DeWyze
+	Categories: ['CDs & Vinyl', 'Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00004WJE9', 'B000I5X82O', 'B0043FO1ZI', 'B00005O6HS', 'B005NKIQ4E'].
+Explanation: Based on the user's liked movies, which include movies from the categories 'Movies & TV', 'Studio Specials', and 'Movies', the recommender system suggests CDs that are related to these categories. 
+
+1. 'B00004WJE9' (Stronger) is a CD in the 'Pop' and 'Dance Pop' categories, which are similar to the user's liked movies in terms of genre and style.
+
+2. 'B000I5X82O' (An Other Cup) is a CD in the 'World Music', 'Europe', and 'British Isles' categories. Although it is not directly related to the user's liked movies, it offers a different cultural experience that might be of interest.
+
+3. 'B0043FO1ZI' (Breathless) is a CD in the 'Dance & Electronic' and 'Electronica' categories. It shares similarities with the user's liked movies in terms of the electronic music genre.
+
+4. 'B00005O6HS' (Songs of the Season) is a CD in the 'Pop' and 'Traditional Pop' categories. It offers a nostalgic and traditional pop music experience, which might resonate with the user's preferences.
+
+5. 'B005NKIQ4E' (Red) is a CD in the 'Pop' category. It is recommended based on the user's liked movies that fall under the 'Movies & TV' and 'Movies' categories.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3VOM1IAGT7JXI
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                           title           brand                                                                                        category
+4111  A3VOM1IAGT7JXI  B004LWZW24      4  1394236800                       Insidious  Patrick Wilson                                      ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+4113  A3VOM1IAGT7JXI  B004LWZW4M      5  1387065600  Rise of the Planet of the Apes    James Franco  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']
+4556  A3VOM1IAGT7JXI  B009934S5M      2  1381104000         Star Trek Into Darkness      Simon Pegg                                                            ['Movies & TV', 'Blu-ray', 'Movies']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                        title             brand                                             category
+0  A3VOM1IAGT7JXI  B0009A1AQE      5  1394236800                                          The Light in the Piazza 2005 Original Broadway Cast       Craig Lucas  ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+1  A3VOM1IAGT7JXI  B00EKXDVOK      5  1394236800                                                                  The Classic Christmas Album  Barbra Streisand    ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+2  A3VOM1IAGT7JXI  B00FH3UHV2      5  1387065600                                                                                        Forte             Forte                  ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+3  A3VOM1IAGT7JXI  B000031WEN      5  1222905600  Mamma Mia! The Musical Based on the Songs of ABBA: Original Cast Recording 1999 London Cast   Benny Andersson    ['CDs & Vinyl', 'Pop', 'Euro Pop', 'Swedish Pop']
+4  A3VOM1IAGT7JXI  B00168PTDI      2  1394236800                                                                          Wonder In The World      Kelli O'Hara  ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+5  A3VOM1IAGT7JXI  B001NJ918O      2  1394236800                                                                                         Wish     Sutton Foster  ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+Correct items for test user:
+['B000031WEN', 'B00FH3UHV2', 'B0009A1AQE', 'B00EKXDVOK', 'B00168PTDI']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Rise of the Planet of the Apes
+	Brand: James Franco
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Insidious
+	Brand: Patrick Wilson
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	2.
+	Title: Star Trek Into Darkness
+	Brand: Simon Pegg
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0009A1AQE
+	Title: The Light in the Piazza 2005 Original Broadway Cast
+	Brand: Craig Lucas
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	2.
+	Id: B00EKXDVOK
+	Title: The Classic Christmas Album
+	Brand: Barbra Streisand
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	3.
+	Id: B00FH3UHV2
+	Title: Forte
+	Brand: Forte
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	4.
+	Id: B000031WEN
+	Title: Mamma Mia! The Musical Based on the Songs of ABBA: Original Cast Recording 1999 London Cast
+	Brand: Benny Andersson
+	Categories: ['CDs & Vinyl', 'Pop', 'Euro Pop', 'Swedish Pop']
+	5.
+	Id: B00168PTDI
+	Title: Wonder In The World
+	Brand: Kelli O'Hara
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	6.
+	Id: B001NJ918O
+	Title: Wish
+	Brand: Sutton Foster
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0009A1AQE', 'B00EKXDVOK', 'B00FH3UHV2', 'B000031WEN', 'B00168PTDI'].
+Explanation: Based on the user's liked and disliked movies, we can infer that the user has a preference for action movies and dislikes horror movies. Therefore, we can recommend CDs that are related to action or have a similar genre. 
+
+Among the candidate CDs, "The Light in the Piazza 2005 Original Broadway Cast" (B0009A1AQE) is a Broadway musical, which can be considered as a similar genre to action movies. 
+
+"The Classic Christmas Album" (B00EKXDVOK) is a holiday album, which may not directly relate to the user's preference for action movies, but it is a popular and well-received album that can be enjoyed during the holiday season.
+
+"Forte" (B00FH3UHV2) is a pop vocal album, which can be a good recommendation based on the user's preference for action movies.
+
+"Mamma Mia! The Musical Based on the Songs of ABBA: Original Cast Recording 1999 London Cast" (B000031WEN) is a musical album based on the songs of ABBA, which can be considered as a similar genre to action movies.
+
+"Wonder In The World" (B00168PTDI) is a pop album by Kelli O'Hara, which can be a good recommendation based on the user's preference for action movies.
+
+Overall, these recommendations are based on the assumption that the user's preference for action movies can be extended to CDs with similar genres or themes.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3PVKIMH1F9OI6
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                         title              brand                                                                                            category
+4149  A3PVKIMH1F9OI6  B004V2S4L0      4  1392422400  Medium: Complete Series Pack  Patricia Arquette                                            ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+4466  A3PVKIMH1F9OI6  B007549W62      1  1392768000                   Divide, The      Lauren German                                          ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+4696  A3PVKIMH1F9OI6  B00CNIDHM0      1  1395878400                Flying Monkeys        Mike Kimmel  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4793  A3PVKIMH1F9OI6  B00KFNF2DM      3  1401580800        The World Wars Digital         Don Meehan                                                 ['Movies & TV', 'A&E Home Video', 'All A&E Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                         title                             brand                                           category
+0  A3PVKIMH1F9OI6  B00GJ7CVUU      5  1392422400                                         Hydra                 Within Temptation                           ['CDs & Vinyl', 'Metal']
+1  A3PVKIMH1F9OI6  B000PHWDYO      5  1401580800                        Passion Leaves a Trace                         Black Lab        ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+2  A3PVKIMH1F9OI6  B00FR0GT9Y      4  1387238400                         Life, Love &amp; Hope                            Boston                             ['CDs & Vinyl', 'Pop']
+3  A3PVKIMH1F9OI6  B00DDRKEB2      3  1392422400                          Loveless Fascination  Starship featuring Mickey Thomas                             ['CDs & Vinyl', 'Pop']
+4  A3PVKIMH1F9OI6  B00GZPIKGA      4  1393545600                                Precious Metal                    House of Lords               ['CDs & Vinyl', 'Rock', 'Hard Rock']
+5  A3PVKIMH1F9OI6  B00FJX94PK      3  1390694400             Wagner Reloaded - Live in Leipzig                      Apocalyptica                           ['CDs & Vinyl', 'Metal']
+6  A3PVKIMH1F9OI6  B00DYP48FQ      5  1387238400  Duck The Halls: A Robertson Family Christmas                    The Robertsons  ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+Correct items for test user:
+['B00DYP48FQ', 'B00GJ7CVUU', 'B000PHWDYO', 'B00FR0GT9Y', 'B00GZPIKGA']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: Medium: Complete Series Pack
+	Brand: Patricia Arquette
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	2.
+	Title: Divide, The
+	Brand: Lauren German
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	3.
+	Title: Flying Monkeys
+	Brand: Mike Kimmel
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	4.
+	Title: The World Wars Digital
+	Brand: Don Meehan
+	Categories: ['Movies & TV', 'A&E Home Video', 'All A&E Titles']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00GJ7CVUU
+	Title: Hydra
+	Brand: Within Temptation
+	Categories: ['CDs & Vinyl', 'Metal']
+	2.
+	Id: B000PHWDYO
+	Title: Passion Leaves a Trace
+	Brand: Black Lab
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+	3.
+	Id: B00FR0GT9Y
+	Title: Life, Love &amp; Hope
+	Brand: Boston
+	Categories: ['CDs & Vinyl', 'Pop']
+	4.
+	Id: B00DDRKEB2
+	Title: Loveless Fascination
+	Brand: Starship featuring Mickey Thomas
+	Categories: ['CDs & Vinyl', 'Pop']
+	5.
+	Id: B00GZPIKGA
+	Title: Precious Metal
+	Brand: House of Lords
+	Categories: ['CDs & Vinyl', 'Rock', 'Hard Rock']
+	6.
+	Id: B00FJX94PK
+	Title: Wagner Reloaded - Live in Leipzig
+	Brand: Apocalyptica
+	Categories: ['CDs & Vinyl', 'Metal']
+	7.
+	Id: B00DYP48FQ
+	Title: Duck The Halls: A Robertson Family Christmas
+	Brand: The Robertsons
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00GJ7CVUU', 'B00FJX94PK', 'B00GZPIKGA', 'B00FR0GT9Y', 'B000PHWDYO'].
+Explanation: Based on the user's liked movies, which include drama and horror genres, I recommend the following CDs:
+1. 'Hydra' by Within Temptation: This CD falls under the 'Metal' category, which aligns with the user's preference for drama and potentially intense music.
+2. 'Wagner Reloaded - Live in Leipzig' by Apocalyptica: This CD also falls under the 'Metal' category and offers a powerful and intense musical experience, similar to the user's liked movies.
+3. 'Precious Metal' by House of Lords: This CD falls under the 'Rock' and 'Hard Rock' categories, which can provide a similar energetic and intense experience as the user's liked movies.
+4. 'Life, Love & Hope' by Boston: This CD falls under the 'Pop' category, which offers a more melodic and uplifting musical experience, potentially balancing the user's preference for drama with a lighter tone.
+5. 'Passion Leaves a Trace' by Black Lab: This CD falls under the 'Pop' and 'Adult Alternative' categories, offering a diverse range of musical styles that can cater to the user's varied movie preferences.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2XQ4F41FN6PJQ
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                          title            brand                                                         category
+4175  A2XQ4F41FN6PJQ  B0052T1EBS      5  1346025600  Lavell Crawford: Can a Brother Get Some Love?  Lavell Crawford       ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+4318  A2XQ4F41FN6PJQ  B005LOBW16      5  1346025600                  Do Women Know What They Want?  Michael Baisden  ['Movies & TV', 'Genre for Featured Categories', 'Documentary']
+4384  A2XQ4F41FN6PJQ  B0061QRDHU      4  1346025600                                   Turn Around!        Deon Cole       ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                     title                  brand                                            category
+0  A2XQ4F41FN6PJQ  B000002NGQ      5  1380240000                                      The Best of Fourplay               Fourplay              ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+1  A2XQ4F41FN6PJQ  B0000029CY      4  1346025600                                             Soulful Strut  Grover Washington Jr.              ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+2  A2XQ4F41FN6PJQ  B000A8AX04      4  1346025600                                                   Popjazz            Warren Hill              ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+3  A2XQ4F41FN6PJQ  B00064K2RQ      5  1346025600                                 At Last...The Duets Album                Kenny G              ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+4  A2XQ4F41FN6PJQ  B0002PUH56      5  1346025600  Marvin, Teddy and Luther: A Smooth Urban Jazz Loveletter        VARIOUS ARTISTS              ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+5  A2XQ4F41FN6PJQ  B000002LQ5      5  1380240000                                                  Fourplay               Fourplay              ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+6  A2XQ4F41FN6PJQ  B00005A046      5  1346025600                                              Face to Face         Wayman Tisdale              ['CDs & Vinyl', 'Jazz', 'Jazz Fusion']
+7  A2XQ4F41FN6PJQ  B000QEIMBO      5  1346025600                                                   Thirsty            Marvin Sapp  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+Correct items for test user:
+['B00064K2RQ', 'B0002PUH56', 'B00005A046', 'B000QEIMBO', 'B000002NGQ']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Lavell Crawford: Can a Brother Get Some Love?
+	Brand: Lavell Crawford
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	2.
+	Title: Do Women Know What They Want?
+	Brand: Michael Baisden
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Documentary']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Turn Around!
+	Brand: Deon Cole
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002NGQ
+	Title: The Best of Fourplay
+	Brand: Fourplay
+	Categories: ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+	2.
+	Id: B0000029CY
+	Title: Soulful Strut
+	Brand: Grover Washington Jr.
+	Categories: ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+	3.
+	Id: B000A8AX04
+	Title: Popjazz
+	Brand: Warren Hill
+	Categories: ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+	4.
+	Id: B00064K2RQ
+	Title: At Last...The Duets Album
+	Brand: Kenny G
+	Categories: ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+	5.
+	Id: B0002PUH56
+	Title: Marvin, Teddy and Luther: A Smooth Urban Jazz Loveletter
+	Brand: VARIOUS ARTISTS
+	Categories: ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+	6.
+	Id: B000002LQ5
+	Title: Fourplay
+	Brand: Fourplay
+	Categories: ['CDs & Vinyl', 'Jazz', 'Smooth Jazz']
+	7.
+	Id: B00005A046
+	Title: Face to Face
+	Brand: Wayman Tisdale
+	Categories: ['CDs & Vinyl', 'Jazz', 'Jazz Fusion']
+	8.
+	Id: B000QEIMBO
+	Title: Thirsty
+	Brand: Marvin Sapp
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002NGQ', 'B0000029CY', 'B000A8AX04', 'B00064K2RQ', 'B0002PUH56'].
+Explanation: Based on the user's liked movies in the comedy and documentary genres, and the disliked movie in the comedy genre, I recommend the top 5 CDs from the Smooth Jazz category. Smooth Jazz is a subgenre of Jazz that is known for its relaxing and melodic sound. The recommended CDs are from artists such as Fourplay, Grover Washington Jr., Warren Hill, Kenny G, and VARIOUS ARTISTS. These CDs are likely to appeal to the user's preference for comedy and documentary movies, as they provide a similar relaxing and enjoyable experience through music.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AJWQ0YLZ5U8GD
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                                         title                  brand                                                                     category
+4176  AJWQ0YLZ5U8GD  B0052Y0FCC      3  1315612800                                                                     Emerson Lake &amp; Palmer  Emerson Lake & Palmer                   ['Movies & TV', 'Music Artists', 'Emerson, Lake & Palmer']
+4257  AJWQ0YLZ5U8GD  B005FPT2E0      5  1332028800                                                George Harrison - Living in the Material World                   <NA>                                         ['Movies & TV', 'Blu-ray', 'Movies']
+4579  AJWQ0YLZ5U8GD  B009IDGMMK      5  1381017600                                                                                       Hermano        Fernando Moreno                        ['Movies & TV', 'Independently Distributed', 'Drama']
+4602  AJWQ0YLZ5U8GD  B00A4O1EPW      5  1364860800  InstruMENTAL Inspirations: Mike Portnoy, Billy Sheehan, Tony MacAlpine &amp; Derek Sherinian                   <NA>  ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4782  AJWQ0YLZ5U8GD  B00IAR2CHY      5  1404604800                                                                               Your Inner Fish                      .                  ['Movies & TV', 'Independently Distributed', 'Documentary']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                            title            brand                                                      category
+0  AJWQ0YLZ5U8GD  B00EYQ6GXG      4  1385596800            Genesis Revisited-Live at Hammersmith    Steve Hackett    ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+1  AJWQ0YLZ5U8GD  B0002WYS6S      5  1218326400                  Dream Theater - Live at Budokan    Dream Theater   ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+2  AJWQ0YLZ5U8GD  B001FWRZ14      4  1265414400                          Fillmore: The Last Days  Various Artists  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+3  AJWQ0YLZ5U8GD  B000228EQS      2  1251763200  Foreigner: All Access Tonight - Live in Concert        Foreigner  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+4  AJWQ0YLZ5U8GD  B005HI7NQO      5  1325116800                                  Oceana MTR73482  Derek Sherinian                         ['CDs & Vinyl', 'Metal', 'Pop Metal']
+5  AJWQ0YLZ5U8GD  B000P46QIG      4  1327795200                                          Quantum         Planet X   ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+6  AJWQ0YLZ5U8GD  B000PFUAO6      5  1188777600                                 Systematic Chaos    Dream Theater   ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+Correct items for test user:
+['B000PFUAO6', 'B0002WYS6S', 'B005HI7NQO', 'B001FWRZ14', 'B000P46QIG']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: George Harrison - Living in the Material World
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	2.
+	Title: Hermano
+	Brand: Fernando Moreno
+	Categories: ['Movies & TV', 'Independently Distributed', 'Drama']
+	3.
+	Title: InstruMENTAL Inspirations: Mike Portnoy, Billy Sheehan, Tony MacAlpine &amp; Derek Sherinian
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	4.
+	Title: Your Inner Fish
+	Brand: .
+	Categories: ['Movies & TV', 'Independently Distributed', 'Documentary']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Emerson Lake &amp; Palmer
+	Brand: Emerson Lake & Palmer
+	Categories: ['Movies & TV', 'Music Artists', 'Emerson, Lake & Palmer']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00EYQ6GXG
+	Title: Genesis Revisited-Live at Hammersmith
+	Brand: Steve Hackett
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	2.
+	Id: B0002WYS6S
+	Title: Dream Theater - Live at Budokan
+	Brand: Dream Theater
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+	3.
+	Id: B001FWRZ14
+	Title: Fillmore: The Last Days
+	Brand: Various Artists
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	4.
+	Id: B000228EQS
+	Title: Foreigner: All Access Tonight - Live in Concert
+	Brand: Foreigner
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	5.
+	Id: B005HI7NQO
+	Title: Oceana MTR73482
+	Brand: Derek Sherinian
+	Categories: ['CDs & Vinyl', 'Metal', 'Pop Metal']
+	6.
+	Id: B000P46QIG
+	Title: Quantum
+	Brand: Planet X
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+	7.
+	Id: B000PFUAO6
+	Title: Systematic Chaos
+	Brand: Dream Theater
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Metal']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0002WYS6S', 'B000PFUAO6', 'B000P46QIG', 'B001FWRZ14', 'B005HI7NQO'].
+Explanation: Based on the user's liked movies, which include music-related documentaries and concert videos, I recommend the following CDs:
+1. 'Dream Theater - Live at Budokan' (Id: B0002WYS6S): This CD is a live recording of a progressive metal band, which aligns with the user's interest in music videos and concerts.
+2. 'Systematic Chaos' (Id: B000PFUAO6): This CD is by the same band, Dream Theater, and falls under the progressive metal genre, which is likely to appeal to the user's taste.
+3. 'Quantum' (Id: B000P46QIG): This CD by Planet X is also in the progressive metal genre, which matches the user's preference for music with complex and intricate compositions.
+4. 'Fillmore: The Last Days' (Id: B001FWRZ14): This CD features various artists and falls under the classic rock and album-oriented rock genres, which may resonate with the user's interest in music documentaries.
+5. 'Oceana MTR73482' (Id: B005HI7NQO): This CD by Derek Sherinian is categorized as metal, specifically pop metal, which could be a suitable recommendation based on the user's diverse music preferences.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A37ZUYFF0C6CIY
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                               title               brand                                                                                        category
+4177  A37ZUYFF0C6CIY  B0053O89IS      5  1351209600                     Bones: Season 7      David Boreanaz  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Fox TV', 'General']
+4247  A37ZUYFF0C6CIY  B005DETYW8      5  1328313600               Celtic Thunder: Storm  Celtic Thunder Ltd                     ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4583  A37ZUYFF0C6CIY  B009KKLQKO      5  1359504000  The Beach Boys 50: Live in Concert                <NA>                     ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                         title           brand                                                              category
+0  A37ZUYFF0C6CIY  B00DJYK4VE      5  1376784000                                Crash My Party      Luke Bryan                         ['CDs & Vinyl', 'Country', "Today's Country"]
+1  A37ZUYFF0C6CIY  B00C7O8TSM      5  1372118400              Live - The 50th Anniversary Tour  The Beach Boys                                                ['CDs & Vinyl', 'Pop']
+2  A37ZUYFF0C6CIY  B00FB7MRNK      5  1385078400                                The Woman I Am  Kellie Pickler                         ['CDs & Vinyl', 'Country', "Today's Country"]
+3  A37ZUYFF0C6CIY  B002AK9UTU      5  1325462400                                  Take Me Home  Celtic Thunder  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+4  A37ZUYFF0C6CIY  B00FLUD46Q      5  1381363200                              Christmas Voices  Celtic Thunder                     ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+5  A37ZUYFF0C6CIY  B00EGA264I      5  1385078400             Let It Snow: A Holiday Collection           Jewel                                   ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+6  A37ZUYFF0C6CIY  B00DYP48FQ      5  1385078400  Duck The Halls: A Robertson Family Christmas  The Robertsons                     ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+Correct items for test user:
+['B002AK9UTU', 'B00C7O8TSM', 'B00DJYK4VE', 'B00FLUD46Q', 'B00FB7MRNK']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Bones: Season 7
+	Brand: David Boreanaz
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Fox TV', 'General']
+	2.
+	Title: Celtic Thunder: Storm
+	Brand: Celtic Thunder Ltd
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	3.
+	Title: The Beach Boys 50: Live in Concert
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00DJYK4VE
+	Title: Crash My Party
+	Brand: Luke Bryan
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	2.
+	Id: B00C7O8TSM
+	Title: Live - The 50th Anniversary Tour
+	Brand: The Beach Boys
+	Categories: ['CDs & Vinyl', 'Pop']
+	3.
+	Id: B00FB7MRNK
+	Title: The Woman I Am
+	Brand: Kellie Pickler
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	4.
+	Id: B002AK9UTU
+	Title: Take Me Home
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	5.
+	Id: B00FLUD46Q
+	Title: Christmas Voices
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	6.
+	Id: B00EGA264I
+	Title: Let It Snow: A Holiday Collection
+	Brand: Jewel
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	7.
+	Id: B00DYP48FQ
+	Title: Duck The Halls: A Robertson Family Christmas
+	Brand: The Robertsons
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00C7O8TSM', 'B00FB7MRNK', 'B00FLUD46Q', 'B002AK9UTU', 'B00DYP48FQ'].
+Explanation: Based on the user's liked movies, it can be inferred that the user has a preference for music-related content. Among the candidate CDs, 'Live - The 50th Anniversary Tour' by The Beach Boys is recommended as it aligns with the user's interest in music videos and concerts. 'The Woman I Am' by Kellie Pickler and 'Christmas Voices' by Celtic Thunder are also recommended as they fall under the country and holiday genres respectively, which are similar to the user's liked movies. 'Take Me Home' by Celtic Thunder is recommended as it shares the same brand as one of the liked movies. Lastly, 'Duck The Halls: A Robertson Family Christmas' by The Robertsons is recommended as it falls under the Christmas genre, which is similar to the user's liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1HJ9P95IRZ32O
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                           title           brand                                                                                        category
+4182  A1HJ9P95IRZ32O  B0053O89WY      5  1367107200                        Big Bang Theory:S5 (DVD)  Johnny Galecki                           ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4274  A1HJ9P95IRZ32O  B005GYXNIG      5  1356480000  If You Believe / A Different Kind of Christmas     Ally Walker                                             ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+4647  A1HJ9P95IRZ32O  B00BCMT2EA      5  1371600000                             Inside World War Ii         Various  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Fox TV', 'General']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                           title                   brand                                                              category
+0  A1HJ9P95IRZ32O  B000001FDK      3  1084492800  Grease Original 1978 Motion Picture Soundtrack      Olivia Newton-John                   ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+1  A1HJ9P95IRZ32O  B000U05ITS      5  1356480000                        Wolfgang's Big Night Out            Brian Setzer                  ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Retro Swing']
+2  A1HJ9P95IRZ32O  B00004Y6RK      5  1013126400                Don't Bore Us, Get to the Chorus                 Roxette     ['CDs & Vinyl', 'World Music', 'Europe', 'Scandinavia', 'Sweden']
+3  A1HJ9P95IRZ32O  B000N3SS5I      5  1224720000                                      Talk to Me           Joey McIntyre                           ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+4  A1HJ9P95IRZ32O  B0000242QG      5  1356480000                          That Christmas Feeling           Glen Campbell      ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+5  A1HJ9P95IRZ32O  B001JTU542      3  1356480000                      I'll Be Home for Christmas              Paul Byrom                     ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+6  A1HJ9P95IRZ32O  B000E6V04U      5  1375488000            Timeless Memories: The Greatest Hits  John McDermott (Tenor)  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+7  A1HJ9P95IRZ32O  B003ZX82MW      5  1311552000                          Good Ol Fashioned Love           The Overtones                                                ['CDs & Vinyl', 'Pop']
+Correct items for test user:
+['B00004Y6RK', 'B000N3SS5I', 'B003ZX82MW', 'B000U05ITS', 'B0000242QG']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Big Bang Theory:S5 (DVD)
+	Brand: Johnny Galecki
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	2.
+	Title: If You Believe / A Different Kind of Christmas
+	Brand: Ally Walker
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+	3.
+	Title: Inside World War Ii
+	Brand: Various
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Fox TV', 'General']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000001FDK
+	Title: Grease Original 1978 Motion Picture Soundtrack
+	Brand: Olivia Newton-John
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+	2.
+	Id: B000U05ITS
+	Title: Wolfgang's Big Night Out
+	Brand: Brian Setzer
+	Categories: ['CDs & Vinyl', 'Jazz', 'Swing Jazz', 'Retro Swing']
+	3.
+	Id: B00004Y6RK
+	Title: Don't Bore Us, Get to the Chorus
+	Brand: Roxette
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'Scandinavia', 'Sweden']
+	4.
+	Id: B000N3SS5I
+	Title: Talk to Me
+	Brand: Joey McIntyre
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+	5.
+	Id: B0000242QG
+	Title: That Christmas Feeling
+	Brand: Glen Campbell
+	Categories: ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+	6.
+	Id: B001JTU542
+	Title: I'll Be Home for Christmas
+	Brand: Paul Byrom
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	7.
+	Id: B000E6V04U
+	Title: Timeless Memories: The Greatest Hits
+	Brand: John McDermott (Tenor)
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	8.
+	Id: B003ZX82MW
+	Title: Good Ol Fashioned Love
+	Brand: The Overtones
+	Categories: ['CDs & Vinyl', 'Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000001FDK', 'B000U05ITS', 'B00004Y6RK', 'B000N3SS5I', 'B0000242QG'].
+Explanation: Based on the user's liked movies, which include "Big Bang Theory:S5 (DVD)", "If You Believe / A Different Kind of Christmas", and "Inside World War Ii", we can infer that the user has a preference for movies and TV shows in the categories of 'Movies & TV', 'Studio Specials', and 'Warner Home Video'. 
+
+Among the candidate CDs, the top 5 recommended CDs are:
+1. "Grease Original 1978 Motion Picture Soundtrack" by Olivia Newton-John: This CD is recommended because it is a soundtrack from a popular movie, which aligns with the user's preference for movies and TV shows.
+2. "Wolfgang's Big Night Out" by Brian Setzer: This CD is recommended because it falls under the category of 'Jazz', which may appeal to the user's interest in music.
+3. "Don't Bore Us, Get to the Chorus" by Roxette: This CD is recommended because it falls under the category of 'World Music', which may provide a different and interesting musical experience for the user.
+4. "Talk to Me" by Joey McIntyre: This CD is recommended because it falls under the category of 'Pop', which may align with the user's general music taste.
+5. "That Christmas Feeling" by Glen Campbell: This CD is recommended because it falls under the category of 'Country' and 'Classic Country', which may resonate with the user's interest in Christmas-themed movies and TV shows.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A39EALCQ5DX4LH
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                title                     brand                                                               category
+4224  A39EALCQ5DX4LH  B0059XTU1S      5  1398643200    The Hobbit: An Unexpected Journey            Martin Freeman  ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4232  A39EALCQ5DX4LH  B0059XTU3G      5  1398643200  The Hobbit: The Desolation of Smaug            Martin Freeman  ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4362  A39EALCQ5DX4LH  B005T7BT7M      4  1364947200                   &quot;Family&quot;  Fadhia Carmelle Marcelin               ['Movies & TV', 'Genre for Featured Categories', 'LGBT']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                                                                                                             title              brand                                                      category
+0  A39EALCQ5DX4LH  B000068ZVQ      5  1363564800                                                                                                                                                                      The Very Best of Chicago: Only the Beginning            Chicago  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+1  A39EALCQ5DX4LH  B002R0HT6Y      5  1363564800                                                                                                                                                                                                          Elvis 75      Elvis Presley                              ['CDs & Vinyl', 'Pop', 'Oldies']
+2  A39EALCQ5DX4LH  B0000024YL      5  1363564800                                                                                                                                                                               Simon and Garfunkel's Greatest Hits  Simon & Garfunkel                  ['CDs & Vinyl', 'Pop', 'Singer-Songwriters']
+3  A39EALCQ5DX4LH  B000H0MKGU      5  1360713600                                                                                                                                                                                        Duets: An American Classic       Tony Bennett           ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+4  A39EALCQ5DX4LH  B001DMJAMI      5  1363564800  Rod Stewart,The Definitive Rod Stewart (2CD),Rhino/Warner Bros.,5263353,Pop,Rock,2 CD Set,Pop / Pop Rock,Pop/Rock Music,Soundtracks  / Movie Scores,Recorded Music - Rock &amp; Pop,Rock &amp; Pop - General" />        Rod Stewart              ['CDs & Vinyl', 'R&B', 'Soul', 'Blue-Eyed Soul']
+5  A39EALCQ5DX4LH  B00006LFGD      5  1341964800                                                                                                                                                                                                             Duets   Barbra Streisand  ['CDs & Vinyl', 'Broadway & Vocalists', 'Classic Vocalists']
+6  A39EALCQ5DX4LH  B00CJLQH0K      5  1379548800                                                                                                                                                                                                     The Standards     Gloria Estefan                   ['CDs & Vinyl', 'Latin Music', 'Latin Pop']
+Correct items for test user:
+['B00006LFGD', 'B000H0MKGU', 'B000068ZVQ', 'B002R0HT6Y', 'B0000024YL']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Hobbit: An Unexpected Journey
+	Brand: Martin Freeman
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	2.
+	Title: The Hobbit: The Desolation of Smaug
+	Brand: Martin Freeman
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: &quot;Family&quot;
+	Brand: Fadhia Carmelle Marcelin
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'LGBT']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000068ZVQ
+	Title: The Very Best of Chicago: Only the Beginning
+	Brand: Chicago
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	2.
+	Id: B002R0HT6Y
+	Title: Elvis 75
+	Brand: Elvis Presley
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies']
+	3.
+	Id: B0000024YL
+	Title: Simon and Garfunkel's Greatest Hits
+	Brand: Simon & Garfunkel
+	Categories: ['CDs & Vinyl', 'Pop', 'Singer-Songwriters']
+	4.
+	Id: B000H0MKGU
+	Title: Duets: An American Classic
+	Brand: Tony Bennett
+	Categories: ['CDs & Vinyl', 'Pop', 'Oldies', 'Traditional Pop']
+	5.
+	Id: B001DMJAMI
+	Title: Rod Stewart,The Definitive Rod Stewart (2CD),Rhino/Warner Bros.,5263353,Pop,Rock,2 CD Set,Pop / Pop Rock,Pop/Rock Music,Soundtracks  / Movie Scores,Recorded Music - Rock &amp; Pop,Rock &amp; Pop - General" />
+	Brand: Rod Stewart
+	Categories: ['CDs & Vinyl', 'R&B', 'Soul', 'Blue-Eyed Soul']
+	6.
+	Id: B00006LFGD
+	Title: Duets
+	Brand: Barbra Streisand
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Classic Vocalists']
+	7.
+	Id: B00CJLQH0K
+	Title: The Standards
+	Brand: Gloria Estefan
+	Categories: ['CDs & Vinyl', 'Latin Music', 'Latin Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000068ZVQ', 'B002R0HT6Y', 'B0000024YL', 'B000H0MKGU', 'B001DMJAMI'].
+Explanation: Based on the user's liked movies from the "The Hobbit" series, which are in the categories of "Movies & TV" and "Studio Specials", I recommend CDs that are also in the categories of "CDs & Vinyl" and "Pop". The top 5 recommended CDs are:
+1. The Very Best of Chicago: Only the Beginning - This CD is in the category of "Classic Rock" and "Album-Oriented Rock (AOR)", which aligns with the user's preference for movies in the "Studio Specials" category.
+2. Elvis 75 - This CD is in the category of "Pop" and "Oldies", which aligns with the user's preference for movies in the "Studio Specials" category.
+3. Simon and Garfunkel's Greatest Hits - This CD is in the category of "Pop" and "Singer-Songwriters", which aligns with the user's preference for movies in the "Studio Specials" category.
+4. Duets: An American Classic - This CD is in the category of "Pop", "Oldies", and "Traditional Pop", which aligns with the user's preference for movies in the "Studio Specials" category.
+5. Rod Stewart, The Definitive Rod Stewart (2CD) - This CD is in the category of "R&B", "Soul", and "Blue-Eyed Soul", which aligns with the user's preference for movies in the "Studio Specials" category.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1SQZ1VH4HTSU1
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                  title                brand                                                                                            category
+4248  A1SQZ1VH4HTSU1  B005DETYW8      5  1375228800  Celtic Thunder: Storm   Celtic Thunder Ltd                         ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4270  A1SQZ1VH4HTSU1  B005GRTNVE      3  1341792000         Live In London                 <NA>  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4454  A1SQZ1VH4HTSU1  B007146EEY      5  1341792000                Il Volo              Il Volo                         ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4538  A1SQZ1VH4HTSU1  B0091AUSKW      4  1360540800         3 Blind Saints  Richard Speight Jr.                                          ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                                                                                                                                                                                     title           brand                                                              category
+0  A1SQZ1VH4HTSU1  B0007M23BU      5  1384992000                                                                                                                                                                                                                                                                              Gospel Roots   Aaron Neville                    ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+1  A1SQZ1VH4HTSU1  B003TWP5NI      4  1290470400                                                                                                                                                                                                                                                                  Celtic Thunder Christmas  Celtic Thunder                     ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+2  A1SQZ1VH4HTSU1  B000002G1V      5  1384992000                                                                                                                                                                                                                                                         Aaron Neville's Soulful Christmas   Aaron Neville                     ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+3  A1SQZ1VH4HTSU1  B005DEVH1E      5  1348617600                                                                                                                                                                                                                                                                                     Storm  Celtic Thunder  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+4  A1SQZ1VH4HTSU1  B001D27GLK      5  1296172800  Celtic Thunder,Act Two,Celtic Thunder,Celtic/Irish,Int&#39;l &amp; World Music,Pop,Celtic,Irish,Vocals,World Music,International &amp; Ethnic - European - Celtic,International &amp; Ethnic - European - Irish,Recorded Music - International &amp; Ethnic,Rock &amp; Pop - General" />  Celtic Thunder  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+5  A1SQZ1VH4HTSU1  B007146EEE      5  1348617600                                                                                                                                                                                                                                Il Volo...Takes Flight - Live From The Detroit Opera House         Il Volo                                          ['CDs & Vinyl', 'Classical']
+Correct items for test user:
+['B001D27GLK', 'B005DEVH1E', 'B007146EEE', 'B0007M23BU', 'B000002G1V']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Celtic Thunder: Storm
+	Brand: Celtic Thunder Ltd
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	2.
+	Title: Il Volo
+	Brand: Il Volo
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Live In London
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	2.
+	Title: 3 Blind Saints
+	Brand: Richard Speight Jr.
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0007M23BU
+	Title: Gospel Roots
+	Brand: Aaron Neville
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	2.
+	Id: B003TWP5NI
+	Title: Celtic Thunder Christmas
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	3.
+	Id: B000002G1V
+	Title: Aaron Neville's Soulful Christmas
+	Brand: Aaron Neville
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	4.
+	Id: B005DEVH1E
+	Title: Storm
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	5.
+	Id: B001D27GLK
+	Title: Celtic Thunder,Act Two,Celtic Thunder,Celtic/Irish,Int&#39;l &amp; World Music,Pop,Celtic,Irish,Vocals,World Music,International &amp; Ethnic - European - Celtic,International &amp; Ethnic - European - Irish,Recorded Music - International &amp; Ethnic,Rock &amp; Pop - General" />
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	6.
+	Id: B007146EEE
+	Title: Il Volo...Takes Flight - Live From The Detroit Opera House
+	Brand: Il Volo
+	Categories: ['CDs & Vinyl', 'Classical']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B003TWP5NI', 'B000002G1V', 'B005DEVH1E', 'B001D27GLK', 'B007146EEE'].
+Explanation: Based on the user's liked movies, which are Celtic Thunder: Storm and Il Volo, the recommended CDs are ranked as follows:
+1. Celtic Thunder Christmas (B003TWP5NI): This CD is recommended because it is from the same brand as one of the liked movies (Celtic Thunder) and falls under the category of holiday music, which is similar to the genre of the liked movies (Music Videos & Concerts).
+2. Aaron Neville's Soulful Christmas (B000002G1V): This CD is recommended because it is from the same brand as one of the liked movies (Aaron Neville) and also falls under the category of holiday music.
+3. Storm (B005DEVH1E): This CD is recommended because it is from the same brand as one of the liked movies (Celtic Thunder) and falls under the category of world music, specifically British Isles, which is similar to the genre of the liked movies (Music Videos & Concerts).
+4. Celtic Thunder, Act Two (B001D27GLK): This CD is recommended because it is from the same brand as one of the liked movies (Celtic Thunder) and falls under the category of world music, specifically British Isles, which is similar to the genre of the liked movies (Music Videos & Concerts).
+5. Il Volo...Takes Flight - Live From The Detroit Opera House (B007146EEE): This CD is recommended because it is from the same brand as one of the liked movies (Il Volo) and falls under the category of classical music, which is similar to the genre of the liked movies (Music Videos & Concerts).
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3TUFHEE8KSD6R
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                 title                brand                                               category
+4249  A3TUFHEE8KSD6R  B005DJ7AYC      5  1369785600  Masterpiece Contemporary: Page Eight           Bill Nighy  ['Movies & TV', 'Independently Distributed', 'Drama']
+4620  A3TUFHEE8KSD6R  B00ARA4SLU      4  1369785600                             Hitchcock      Anthony Hopkins            ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+4645  A3TUFHEE8KSD6R  B00BB62EII      2  1369785600                        Future Weather  Perla Haney-Jardine  ['Movies & TV', 'Independently Distributed', 'Drama']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                      title          brand                                                    category
+0  A3TUFHEE8KSD6R  B008G12ERC      4  1349740800                                The 2nd Law           Muse  ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+1  A3TUFHEE8KSD6R  B000001HSE      3   900028800                           Rites of Passage  Roger Hodgson  ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+2  A3TUFHEE8KSD6R  B00004TKYI      5   963792000                              Open the Door  Roger Hodgson  ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+3  A3TUFHEE8KSD6R  B000RPTQ1C      4  1213660800  Viva la Vida or Death and All His Friends       Coldplay  ['CDs & Vinyl', 'Alternative Rock', 'British Alternative']
+4  A3TUFHEE8KSD6R  B000002GGR      5   912556800                    In The Eye Of The Storm  Roger Hodgson  ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+Correct items for test user:
+['B000002GGR', 'B00004TKYI', 'B000RPTQ1C', 'B008G12ERC', 'B000001HSE']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Masterpiece Contemporary: Page Eight
+	Brand: Bill Nighy
+	Categories: ['Movies & TV', 'Independently Distributed', 'Drama']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Hitchcock
+	Brand: Anthony Hopkins
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+	2.
+	Title: Future Weather
+	Brand: Perla Haney-Jardine
+	Categories: ['Movies & TV', 'Independently Distributed', 'Drama']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B008G12ERC
+	Title: The 2nd Law
+	Brand: Muse
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	2.
+	Id: B000001HSE
+	Title: Rites of Passage
+	Brand: Roger Hodgson
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	3.
+	Id: B00004TKYI
+	Title: Open the Door
+	Brand: Roger Hodgson
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	4.
+	Id: B000RPTQ1C
+	Title: Viva la Vida or Death and All His Friends
+	Brand: Coldplay
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'British Alternative']
+	5.
+	Id: B000002GGR
+	Title: In The Eye Of The Storm
+	Brand: Roger Hodgson
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000001HSE', 'B00004TKYI', 'B000002GGR', 'B008G12ERC', 'B000RPTQ1C'].
+Explanation: Based on the user's liked movies, which are in the drama genre, I have ranked the CDs that are also in the rock genre. The top 5 recommended CDs are from artists such as Roger Hodgson, Muse, and Coldplay, who are known for their progressive and alternative rock music. These CDs are likely to appeal to the user's taste for drama and provide a similar emotional experience through their music.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3MW8B6I2LXVWR
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                   title          brand                                                    category
+4261  A3MW8B6I2LXVWR  B005G0919K      4  1341878400  Studio Ghibli: The Borrower Arrietty DVD (Licensed boxed version, Japanese audio version with Eng Sub)           <NA>                                   ['Movies & TV', 'Movies']
+4389  A3MW8B6I2LXVWR  B00632KSYM      4  1364947200                                                        Triple-Feature: Alexander Revisited / Troy / 300  Gerard Butler                        ['Movies & TV', 'Blu-ray', 'Movies']
+4390  A3MW8B6I2LXVWR  B00634MLIQ      5  1364947200                                                                 V for Vendetta / Watchmen / Constantine   Hugo Weaving                        ['Movies & TV', 'Blu-ray', 'Movies']
+4629  A3MW8B6I2LXVWR  B00AZMFONG      4  1389657600                                                                                           Stand Up Guys      Al Pacino  ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                          title                brand                                                      category
+0  A3MW8B6I2LXVWR  B000002BK9      5  1371427200                                          Greatest Hits: Boston               Boston  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+1  A3MW8B6I2LXVWR  B009SA8XUW      5  1388188800                       Stray Arrows - A Collection Of Favorites             Chevelle                         ['CDs & Vinyl', 'Metal', 'Pop Metal']
+2  A3MW8B6I2LXVWR  B000002G2B      5  1386115200                                                   Superunknown          Soundgarden                 ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+3  A3MW8B6I2LXVWR  B00005KBBB      4  1371427200                   Millennium Collection - 20th Century Masters                Tesla  ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+4  A3MW8B6I2LXVWR  B001N3OCV6      4  1357948800                        Watchmen: Music from the Motion Picture  My Chemical Romance                ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+5  A3MW8B6I2LXVWR  B00FR0GT9Y      5  1386115200                                          Life, Love &amp; Hope               Boston                                        ['CDs & Vinyl', 'Pop']
+6  A3MW8B6I2LXVWR  B00004S63N      4  1371427200  Greatest Hits - Burning Cats and Amputees: People with Issues           Bulletboys                       ['CDs & Vinyl', 'Classic Rock', 'Glam']
+Correct items for test user:
+['B000002BK9', 'B000002G2B', 'B00FR0GT9Y', 'B009SA8XUW', 'B001N3OCV6']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: V for Vendetta / Watchmen / Constantine
+	Brand: Hugo Weaving
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Studio Ghibli: The Borrower Arrietty DVD (Licensed boxed version, Japanese audio version with Eng Sub)
+	Categories: ['Movies & TV', 'Movies']
+	2.
+	Title: Triple-Feature: Alexander Revisited / Troy / 300
+	Brand: Gerard Butler
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	3.
+	Title: Stand Up Guys
+	Brand: Al Pacino
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002BK9
+	Title: Greatest Hits: Boston
+	Brand: Boston
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	2.
+	Id: B009SA8XUW
+	Title: Stray Arrows - A Collection Of Favorites
+	Brand: Chevelle
+	Categories: ['CDs & Vinyl', 'Metal', 'Pop Metal']
+	3.
+	Id: B000002G2B
+	Title: Superunknown
+	Brand: Soundgarden
+	Categories: ['CDs & Vinyl', 'Metal', 'Alternative Metal']
+	4.
+	Id: B00005KBBB
+	Title: Millennium Collection - 20th Century Masters
+	Brand: Tesla
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Album-Oriented Rock (AOR)']
+	5.
+	Id: B001N3OCV6
+	Title: Watchmen: Music from the Motion Picture
+	Brand: My Chemical Romance
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	6.
+	Id: B00FR0GT9Y
+	Title: Life, Love &amp; Hope
+	Brand: Boston
+	Categories: ['CDs & Vinyl', 'Pop']
+	7.
+	Id: B00004S63N
+	Title: Greatest Hits - Burning Cats and Amputees: People with Issues
+	Brand: Bulletboys
+	Categories: ['CDs & Vinyl', 'Classic Rock', 'Glam']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000002BK9', 'B000002G2B', 'B00005KBBB', 'B001N3OCV6', 'B00FR0GT9Y'].
+Explanation: Based on the user's liked movies, which include "V for Vendetta", "Watchmen", and "Constantine", I recommend the following CDs:
+1. "Greatest Hits: Boston" by Boston: This CD falls under the category of Classic Rock, which aligns with the user's preference for movies in the same genre.
+2. "Superunknown" by Soundgarden: This CD is categorized as Metal and Alternative Metal, which may appeal to the user's taste for darker and edgier movies like "V for Vendetta" and "Watchmen".
+3. "Millennium Collection - 20th Century Masters" by Tesla: This CD also falls under the category of Classic Rock, which matches the user's preference for movies in the same genre.
+4. "Watchmen: Music from the Motion Picture" by My Chemical Romance: This CD is a soundtrack from the movie "Watchmen", which the user liked. It may provide a similar musical experience.
+5. "Life, Love & Hope" by Boston: This CD falls under the category of Pop, which may appeal to the user's broader music taste.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1J53DKRFDHVXY
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                    title            brand                                                                                            category
+4295  A1J53DKRFDHVXY  B005LAIHQS      1  1357948800           Men in Black 3       Will Smith  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4535  A1J53DKRFDHVXY  B00915G6R6      2  1380844800  The Good Wife: Season 4  Anika Noni Rose                                            ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+4745  A1J53DKRFDHVXY  B00EO2I6PQ      2  1384041600           Computer Chess    Wiley Wiggins                                          ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                              title                     brand                                                              category
+0  A1J53DKRFDHVXY  B001BM67QW      5  1280534400  The Airborne Toxic Event,The Airborne Toxic Event,Major Domo Records / Shout Factory,5261901,Pop,Pop/Rock Music,Rock,Rock/Pop" />  The Airborne Toxic Event    ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+1  A1J53DKRFDHVXY  B00005J4HH      3  1272931200                                                                                                                 Origin of Symmetry                      Muse  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+2  A1J53DKRFDHVXY  B0088XQB9A      5  1344124800                                                                                                                        Milo Greene               Milo Greene    ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+3  A1J53DKRFDHVXY  B008G12ERC      5  1349136000                                                                                                                        The 2nd Law                      Muse            ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+4  A1J53DKRFDHVXY  B00E6890VC      5  1395705600                                                                                                      The Bones Of What You Believe                  Chvrches                                                ['CDs & Vinyl', 'Pop']
+5  A1J53DKRFDHVXY  B0085FF55W      5  1344124800                                                                                                                         Loma Vista        Family of the Year    ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+Correct items for test user:
+['B001BM67QW', 'B0088XQB9A', 'B0085FF55W', 'B008G12ERC', 'B00E6890VC']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: Men in Black 3
+	Brand: Will Smith
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	2.
+	Title: The Good Wife: Season 4
+	Brand: Anika Noni Rose
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	3.
+	Title: Computer Chess
+	Brand: Wiley Wiggins
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B001BM67QW
+	Title: The Airborne Toxic Event,The Airborne Toxic Event,Major Domo Records / Shout Factory,5261901,Pop,Pop/Rock Music,Rock,Rock/Pop" />
+	Brand: The Airborne Toxic Event
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	2.
+	Id: B00005J4HH
+	Title: Origin of Symmetry
+	Brand: Muse
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	3.
+	Id: B0088XQB9A
+	Title: Milo Greene
+	Brand: Milo Greene
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	4.
+	Id: B008G12ERC
+	Title: The 2nd Law
+	Brand: Muse
+	Categories: ['CDs & Vinyl', 'Rock', 'Progressive', 'Progressive Rock']
+	5.
+	Id: B00E6890VC
+	Title: The Bones Of What You Believe
+	Brand: Chvrches
+	Categories: ['CDs & Vinyl', 'Pop']
+	6.
+	Id: B0085FF55W
+	Title: Loma Vista
+	Brand: Family of the Year
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00005J4HH', 'B008G12ERC', 'B0085FF55W', 'B0088XQB9A', 'B00E6890VC'].
+Explanation: Based on the user's liked movies, which include "Men in Black 3" and "The Good Wife: Season 4", we can infer that the user has a preference for movies in the genres of action, science fiction, and drama. 
+
+Among the candidate CDs, "Origin of Symmetry" by Muse and "The 2nd Law" by Muse are recommended because Muse is known for their alternative rock sound, which can be associated with the action and intensity found in the user's liked movies. 
+
+"Loma Vista" by Family of the Year is recommended because it falls under the category of alternative rock, which aligns with the user's preference for the indie and lo-fi genres found in the user's liked movies. 
+
+"Milo Greene" by Milo Greene is recommended because it also falls under the category of alternative rock, which matches the user's preference for indie and lo-fi genres. 
+
+"The Bones Of What You Believe" by Chvrches is recommended because it falls under the category of pop, which is a broader genre that can appeal to a wider audience, including fans of drama.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1LR140UM9IREE
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                   title           brand                                                                      category
+4300  A1LR140UM9IREE  B005LAIIFS      5  1395532800  Rise of the Guardians: Easter Gift Set      Chris Pine  ['Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Animation']
+4338  A1LR140UM9IREE  B005RYF5JA      5  1395532800                   Celtic Woman: Believe    Celtic Woman                              ['Movies & TV', 'Music Artists', 'Celtic Woman']
+4626  A1LR140UM9IREE  B00AX5B0QU      5  1370563200               Celtic Thunder: Mythology  Celtic Thunder   ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                 title             brand                                                                 category
+0  A1LR140UM9IREE  B000CNF4KG      5  1395532800                    Walking In The Air      Celtic Woman     ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+1  A1LR140UM9IREE  B0010V4TTQ      5  1383436800                                 Chloe              Chlo  ['CDs & Vinyl', 'World Music', 'Europe', 'Continental Europe', 'Italy']
+2  A1LR140UM9IREE  B004DMAZQA      5  1395532800                               Lullaby      Celtic Woman     ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+3  A1LR140UM9IREE  B00EZPCWKM      5  1387065600  Home for Christmas: Live From Dublin      Celtic Woman                                      ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+4  A1LR140UM9IREE  B005CHZZ06      5  1395532800                        The White Rose  George Donaldson                              ['CDs & Vinyl', 'Folk', 'Traditional Folk']
+5  A1LR140UM9IREE  B00AX5B0QA      5  1370563200                             Mythology    Celtic Thunder     ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+Correct items for test user:
+['B00AX5B0QA', 'B0010V4TTQ', 'B00EZPCWKM', 'B000CNF4KG', 'B004DMAZQA']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Rise of the Guardians: Easter Gift Set
+	Brand: Chris Pine
+	Categories: ['Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Animation']
+	2.
+	Title: Celtic Woman: Believe
+	Brand: Celtic Woman
+	Categories: ['Movies & TV', 'Music Artists', 'Celtic Woman']
+	3.
+	Title: Celtic Thunder: Mythology
+	Brand: Celtic Thunder
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000CNF4KG
+	Title: Walking In The Air
+	Brand: Celtic Woman
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	2.
+	Id: B0010V4TTQ
+	Title: Chloe
+	Brand: Chlo
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'Continental Europe', 'Italy']
+	3.
+	Id: B004DMAZQA
+	Title: Lullaby
+	Brand: Celtic Woman
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	4.
+	Id: B00EZPCWKM
+	Title: Home for Christmas: Live From Dublin
+	Brand: Celtic Woman
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	5.
+	Id: B005CHZZ06
+	Title: The White Rose
+	Brand: George Donaldson
+	Categories: ['CDs & Vinyl', 'Folk', 'Traditional Folk']
+	6.
+	Id: B00AX5B0QA
+	Title: Mythology
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000CNF4KG', 'B004DMAZQA', 'B00EZPCWKM', 'B00AX5B0QA', 'B005CHZZ06'].
+Explanation: Based on the user's liked movies, which are related to Celtic Woman and Celtic Thunder, the recommended CDs are also related to Celtic music. The top 5 recommended CDs are from Celtic Woman and Celtic Thunder, which are the same brands as the liked movies. The categories of the recommended CDs also match the categories of the liked movies, such as 'World Music', 'Europe', and 'British Isles'. Therefore, these recommended CDs are likely to be of interest to the user.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1VQWHOGHZFPVF
+Liked items in the base domain:
+             user_id     item_id rating   timestamp         title            brand                                                                category
+4304  A1VQWHOGHZFPVF  B005LAIIMG      2  1404864000   World War Z        Brad Pitt   ['Movies & TV', 'Paramount Home Entertainment', 'Action & Adventure']
+4499  A1VQWHOGHZFPVF  B008220BGQ      5  1392249600  The Campaign   Jason Sudeikis              ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+4656  A1VQWHOGHZFPVF  B00BEIYP1W      5  1404864000          Rush  Chris Hemsworth  ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                           title                            brand                                             category
+0  A1VQWHOGHZFPVF  B00KDKM58C      5  1405728000  Jersey Boys Music From The Motion Picture And Broadway Musical                      Jersey Boys  ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+1  A1VQWHOGHZFPVF  B0002W3E4A      5  1224028800                                               Gregorian Mystics                      Magna Canta                  ['CDs & Vinyl', 'Pop', 'Dance Pop']
+2  A1VQWHOGHZFPVF  B000ND91SG      5  1221696000                           A Hundred Miles or More: A Collection  Alison Krauss and Union Station              ['CDs & Vinyl', 'Country', 'Bluegrass']
+3  A1VQWHOGHZFPVF  B00A9T1HUO      5  1392249600                                                 All That Echoes                      Josh Groban                  ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+4  A1VQWHOGHZFPVF  B0096MV73M      5  1392249600                                            Lead With Your Heart                       The Tenors                  ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+5  A1VQWHOGHZFPVF  B00005TZSK      5  1392249600                                 The Soul of Healing Meditations                    Deepak Chopra     ['CDs & Vinyl', 'Special Interest', 'Self-Help']
+Correct items for test user:
+['B000ND91SG', 'B0002W3E4A', 'B00A9T1HUO', 'B0096MV73M', 'B00005TZSK']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Campaign
+	Brand: Jason Sudeikis
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	2.
+	Title: Rush
+	Brand: Chris Hemsworth
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: World War Z
+	Brand: Brad Pitt
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Action & Adventure']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00KDKM58C
+	Title: Jersey Boys Music From The Motion Picture And Broadway Musical
+	Brand: Jersey Boys
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	2.
+	Id: B0002W3E4A
+	Title: Gregorian Mystics
+	Brand: Magna Canta
+	Categories: ['CDs & Vinyl', 'Pop', 'Dance Pop']
+	3.
+	Id: B000ND91SG
+	Title: A Hundred Miles or More: A Collection
+	Brand: Alison Krauss and Union Station
+	Categories: ['CDs & Vinyl', 'Country', 'Bluegrass']
+	4.
+	Id: B00A9T1HUO
+	Title: All That Echoes
+	Brand: Josh Groban
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	5.
+	Id: B0096MV73M
+	Title: Lead With Your Heart
+	Brand: The Tenors
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	6.
+	Id: B00005TZSK
+	Title: The Soul of Healing Meditations
+	Brand: Deepak Chopra
+	Categories: ['CDs & Vinyl', 'Special Interest', 'Self-Help']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0002W3E4A', 'B0096MV73M', 'B00A9T1HUO', 'B000ND91SG', 'B00KDKM58C'].
+Explanation: Based on the user's liked movies, which are in the comedy and action & adventure genres, I have recommended CDs that are in the pop and vocal pop genres. The CDs 'Gregorian Mystics' and 'Lead With Your Heart' are in the pop and dance pop genres, which are similar to the comedy genre. The CDs 'All That Echoes' and 'A Hundred Miles or More: A Collection' are in the pop and vocal pop genres, which are similar to the action & adventure genre. Finally, the CD 'Jersey Boys Music From The Motion Picture And Broadway Musical' is in the Broadway & Vocalists genre, which is also related to the comedy genre.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2OKVVLIHBRWKT
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                      title              brand                                                                                            category
+4336  A2OKVVLIHBRWKT  B005RYF5JA      5  1329091200                      Celtic Woman: Believe       Celtic Woman                                                    ['Movies & TV', 'Music Artists', 'Celtic Woman']
+4511  A2OKVVLIHBRWKT  B008H1Q36O      4  1358035200                                Vampire Dog  Collin MacKechnie                                   ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+4531  A2OKVVLIHBRWKT  B0090W3B6E      4  1357948800  Adventures of Bailey - A Night in Cowtown          Rick Shew  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4541  A2OKVVLIHBRWKT  B0094GMT96      5  1357948800       The Wiggles: The Wiggles Celebration          Greg Page                                   ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                     title                   brand                                                              category
+0  A2OKVVLIHBRWKT  B0094GW8PG      4  1358035200     Christmas In The Sand          Colbie Caillat                     ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+1  A2OKVVLIHBRWKT  B006TXDNO2      4  1358035200              Rock-O-Matic      Imagination Movers                                   ['CDs & Vinyl', "Children's Music"]
+2  A2OKVVLIHBRWKT  B0096PS61U      5  1358035200               Blue Clouds      Elizabeth Mitchell                                   ['CDs & Vinyl', "Children's Music"]
+3  A2OKVVLIHBRWKT  B0091V6SKU      5  1357948800          We Have A Savior                Hillsong                                   ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+4  A2OKVVLIHBRWKT  B007NA7VVG      5  1358035200         Cowboy Playground  Putumayo Kids Presents                         ['CDs & Vinyl', 'Country', "Today's Country"]
+5  A2OKVVLIHBRWKT  B0093U03EQ      5  1357948800  Lights Of Distant Cities             Bebo Norman                    ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+6  A2OKVVLIHBRWKT  B008WALUVI      4  1357948800    Christmas: God With Us             Jeremy Camp                                   ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+7  A2OKVVLIHBRWKT  B005RYF5H2      5  1329091200                   Believe            Celtic Woman  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+8  A2OKVVLIHBRWKT  B0091V6T2W      5  1357948800                      Noel             Josh Wilson                    ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+9  A2OKVVLIHBRWKT  B009A87WMW      5  1358035200                     Roads              Chris Mann                                                ['CDs & Vinyl', 'Pop']
+Correct items for test user:
+['B005RYF5H2', 'B0091V6SKU', 'B0093U03EQ', 'B0091V6T2W', 'B0096PS61U']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Celtic Woman: Believe
+	Brand: Celtic Woman
+	Categories: ['Movies & TV', 'Music Artists', 'Celtic Woman']
+	2.
+	Title: The Wiggles: The Wiggles Celebration
+	Brand: Greg Page
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Vampire Dog
+	Brand: Collin MacKechnie
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	2.
+	Title: Adventures of Bailey - A Night in Cowtown
+	Brand: Rick Shew
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B0094GW8PG
+	Title: Christmas In The Sand
+	Brand: Colbie Caillat
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	2.
+	Id: B006TXDNO2
+	Title: Rock-O-Matic
+	Brand: Imagination Movers
+	Categories: ['CDs & Vinyl', "Children's Music"]
+	3.
+	Id: B0096PS61U
+	Title: Blue Clouds
+	Brand: Elizabeth Mitchell
+	Categories: ['CDs & Vinyl', "Children's Music"]
+	4.
+	Id: B0091V6SKU
+	Title: We Have A Savior
+	Brand: Hillsong
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	5.
+	Id: B007NA7VVG
+	Title: Cowboy Playground
+	Brand: Putumayo Kids Presents
+	Categories: ['CDs & Vinyl', 'Country', "Today's Country"]
+	6.
+	Id: B0093U03EQ
+	Title: Lights Of Distant Cities
+	Brand: Bebo Norman
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	7.
+	Id: B008WALUVI
+	Title: Christmas: God With Us
+	Brand: Jeremy Camp
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	8.
+	Id: B005RYF5H2
+	Title: Believe
+	Brand: Celtic Woman
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	9.
+	Id: B0091V6T2W
+	Title: Noel
+	Brand: Josh Wilson
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	10.
+	Id: B009A87WMW
+	Title: Roads
+	Brand: Chris Mann
+	Categories: ['CDs & Vinyl', 'Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B005RYF5H2', 'B009A87WMW', 'B0091V6T2W', 'B0096PS61U', 'B0093U03EQ'].
+Explanation: Based on the user's liked movies, which are Celtic Woman: Believe and The Wiggles: The Wiggles Celebration, we can see that the user has a preference for music-related movies, particularly in the genres of Celtic and Kids & Family. Therefore, the recommended CDs should align with these preferences. 
+
+Among the candidate CDs, 'B005RYF5H2' (Believe by Celtic Woman) is the top recommendation. This CD is by the same brand as one of the liked movies, Celtic Woman, and falls under the category of World Music, specifically British Isles and Ireland, which aligns with the user's preference for Celtic music. 
+
+The next recommendation is 'B009A87WMW' (Roads by Chris Mann), which falls under the category of Pop. Although it is not directly related to Celtic or Kids & Family genres, it is a music CD and falls under a popular genre, which might appeal to the user's general music taste.
+
+The third recommendation is 'B0091V6T2W' (Noel by Josh Wilson), which falls under the category of Christian and Pop & Contemporary. While it is not directly related to the user's preferred genres, it is a music CD and falls under a popular genre, which might appeal to the user's general music taste.
+
+The fourth recommendation is 'B0096PS61U' (Blue Clouds by Elizabeth Mitchell), which falls under the category of Children's Music. This CD aligns with the user's preference for Kids & Family genre, as seen in the liked movie The Wiggles: The Wiggles Celebration.
+
+The fifth recommendation is 'B0093U03EQ' (Lights Of Distant Cities by Bebo Norman), which falls under the category of Christian and Pop & Contemporary. While it is not directly related to the user's preferred genres, it is a music CD and falls under a popular genre, which might appeal to the user's general music taste.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: ARA8A1XTCN0D6
+Liked items in the base domain:
+            user_id     item_id rating   timestamp          title        brand                                                               category
+4348  ARA8A1XTCN0D6  B005S9EK1S      5  1356566400  The Lucky One    Zac Efron  ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4492  ARA8A1XTCN0D6  B0080BFW7W      5  1356566400   Let It Shine         <NA>              ['Movies & TV', 'Fully Loaded DVDs', 'Extended Editions']
+4526  ARA8A1XTCN0D6  B0090SI3HU      5  1359072000   Liberal Arts  Josh Radnor                             ['Movies & TV', 'First to Know', 'Movies']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                  title                  brand                                             category
+0  ARA8A1XTCN0D6  B000002JEJ      5  1356566400  Anastasia: Music From The Motion Picture 1997 Version           David Newman  ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+1  ARA8A1XTCN0D6  B004UB2WAQ      5  1368316800                                          Dream With Me         Jackie Evancho                  ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+2  ARA8A1XTCN0D6  B000EHQ7PG      5  1363737600                                          Disneymania 4  Anneliese van der Pol        ['CDs & Vinyl', "Children's Music", 'Disney']
+3  ARA8A1XTCN0D6  B0049IHY30      5  1368316800                              Glee: The Music, Volume 4              Glee Cast                               ['CDs & Vinyl', 'Pop']
+4  ARA8A1XTCN0D6  B004MYG6XA      5  1368316800                              Glee: The Music, Volume 5              Glee Cast                               ['CDs & Vinyl', 'Pop']
+5  ARA8A1XTCN0D6  B006JT2XMO      5  1356566400                               New Years Eve Soundtrack        Various Artists                       ['CDs & Vinyl', 'Soundtracks']
+Correct items for test user:
+['B000002JEJ', 'B006JT2XMO', 'B000EHQ7PG', 'B004UB2WAQ', 'B0049IHY30']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Lucky One
+	Brand: Zac Efron
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	2.
+	Title: Let It Shine
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'Extended Editions']
+	3.
+	Title: Liberal Arts
+	Brand: Josh Radnor
+	Categories: ['Movies & TV', 'First to Know', 'Movies']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000002JEJ
+	Title: Anastasia: Music From The Motion Picture 1997 Version
+	Brand: David Newman
+	Categories: ['CDs & Vinyl', 'Broadway & Vocalists', 'Musicals']
+	2.
+	Id: B004UB2WAQ
+	Title: Dream With Me
+	Brand: Jackie Evancho
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	3.
+	Id: B000EHQ7PG
+	Title: Disneymania 4
+	Brand: Anneliese van der Pol
+	Categories: ['CDs & Vinyl', "Children's Music", 'Disney']
+	4.
+	Id: B0049IHY30
+	Title: Glee: The Music, Volume 4
+	Brand: Glee Cast
+	Categories: ['CDs & Vinyl', 'Pop']
+	5.
+	Id: B004MYG6XA
+	Title: Glee: The Music, Volume 5
+	Brand: Glee Cast
+	Categories: ['CDs & Vinyl', 'Pop']
+	6.
+	Id: B006JT2XMO
+	Title: New Years Eve Soundtrack
+	Brand: Various Artists
+	Categories: ['CDs & Vinyl', 'Soundtracks']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B004UB2WAQ', 'B004MYG6XA', 'B000EHQ7PG', 'B000002JEJ', 'B006JT2XMO'].
+Explanation: Based on the user's liked movies, which include romantic dramas and musicals, the recommended CDs are also focused on the same genres. The top-ranked CD, 'Dream With Me' by Jackie Evancho, is a vocal pop album that aligns with the user's preference for musicals. The next two CDs, 'Glee: The Music, Volume 5' and 'Disneymania 4', are both related to musicals and children's music, which are genres that the user might enjoy based on their liked movies. 'Anastasia: Music From The Motion Picture 1997 Version' is a Broadway and vocalists album that could appeal to the user's interest in musicals. Lastly, 'New Years Eve Soundtrack' is a soundtrack album that could provide a diverse range of music genres, including some that the user might enjoy.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2XTRZZX62WKLK
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                        title                                      brand                                                                                            category
+4370  A2XTRZZX62WKLK  B005WTG698      5  1361750400                       The Fat Boy Chronicles                                 Ron Lester  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4419  A2XTRZZX62WKLK  B006JN87F2      5  1360195200                      WWJD II: The Woodcarver                          John Ratzenberger                                           ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+4523  A2XTRZZX62WKLK  B008ZRKIHA      4  1366934400                             This Is Our Time                            Bruce Marchiano                                   ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+4677  A2XTRZZX62WKLK  B00C4BDG7M      4  1369958400                Beverly Lewis' the Confession                           Willie Stratford  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4785  A2XTRZZX62WKLK  B00IJJBHW4      4  1397433600  When Calls the Heart - Lost &amp; Found DVD  Daniel Lissing, Lori Loughlin Erin Krakow                                         ['Movies & TV', 'Genre for Featured Categories', 'Romance']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                   title            brand                                            category
+0  A2XTRZZX62WKLK  B006ZKAFPO      4  1359936000         Stories To Tell      Dave Barnes  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+1  A2XTRZZX62WKLK  B0091V6T2W      5  1354838400                    Noel      Josh Wilson  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+2  A2XTRZZX62WKLK  B0091V6SKU      4  1354838400        We Have A Savior         Hillsong                 ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+3  A2XTRZZX62WKLK  B006ZKAGDK      4  1359936000                 Current  Sarah MacIntosh  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+4  A2XTRZZX62WKLK  B008WALUVI      5  1354406400  Christmas: God With Us      Jeremy Camp                 ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+5  A2XTRZZX62WKLK  B00BDSRMRC      5  1386892800                    Made      Hawk Nelson  ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+Correct items for test user:
+['B008WALUVI', 'B0091V6T2W', 'B00BDSRMRC', 'B0091V6SKU', 'B006ZKAFPO']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Fat Boy Chronicles
+	Brand: Ron Lester
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	2.
+	Title: WWJD II: The Woodcarver
+	Brand: John Ratzenberger
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: This Is Our Time
+	Brand: Bruce Marchiano
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	2.
+	Title: Beverly Lewis' the Confession
+	Brand: Willie Stratford
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	3.
+	Title: When Calls the Heart - Lost &amp; Found DVD
+	Brand: Daniel Lissing, Lori Loughlin Erin Krakow
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Romance']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B006ZKAFPO
+	Title: Stories To Tell
+	Brand: Dave Barnes
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	2.
+	Id: B0091V6T2W
+	Title: Noel
+	Brand: Josh Wilson
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	3.
+	Id: B0091V6SKU
+	Title: We Have A Savior
+	Brand: Hillsong
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	4.
+	Id: B006ZKAGDK
+	Title: Current
+	Brand: Sarah MacIntosh
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	5.
+	Id: B008WALUVI
+	Title: Christmas: God With Us
+	Brand: Jeremy Camp
+	Categories: ['CDs & Vinyl', 'Pop', 'Vocal Pop']
+	6.
+	Id: B00BDSRMRC
+	Title: Made
+	Brand: Hawk Nelson
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0091V6T2W', 'B006ZKAFPO', 'B006ZKAGDK', 'B00BDSRMRC', 'B0091V6SKU'].
+Explanation: Based on the user's liked movies, which are in the drama and Sony Pictures categories, and the disliked movies, which are in the kids & family and romance categories, I recommend the following CDs:
+1. 'Noel' by Josh Wilson: This CD falls under the Christian and Pop & Contemporary categories, which align with the user's liked movies in the Christian genre.
+2. 'Stories To Tell' by Dave Barnes: This CD is also in the Christian and Pop & Contemporary categories, making it a good fit for the user's preferences.
+3. 'Current' by Sarah MacIntosh: This CD is in the Christian and Pop & Contemporary categories, similar to the user's liked movies.
+4. 'Made' by Hawk Nelson: This CD is in the Christian and Pop & Contemporary categories, which match the user's preferences.
+5. 'We Have A Savior' by Hillsong: This CD is in the Pop and Vocal Pop categories, providing a slightly different genre option for the user while still aligning with their liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A21P5MI0892X9N
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                   title             brand                                                                                     category
+4379  A21P5MI0892X9N  B0060MYM3S      5  1369094400                                                                               Game of Thrones: Season 2       Alfie Allen                                                     ['Movies & TV', 'HBO', 'All HBO Titles']
+4665  A21P5MI0892X9N  B00BMRTPEM      4  1403049600  The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom     Rupert Graves                            ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+4685  A21P5MI0892X9N  B00C8CQRQ4      5  1403049600                                                                               Game of Thrones: Season 3           Various                                                     ['Movies & TV', 'HBO', 'All HBO Titles']
+4768  A21P5MI0892X9N  B00G4Q3KOC      3  1403049600                                                                                        12 Years a Slave  Chiwetel Ejiofor  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                    title            brand                                                                category
+0  A21P5MI0892X9N  B000AUZN20      5  1360800000               Christmas Piano Collection        Tim Janis                       ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+1  A21P5MI0892X9N  B00000JLHW      5  1360800000                       Flowers in October        Tim Janis                                          ['CDs & Vinyl', 'World Music']
+2  A21P5MI0892X9N  B00004TQSU      5  1360800000                             Water's Edge        Tim Janis                                ['CDs & Vinyl', 'New Age', 'Meditation']
+3  A21P5MI0892X9N  B000066RKS      5  1360800000                       A Thousand Summers        Tim Janis                                ['CDs & Vinyl', 'New Age', 'Meditation']
+4  A21P5MI0892X9N  B00004YLC3      5  1360800000                                Christmas        Tim Janis  ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Noels']
+5  A21P5MI0892X9N  B00006LHWN      5  1360800000  The Ultimate Relaxation Christmas Album  Various Artists  ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Noels']
+Correct items for test user:
+['B000AUZN20', 'B00000JLHW', 'B00004TQSU', 'B000066RKS', 'B00004YLC3']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Game of Thrones: Season 2
+	Brand: Alfie Allen
+	Categories: ['Movies & TV', 'HBO', 'All HBO Titles']
+	2.
+	Title: Game of Thrones: Season 3
+	Brand: Various
+	Categories: ['Movies & TV', 'HBO', 'All HBO Titles']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom
+	Brand: Rupert Graves
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	2.
+	Title: 12 Years a Slave
+	Brand: Chiwetel Ejiofor
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B000AUZN20
+	Title: Christmas Piano Collection
+	Brand: Tim Janis
+	Categories: ['CDs & Vinyl', 'Holiday & Wedding', 'Christmas']
+	2.
+	Id: B00000JLHW
+	Title: Flowers in October
+	Brand: Tim Janis
+	Categories: ['CDs & Vinyl', 'World Music']
+	3.
+	Id: B00004TQSU
+	Title: Water's Edge
+	Brand: Tim Janis
+	Categories: ['CDs & Vinyl', 'New Age', 'Meditation']
+	4.
+	Id: B000066RKS
+	Title: A Thousand Summers
+	Brand: Tim Janis
+	Categories: ['CDs & Vinyl', 'New Age', 'Meditation']
+	5.
+	Id: B00004YLC3
+	Title: Christmas
+	Brand: Tim Janis
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Noels']
+	6.
+	Id: B00006LHWN
+	Title: The Ultimate Relaxation Christmas Album
+	Brand: Various Artists
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Noels']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00004YLC3', 'B000AUZN20', 'B000066RKS', 'B00006LHWN', 'B00000JLHW'].
+Explanation: Based on the user's liked items, which are both from the "Game of Thrones" series, it seems that the user enjoys movies and TV shows in the fantasy genre. Therefore, I have ranked the CDs that have a similar theme or atmosphere. 
+
+The top recommended CD is "Christmas" by Tim Janis. Although it is a Christmas album, it falls under the category of "Opera & Classical Vocal" and "Vocal Non-Opera," which suggests a grand and epic sound similar to the "Game of Thrones" series. 
+
+The second recommended CD is "Christmas Piano Collection" by Tim Janis. This CD also falls under the Christmas category but focuses on piano music, which can create a soothing and atmospheric ambiance similar to the user's liked items. 
+
+The third recommended CD is "A Thousand Summers" by Tim Janis. This CD falls under the "New Age" and "Meditation" categories, which can provide a calming and relaxing experience similar to the user's liked items. 
+
+The fourth recommended CD is "The Ultimate Relaxation Christmas Album" by Various Artists. This CD, like the previous recommendations, falls under the "Opera & Classical Vocal" and "Vocal Non-Opera" categories, suggesting a similar grand and epic sound. 
+
+The fifth recommended CD is "Flowers in October" by Tim Janis. This CD falls under the "World Music" category, which can provide a diverse and unique musical experience similar to the user's liked items.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3MTULATO06OS5
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                            title        brand                                                                                            category
+4413  A3MTULATO06OS5  B006HFXFAY      1  1343347200  Borgia Faith And Fear: Season 1   John Doman          ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4699  A3MTULATO06OS5  B00CTMQ7WM      5  1391817600          Broken Circle Breakdown         <NA>                       ['Movies & TV', 'Art House & International', 'By Original Language', 'Dutch']
+4775  A3MTULATO06OS5  B00GMV8KGW      4  1396569600              Inside Llewyn Davis  Oscar Isaac  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                      title                   brand                                                                                                      category
+0  A3MTULATO06OS5  B006CC9GEQ      5  1405036800                                                     I Will Not Stand Alone           Kayhan Kalhor                                                         ['CDs & Vinyl', 'World Music', 'Middle East', 'Iran']
+1  A3MTULATO06OS5  B00DTGSE28      4  1397692800                                   Inside Llewyn Davis: Original Soundtrack         Various Artists                                                           ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+2  A3MTULATO06OS5  B00000E593      5  1379721600                                                  Obrecht: Missa Maria Zart           Jacob Obrecht                                       ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Masses']
+3  A3MTULATO06OS5  B00000420F      5  1359936000  Cecilia Bartoli: If You Love Me / Se tu m'ami: 18th-century Italian songs         Cecilia Bartoli                                     ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Cantatas']
+4  A3MTULATO06OS5  B000003S2G      5  1382745600                                                     Penguin Cafe Orchestra  Penguin Cafe Orchestra                                                              ['CDs & Vinyl', 'Dance & Electronic', 'Ambient']
+5  A3MTULATO06OS5  B000UNMUJG      5  1371168000                                               Bach: Inventions And Partita           Janine Jansen                                                  ['CDs & Vinyl', 'Classical', 'Forms & Genres', 'Inventions']
+6  A3MTULATO06OS5  B00007BH3Y      5  1298764800                                   The Hours: Music from the Motion Picture            Philip Glass                                                           ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+7  A3MTULATO06OS5  B000027NRW      4  1383955200                                     Purcell: Music for a While; O Solitude           Henry Purcell  ['CDs & Vinyl', 'Classical', 'Forms & Genres', 'Theatrical, Incidental & Program Music', 'Incidental Music']
+Correct items for test user:
+['B00007BH3Y', 'B00000420F', 'B000UNMUJG', 'B00000E593', 'B000003S2G']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Broken Circle Breakdown
+	Categories: ['Movies & TV', 'Art House & International', 'By Original Language', 'Dutch']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Borgia Faith And Fear: Season 1
+	Brand: John Doman
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	2.
+	Title: Inside Llewyn Davis
+	Brand: Oscar Isaac
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B006CC9GEQ
+	Title: I Will Not Stand Alone
+	Brand: Kayhan Kalhor
+	Categories: ['CDs & Vinyl', 'World Music', 'Middle East', 'Iran']
+	2.
+	Id: B00DTGSE28
+	Title: Inside Llewyn Davis: Original Soundtrack
+	Brand: Various Artists
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+	3.
+	Id: B00000E593
+	Title: Obrecht: Missa Maria Zart
+	Brand: Jacob Obrecht
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Masses']
+	4.
+	Id: B00000420F
+	Title: Cecilia Bartoli: If You Love Me / Se tu m'ami: 18th-century Italian songs
+	Brand: Cecilia Bartoli
+	Categories: ['CDs & Vinyl', 'Opera & Classical Vocal', 'Vocal Non-Opera', 'Cantatas']
+	5.
+	Id: B000003S2G
+	Title: Penguin Cafe Orchestra
+	Brand: Penguin Cafe Orchestra
+	Categories: ['CDs & Vinyl', 'Dance & Electronic', 'Ambient']
+	6.
+	Id: B000UNMUJG
+	Title: Bach: Inventions And Partita
+	Brand: Janine Jansen
+	Categories: ['CDs & Vinyl', 'Classical', 'Forms & Genres', 'Inventions']
+	7.
+	Id: B00007BH3Y
+	Title: The Hours: Music from the Motion Picture
+	Brand: Philip Glass
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Soundtracks']
+	8.
+	Id: B000027NRW
+	Title: Purcell: Music for a While; O Solitude
+	Brand: Henry Purcell
+	Categories: ['CDs & Vinyl', 'Classical', 'Forms & Genres', 'Theatrical, Incidental & Program Music', 'Incidental Music']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B000003S2G', 'B000027NRW', 'B00000420F', 'B00000E593', 'B000UNMUJG'].
+Explanation: Based on the user's liked movie "Broken Circle Breakdown" which falls under the category "Art House & International", I recommend the following CDs:
+1. "Penguin Cafe Orchestra" - This CD falls under the category "Dance & Electronic" and has an ambient sound which might appeal to the user's taste for art house and international movies.
+2. "Purcell: Music for a While; O Solitude" - This CD falls under the category "Classical" and has a theatrical and programmatic music style which might resonate with the user's preference for art house movies.
+3. "Cecilia Bartoli: If You Love Me / Se tu m'ami: 18th-century Italian songs" - This CD falls under the category "Opera & Classical Vocal" and features vocal non-opera cantatas, which might align with the user's interest in art house and international movies.
+4. "Obrecht: Missa Maria Zart" - This CD falls under the category "Opera & Classical Vocal" and features vocal non-opera masses, which might appeal to the user's preference for art house and international movies.
+5. "Bach: Inventions And Partita" - This CD falls under the category "Classical" and features inventions, which are a form of classical music that might resonate with the user's interest in art house movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A16BIH1Z3L050B
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                           title           brand                                                                                            category
+4437  A16BIH1Z3L050B  B006T8KT5S      5  1376179200  B52's: With The Wild Crowd! Live In Athens, GA           B52's                         ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4591  A16BIH1Z3L050B  B009VKL8EM      4  1383436800                               Road to Red Rocks  Mumford & Sons                                                                           ['Movies & TV', 'Movies']
+4748  A16BIH1Z3L050B  B00EQL4S4I      4  1386288000     Brave Enough: Live at the Variety Playhouse  Sara Bareilles  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                  title                 brand                                                            category
+0  A16BIH1Z3L050B  B00JDB4PLM      5  1403222400                              Lazaretto            Jack White                                              ['CDs & Vinyl', 'Pop']
+1  A16BIH1Z3L050B  B00EYRWWCY      3  1386288000          Disconnected In New York City             Los Lobos                                             ['CDs & Vinyl', 'Rock']
+2  A16BIH1Z3L050B  B000WS4SFI      5  1383436800  The Format: Live At The Mayan Theater                  <NA>  ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+3  A16BIH1Z3L050B  B00CFYAT6O      3  1383436800                           Made Up Mind  Tedeschi Trucks Band                               ['CDs & Vinyl', 'Rock', 'Blues Rock']
+4  A16BIH1Z3L050B  B00BB22GQM      5  1396656000            Modern Vampires of the City       Vampire Weekend  ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+5  A16BIH1Z3L050B  B00G4EXNNM      4  1391040000                              foreverly    Billie Joe + Norah                                              ['CDs & Vinyl', 'Pop']
+6  A16BIH1Z3L050B  B005M5OSBK      4  1383436800                       Retrospective, A          Pink Martini                         ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+7  A16BIH1Z3L050B  B000FVBLGQ      5  1386288000                           Dog Problems            The Format  ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+8  A16BIH1Z3L050B  B00DURHYWC      4  1383436800                              Get Happy          Pink Martini                                             ['CDs & Vinyl', 'Jazz']
+Correct items for test user:
+['B000WS4SFI', 'B000FVBLGQ', 'B00BB22GQM', 'B00JDB4PLM', 'B005M5OSBK']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: B52's: With The Wild Crowd! Live In Athens, GA
+	Brand: B52's
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Road to Red Rocks
+	Brand: Mumford & Sons
+	Categories: ['Movies & TV', 'Movies']
+	2.
+	Title: Brave Enough: Live at the Variety Playhouse
+	Brand: Sara Bareilles
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00JDB4PLM
+	Title: Lazaretto
+	Brand: Jack White
+	Categories: ['CDs & Vinyl', 'Pop']
+	2.
+	Id: B00EYRWWCY
+	Title: Disconnected In New York City
+	Brand: Los Lobos
+	Categories: ['CDs & Vinyl', 'Rock']
+	3.
+	Id: B000WS4SFI
+	Title: The Format: Live At The Mayan Theater
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	4.
+	Id: B00CFYAT6O
+	Title: Made Up Mind
+	Brand: Tedeschi Trucks Band
+	Categories: ['CDs & Vinyl', 'Rock', 'Blues Rock']
+	5.
+	Id: B00BB22GQM
+	Title: Modern Vampires of the City
+	Brand: Vampire Weekend
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	6.
+	Id: B00G4EXNNM
+	Title: foreverly
+	Brand: Billie Joe + Norah
+	Categories: ['CDs & Vinyl', 'Pop']
+	7.
+	Id: B005M5OSBK
+	Title: Retrospective, A
+	Brand: Pink Martini
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Alternative']
+	8.
+	Id: B000FVBLGQ
+	Title: Dog Problems
+	Brand: The Format
+	Categories: ['CDs & Vinyl', 'Alternative Rock', 'Indie & Lo-Fi', 'Indie Rock']
+	9.
+	Id: B00DURHYWC
+	Title: Get Happy
+	Brand: Pink Martini
+	Categories: ['CDs & Vinyl', 'Jazz']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00G4EXNNM', 'B000FVBLGQ', 'B00BB22GQM', 'B000WS4SFI', 'B00CFYAT6O'].
+Explanation: Based on the user's liked movies, which are in the genre of 'Music Videos & Concerts', I have ranked the candidate CDs. 
+
+1. 'foreverly' by Billie Joe + Norah: This CD is ranked first because it falls under the 'Pop' category, which is similar to the user's liked movies in terms of genre.
+
+2. 'Dog Problems' by The Format: This CD is ranked second because it falls under the 'Alternative Rock', 'Indie & Lo-Fi', and 'Indie Rock' categories, which are similar to the user's liked movies in terms of genre.
+
+3. 'Modern Vampires of the City' by Vampire Weekend: This CD is ranked third because it falls under the 'Alternative Rock', 'Indie & Lo-Fi', and 'Indie Rock' categories, which are similar to the user's liked movies in terms of genre.
+
+4. 'The Format: Live At The Mayan Theater': This CD is ranked fourth because it falls under the 'Alternative Rock', 'Indie & Lo-Fi', and 'Indie Rock' categories, which are similar to the user's liked movies in terms of genre.
+
+5. 'Made Up Mind' by Tedeschi Trucks Band: This CD is ranked fifth because it falls under the 'Rock' and 'Blues Rock' categories, which are similar to the user's liked movies in terms of genre.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2I3BWIY35O2SX
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                  title                  brand                                                                                    category
+4518  A2I3BWIY35O2SX  B008SE9WPO      5  1395187200  Classical Stretch Complete Season 8 by ESSENTRICS: Age Defying Series  Miranda Esmonde-White                      ['Movies & TV', 'Genre for Featured Categories', 'Exercise & Fitness']
+4731  A2I3BWIY35O2SX  B00DUGBZL4      5  1401926400                                        Denise Austin: Fat Burning Walk               Cal Pozo  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4754  A2I3BWIY35O2SX  B00FA2CBF0      5  1401926400                               Denise Austin: Burn Fat Fast Latin Dance               Cal Pozo  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                     title           brand                                                              category
+0  A2I3BWIY35O2SX  B006PF627O      5  1354838400                    Voyage  Celtic Thunder  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+1  A2I3BWIY35O2SX  B00152PFAM      5  1354147200  Celtic Thunder: The Show  Celtic Thunder  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+2  A2I3BWIY35O2SX  B00DRIMVK4      5  1387152000                 Overcomer         Mandisa                    ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+3  A2I3BWIY35O2SX  B005DEVH1E      5  1354838400                     Storm  Celtic Thunder  ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+4  A2I3BWIY35O2SX  B008HTUVTG      5  1354838400                 Voyage II  Celtic Thunder                                        ['CDs & Vinyl', 'World Music']
+5  A2I3BWIY35O2SX  B003MB9SH0      5  1354147200     Forever Vienna Deluxe      Andre Rieu                         ['CDs & Vinyl', 'Classical', 'Chamber Music']
+Correct items for test user:
+['B00152PFAM', 'B003MB9SH0', 'B006PF627O', 'B005DEVH1E', 'B008HTUVTG']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Classical Stretch Complete Season 8 by ESSENTRICS: Age Defying Series
+	Brand: Miranda Esmonde-White
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Exercise & Fitness']
+	2.
+	Title: Denise Austin: Fat Burning Walk
+	Brand: Cal Pozo
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	3.
+	Title: Denise Austin: Burn Fat Fast Latin Dance
+	Brand: Cal Pozo
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B006PF627O
+	Title: Voyage
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	2.
+	Id: B00152PFAM
+	Title: Celtic Thunder: The Show
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Britain']
+	3.
+	Id: B00DRIMVK4
+	Title: Overcomer
+	Brand: Mandisa
+	Categories: ['CDs & Vinyl', 'Christian', 'Pop & Contemporary']
+	4.
+	Id: B005DEVH1E
+	Title: Storm
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music', 'Europe', 'British Isles', 'Ireland']
+	5.
+	Id: B008HTUVTG
+	Title: Voyage II
+	Brand: Celtic Thunder
+	Categories: ['CDs & Vinyl', 'World Music']
+	6.
+	Id: B003MB9SH0
+	Title: Forever Vienna Deluxe
+	Brand: Andre Rieu
+	Categories: ['CDs & Vinyl', 'Classical', 'Chamber Music']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00152PFAM', 'B005DEVH1E', 'B006PF627O', 'B008HTUVTG', 'B00DRIMVK4'].
+Explanation: Based on the user's liked movies, which are exercise and fitness related, and the disliked movies, which are Celtic Thunder and Mandisa CDs, I recommend the following CDs:
+1. 'Celtic Thunder: The Show': This CD is from the same brand as the disliked movies and falls under the category of World Music, which might appeal to the user's taste.
+2. 'Storm': This CD is also from Celtic Thunder and falls under the category of World Music, specifically from the British Isles, which might be of interest to the user.
+3. 'Voyage': This CD is from Celtic Thunder and falls under the category of World Music, specifically from Ireland, which might resonate with the user's preferences.
+4. 'Voyage II': This CD is from Celtic Thunder and falls under the category of World Music, which aligns with the user's liked movies.
+5. 'Overcomer': This CD is from Mandisa and falls under the category of Christian Pop & Contemporary, which is different from the disliked movies but might introduce the user to a new genre.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1Y75ZO1L4NKBX
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                   title          brand                                                           category
+4548  A1Y75ZO1L4NKBX  B00979JV00      5  1370390400                                                           Downton Abbey: Series 1-3 + Christmas Special           <NA>                ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+4630  A1Y75ZO1L4NKBX  B00B00HUC0      5  1370390400                                                                         Maverick: The Complete Season 2   James Garner       ['Movies & TV', 'Genre for Featured Categories', 'Westerns']
+4662  A1Y75ZO1L4NKBX  B00BMRTPEM      5  1398297600  The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom  Rupert Graves  ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                    title                                   brand                                                          category
+0  A1Y75ZO1L4NKBX  B00B943S5K      5  1370390400                               The Pops Goes Country / The Pops Goes West  Arthur Fiedler/Boston Pops/Chet Atkins                      ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+1  A1Y75ZO1L4NKBX  B00AU15GIA      5  1384387200                                                    Love Has Come for You                           Edie Brickell                           ['CDs & Vinyl', 'Country', 'Bluegrass']
+2  A1Y75ZO1L4NKBX  6304055331      5  1384387200                              Chet Atkins Rare Performances 1955-1975 VHS                                    <NA>  ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+3  A1Y75ZO1L4NKBX  B00DMEQOXS      5  1384387200                                Jimmy Buffett // Songs From St. Somewhere                           Jimmy Buffett                      ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+4  A1Y75ZO1L4NKBX  B00B0YJTPW      5  1370390400  Music With Style From The Limeliters ORIGINAL RECORDINGS REMASTERED SET                              Limeliters                                           ['CDs & Vinyl', 'Folk']
+5  A1Y75ZO1L4NKBX  B00004TY89      5  1370390400                                                Live at Billy Bob's Texas                               Roy Clark  ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+Correct items for test user:
+['B00B943S5K', 'B00B0YJTPW', 'B00004TY89', 'B00AU15GIA', '6304055331']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Downton Abbey: Series 1-3 + Christmas Special
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+	2.
+	Title: Maverick: The Complete Season 2
+	Brand: James Garner
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Westerns']
+	3.
+	Title: The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom
+	Brand: Rupert Graves
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B00B943S5K
+	Title: The Pops Goes Country / The Pops Goes West
+	Brand: Arthur Fiedler/Boston Pops/Chet Atkins
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+	2.
+	Id: B00AU15GIA
+	Title: Love Has Come for You
+	Brand: Edie Brickell
+	Categories: ['CDs & Vinyl', 'Country', 'Bluegrass']
+	3.
+	Id: 6304055331
+	Title: Chet Atkins Rare Performances 1955-1975 VHS
+	Categories: ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+	4.
+	Id: B00DMEQOXS
+	Title: Jimmy Buffett // Songs From St. Somewhere
+	Brand: Jimmy Buffett
+	Categories: ['CDs & Vinyl', 'Pop', 'Adult Contemporary']
+	5.
+	Id: B00B0YJTPW
+	Title: Music With Style From The Limeliters ORIGINAL RECORDINGS REMASTERED SET
+	Brand: Limeliters
+	Categories: ['CDs & Vinyl', 'Folk']
+	6.
+	Id: B00004TY89
+	Title: Live at Billy Bob's Texas
+	Brand: Roy Clark
+	Categories: ['CDs & Vinyl', 'Country', 'Classic Country', 'Nashville Sound']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B00AU15GIA', 'B00B0YJTPW', 'B00DMEQOXS', 'B00B943S5K', '6304055331'].
+Explanation: Based on the user's liked movies, which include genres like 'Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Westerns', and 'Kids & Family', the recommended CDs are ranked as follows:
+1. 'Love Has Come for You': This CD falls under the 'Country' and 'Bluegrass' genres, which are similar to the 'Westerns' genre liked by the user.
+2. 'Music With Style From The Limeliters ORIGINAL RECORDINGS REMASTERED SET': This CD falls under the 'Folk' genre, which is similar to the 'Kids & Family' genre liked by the user.
+3. 'Jimmy Buffett // Songs From St. Somewhere': This CD falls under the 'Pop' and 'Adult Contemporary' genres, which are similar to the 'Movies & TV' genre liked by the user.
+4. 'The Pops Goes Country / The Pops Goes West': This CD falls under the 'Pop' and 'Adult Contemporary' genres, which are similar to the 'Movies & TV' genre liked by the user.
+5. 'Chet Atkins Rare Performances 1955-1975 VHS': This CD falls under the 'Country', 'Classic Country', and 'Nashville Sound' genres, which are similar to the 'Westerns' genre liked by the user.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2YQ6JQINP7HB7
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                     title             brand                                                         category
+4565  A2YQ6JQINP7HB7  B009AMABH6      5  1374019200                                Cosmopolis  Robert Pattinson        ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+4725  A2YQ6JQINP7HB7  B00DNF1S28      3  1392422400                  Hitched For The Holidays     Joey Lawrence    ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Comedy']
+4726  A2YQ6JQINP7HB7  B00DNLZRLU      3  1392422400  Holiday Romance Collection Movie 10 Pack           Various  ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Romantic']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                       title                              brand                                        category
+0  A2YQ6JQINP7HB7  B006PF60F8      5  1384732800                                                                      NOW 41                          Now Music                          ['CDs & Vinyl', 'Pop']
+1  A2YQ6JQINP7HB7  B0072IDEK6      3  1373760000                                                Music From The Twilight Saga  The Prague Philharmonic Orchestra                          ['CDs & Vinyl', 'Pop']
+2  A2YQ6JQINP7HB7  B009FB3XTA      5  1375660800                                        Twilight Saga: Breaking Dawn, Part 2                    Various Artists                          ['CDs & Vinyl', 'Pop']
+3  A2YQ6JQINP7HB7  B009HVR2YU      5  1370908800  The Twilight Saga:Breaking Dawn - Part 2 The Score Music by Carter Burwell                     Carter Burwell  ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+4  A2YQ6JQINP7HB7  B007I2C1KA      5  1384732800                                                                      NOW 42                          Now Music                          ['CDs & Vinyl', 'Pop']
+Correct items for test user:
+['B009HVR2YU', 'B009FB3XTA', 'B006PF60F8', 'B007I2C1KA', 'B0072IDEK6']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 cds. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended cds' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Cosmopolis
+	Brand: Robert Pattinson
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Hitched For The Holidays
+	Brand: Joey Lawrence
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Comedy']
+	2.
+	Title: Holiday Romance Collection Movie 10 Pack
+	Brand: Various
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Romantic']
+	 
+Rank and return the top 5 cds from the following ones: 
+1.
+	Id: B006PF60F8
+	Title: NOW 41
+	Brand: Now Music
+	Categories: ['CDs & Vinyl', 'Pop']
+	2.
+	Id: B0072IDEK6
+	Title: Music From The Twilight Saga
+	Brand: The Prague Philharmonic Orchestra
+	Categories: ['CDs & Vinyl', 'Pop']
+	3.
+	Id: B009FB3XTA
+	Title: Twilight Saga: Breaking Dawn, Part 2
+	Brand: Various Artists
+	Categories: ['CDs & Vinyl', 'Pop']
+	4.
+	Id: B009HVR2YU
+	Title: The Twilight Saga:Breaking Dawn - Part 2 The Score Music by Carter Burwell
+	Brand: Carter Burwell
+	Categories: ['CDs & Vinyl', 'Soundtracks', 'Movie Scores']
+	5.
+	Id: B007I2C1KA
+	Title: NOW 42
+	Brand: Now Music
+	Categories: ['CDs & Vinyl', 'Pop']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B0072IDEK6', 'B009FB3XTA', 'B009HVR2YU', 'B006PF60F8', 'B007I2C1KA'].
+Explanation: Based on the user's liked movie "Cosmopolis" and disliked movies "Hitched For The Holidays" and "Holiday Romance Collection Movie 10 Pack", it seems that the user prefers drama movies and dislikes Christmas-themed comedies and romantic movies. 
+
+Among the candidate CDs, "Music From The Twilight Saga" (B0072IDEK6) is recommended as it is related to the Twilight movie series, which falls under the drama genre. 
+
+Next, "Twilight Saga: Breaking Dawn, Part 2" (B009FB3XTA) is recommended as it is also related to the Twilight movie series and falls under the drama genre. 
+
+"The Twilight Saga: Breaking Dawn - Part 2 The Score Music by Carter Burwell" (B009HVR2YU) is recommended as it is the score music from the Twilight movie series, which aligns with the user's preference for drama movies. 
+
+"Now 41" (B006PF60F8) is recommended as it falls under the pop genre, which is a popular genre for movie soundtracks. 
+
+Lastly, "NOW 42" (B007I2C1KA) is recommended as it is another pop CD from the "NOW" music series, which aligns with the user's preference for pop music.
+-------------------

@@ -1,0 +1,1187 @@
+
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1J04KLN6LXL6Z
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                    title                                    brand                                                               category
+0     A1J04KLN6LXL6Z  0001473123      4  1374969600                                   The Book of Revelation      Visit Amazon's Clarence Larkin Page       ['Books', 'Christian Books & Bibles', 'Bible Study & Reference']
+991   A1J04KLN6LXL6Z  0393082105      5  1364688000           Space Chronicles: Facing the Ultimate Frontier  Visit Amazon's Neil deGrasse Tyson Page           ['Books', 'Engineering &amp; Transportation', 'Engineering']
+1183  A1J04KLN6LXL6Z  0449808696      5  1364688000            Salt Sugar Fat: How the Food Giants Hooked Us         Visit Amazon's Michael Moss Page           ['Books', 'Business &amp; Money', 'Biography &amp; History']
+2317  A1J04KLN6LXL6Z  1250035864      5  1361404800  Shred: The Revolutionary Diet: 6 Weeks 4 Inches 2 Sizes                        Ian K. Smith M.D.  ['Books', 'Health, Fitness &amp; Dieting', 'Diets &amp; Weight Loss']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                    title            brand                                                                 category
+0  A1J04KLN6LXL6Z  B00A0HT99G      5  1389052800  Agatha Christie's Partners in Crime: The Tommy &amp; Tuppence Mysteries  Francesca Annis                      ['Movies & TV', 'Boxed Sets', 'Mystery & Suspense']
+1  A1J04KLN6LXL6Z  B0001DCYBE      4  1362009600                          Sherlock Holmes - The Hound of the Baskervilles   Basil Rathbone        ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+2  A1J04KLN6LXL6Z  B00A8KJLPM      5  1367452800                                              MAIGRET COMPLETE COLLECTION   Michael Gambon  ['Movies & TV', 'Genre for Featured Categories', 'Mystery & Thrillers']
+3  A1J04KLN6LXL6Z  B0000AOV8O      5  1359244800                               The Sherlock Holmes Collection, Volume One   Basil Rathbone                                ['Movies & TV', 'Boxed Sets', 'Classics']
+4  A1J04KLN6LXL6Z  B000CC1TQA      3  1341619200                                                    Mystery Classics V.11    Boris Karloff  ['Movies & TV', 'Genre for Featured Categories', 'Mystery & Thrillers']
+Correct items for test user:
+['B0000AOV8O', 'B00A8KJLPM', 'B00A0HT99G', 'B0001DCYBE', 'B000CC1TQA']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Space Chronicles: Facing the Ultimate Frontier
+	Brand: Visit Amazon's Neil deGrasse Tyson Page
+	Categories: ['Books', 'Engineering &amp; Transportation', 'Engineering']
+	2.
+	Title: Salt Sugar Fat: How the Food Giants Hooked Us
+	Brand: Visit Amazon's Michael Moss Page
+	Categories: ['Books', 'Business &amp; Money', 'Biography &amp; History']
+	3.
+	Title: Shred: The Revolutionary Diet: 6 Weeks 4 Inches 2 Sizes
+	Brand: Ian K. Smith M.D.
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Diets &amp; Weight Loss']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: The Book of Revelation
+	Brand: Visit Amazon's Clarence Larkin Page
+	Categories: ['Books', 'Christian Books & Bibles', 'Bible Study & Reference']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B00A0HT99G
+	Title: Agatha Christie's Partners in Crime: The Tommy &amp; Tuppence Mysteries
+	Brand: Francesca Annis
+	Categories: ['Movies & TV', 'Boxed Sets', 'Mystery & Suspense']
+	2.
+	Id: B0001DCYBE
+	Title: Sherlock Holmes - The Hound of the Baskervilles
+	Brand: Basil Rathbone
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	3.
+	Id: B00A8KJLPM
+	Title: MAIGRET COMPLETE COLLECTION
+	Brand: Michael Gambon
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Mystery & Thrillers']
+	4.
+	Id: B0000AOV8O
+	Title: The Sherlock Holmes Collection, Volume One
+	Brand: Basil Rathbone
+	Categories: ['Movies & TV', 'Boxed Sets', 'Classics']
+	5.
+	Id: B000CC1TQA
+	Title: Mystery Classics V.11
+	Brand: Boris Karloff
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Mystery & Thrillers']
+	
+Ground truth: 
+['B0000AOV8O', 'B00A8KJLPM', 'B00A0HT99G', 'B0001DCYBE', 'B000CC1TQA']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3FEYJ4CXJ8ILY
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                                   title                                       brand                                                                         category
+1     A3FEYJ4CXJ8ILY  0002247399      5  1401926400                                                                                                    A Dance with Dragons      Visit Amazon's George R.R. Martin Page                                ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+2089  A3FEYJ4CXJ8ILY  0878919031      5  1189123200                                                                     CLEP Introductory Sociology (CLEP Test Preparation)         Visit Amazon's William Egelman Page                         ['Books', 'Teen & Young Adult', 'Education & Reference']
+2311  A3FEYJ4CXJ8ILY  111999909X      3  1402444800                                                                                      Relaxation For Dummies (Book + CD)         Visit Amazon's Shamash Alidina Page             ['Books', 'Health, Fitness &amp; Dieting', 'Exercise &amp; Fitness']
+2606  A3FEYJ4CXJ8ILY  1481258486      3  1403568000            Be Happy! - How to Stop Negative Thinking, Start Focusing on the Positive, and Create Your Happiness Mindset                               Nicole Fisher                                              ['Books', 'Self-Help', 'Happiness']
+2862  A3FEYJ4CXJ8ILY  1593859996      4  1401321600  Getting Over OCD, First Edition: A 10-Step Workbook for Taking Back Your Life (The Guilford Self-Help Workbook Series)  Visit Amazon's Jonathan S. Abramowitz Page  ['Books', 'New, Used &amp; Rental Textbooks', 'Medicine &amp; Health Sciences']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                   title            brand                                                                                                    category
+0  A3FEYJ4CXJ8ILY  B00005JM20      5  1403568000                                          Johnny English   Rowan Atkinson                                                                          ['Movies & TV', 'Studio Specials']
+1  A3FEYJ4CXJ8ILY  6300989003      5  1403222400                      Planes, Trains And Automobiles VHS     Steve Martin                                                   ['Movies & TV', 'Paramount Home Entertainment', 'Comedy']
+2  A3FEYJ4CXJ8ILY  B002LFPAUM      5  1402876800                                             Black Adder   Rowan Atkinson                                                                    ['Movies & TV', 'BBC', 'All BBC Titles']
+3  A3FEYJ4CXJ8ILY  B00005JM5E      5  1402444800  Pirates of the Caribbean: The Curse of the Black Pearl      Johnny Depp                      ['Movies & TV', 'Walt Disney Studios Home Entertainment', 'Live Action', 'All Titles']
+4  A3FEYJ4CXJ8ILY  B00EIJTLK4      5  1403222400                           Seinfeld: The Complete Series   Jerry Seinfeld          ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+5  A3FEYJ4CXJ8ILY  B00KPYT3LS      4  1405468800                                          22 Jump Street       Jonah Hill          ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+6  A3FEYJ4CXJ8ILY  6303964745      5  1404086400                                            Mallrats VHS  Shannen Doherty  ['Movies & TV', 'Studio Specials', 'Universal Studios Home Entertainment', 'All Universal Studios Titles']
+7  A3FEYJ4CXJ8ILY  B004UXUWEC      4  1404432000                                       Our Idiot Brother        Paul Rudd                                                  ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+8  A3FEYJ4CXJ8ILY  B00094ARHS      5  1402358400              Bill &amp; Ted's Most Excellent Collection     Keanu Reeves                              ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+Correct items for test user:
+['B00094ARHS', 'B00005JM5E', 'B002LFPAUM', '6300989003', 'B00EIJTLK4']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: A Dance with Dragons
+	Brand: Visit Amazon's George R.R. Martin Page
+	Categories: ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+	2.
+	Title: CLEP Introductory Sociology (CLEP Test Preparation)
+	Brand: Visit Amazon's William Egelman Page
+	Categories: ['Books', 'Teen & Young Adult', 'Education & Reference']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: Relaxation For Dummies (Book + CD)
+	Brand: Visit Amazon's Shamash Alidina Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Exercise &amp; Fitness']
+	2.
+	Title: Be Happy! - How to Stop Negative Thinking, Start Focusing on the Positive, and Create Your Happiness Mindset
+	Brand: Nicole Fisher
+	Categories: ['Books', 'Self-Help', 'Happiness']
+	3.
+	Title: Getting Over OCD, First Edition: A 10-Step Workbook for Taking Back Your Life (The Guilford Self-Help Workbook Series)
+	Brand: Visit Amazon's Jonathan S. Abramowitz Page
+	Categories: ['Books', 'New, Used &amp; Rental Textbooks', 'Medicine &amp; Health Sciences']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B00005JM20
+	Title: Johnny English
+	Brand: Rowan Atkinson
+	Categories: ['Movies & TV', 'Studio Specials']
+	2.
+	Id: 6300989003
+	Title: Planes, Trains And Automobiles VHS
+	Brand: Steve Martin
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Comedy']
+	3.
+	Id: B002LFPAUM
+	Title:  Black Adder
+	Brand: Rowan Atkinson
+	Categories: ['Movies & TV', 'BBC', 'All BBC Titles']
+	4.
+	Id: B00005JM5E
+	Title: Pirates of the Caribbean: The Curse of the Black Pearl
+	Brand: Johnny Depp
+	Categories: ['Movies & TV', 'Walt Disney Studios Home Entertainment', 'Live Action', 'All Titles']
+	5.
+	Id: B00EIJTLK4
+	Title: Seinfeld: The Complete Series
+	Brand: Jerry Seinfeld
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	6.
+	Id: B00KPYT3LS
+	Title: 22 Jump Street
+	Brand: Jonah Hill
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	7.
+	Id: 6303964745
+	Title: Mallrats VHS
+	Brand: Shannen Doherty
+	Categories: ['Movies & TV', 'Studio Specials', 'Universal Studios Home Entertainment', 'All Universal Studios Titles']
+	8.
+	Id: B004UXUWEC
+	Title: Our Idiot Brother
+	Brand: Paul Rudd
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	9.
+	Id: B00094ARHS
+	Title: Bill &amp; Ted's Most Excellent Collection
+	Brand: Keanu Reeves
+	Categories: ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+	
+Ground truth: 
+['B00094ARHS', 'B00005JM5E', 'B002LFPAUM', '6300989003', 'B00EIJTLK4']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1MIM9VMJKG4HB
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                               title                                   brand                                                             category
+2     A1MIM9VMJKG4HB  0002247399      3  1376092800                                A Dance with Dragons  Visit Amazon's George R.R. Martin Page                    ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+1367  A1MIM9VMJKG4HB  0553584480      4  1399593600                                   The Face: A Novel         Visit Amazon's Dean Koontz Page               ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2190  A1MIM9VMJKG4HB  0954325540      5  1396742400          Mop Men: California's Crime Scene Cleaners         Visit Amazon's Alan Emmins Page           ['Books', 'Politics & Social Sciences', 'Social Sciences']
+2761  A1MIM9VMJKG4HB  1578590299      3  1384819200  The UFO Book: Encyclopedia of the Extraterrestrial        Visit Amazon's Jerome Clark Page  ['Books', 'Religion &amp; Spirituality', 'Occult &amp; Paranormal']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                    title             brand                                                    category
+0  A1MIM9VMJKG4HB  630344315X      4  1376092800       Last Seduction VHS  Linda Fiorentino   ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+1  A1MIM9VMJKG4HB  6304045425      4  1373932800  Bloodsucking Freaks VHS    Seamus O'Brien                    ['Movies & TV', 'Cult Movies', 'Horror']
+2  A1MIM9VMJKG4HB  6304435096      5  1373932800    The Gates of Hell VHS              <NA>  ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+3  A1MIM9VMJKG4HB  B00031TXAY      4  1373932800       I Drink Your Blood    Richard Bowler  ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+4  A1MIM9VMJKG4HB  B000ZBEOI8      3  1396742400                 The Rage     Andrew Divoff  ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+Correct items for test user:
+['6304435096', '6304045425', 'B00031TXAY', '630344315X', 'B000ZBEOI8']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Mop Men: California's Crime Scene Cleaners
+	Brand: Visit Amazon's Alan Emmins Page
+	Categories: ['Books', 'Politics & Social Sciences', 'Social Sciences']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: A Dance with Dragons
+	Brand: Visit Amazon's George R.R. Martin Page
+	Categories: ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+	2.
+	Title: The Face: A Novel
+	Brand: Visit Amazon's Dean Koontz Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	3.
+	Title: The UFO Book: Encyclopedia of the Extraterrestrial
+	Brand: Visit Amazon's Jerome Clark Page
+	Categories: ['Books', 'Religion &amp; Spirituality', 'Occult &amp; Paranormal']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: 630344315X
+	Title: Last Seduction VHS
+	Brand: Linda Fiorentino
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	2.
+	Id: 6304045425
+	Title: Bloodsucking Freaks VHS
+	Brand: Seamus O'Brien
+	Categories: ['Movies & TV', 'Cult Movies', 'Horror']
+	3.
+	Id: 6304435096
+	Title: The Gates of Hell VHS
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	4.
+	Id: B00031TXAY
+	Title: I Drink Your Blood
+	Brand: Richard Bowler
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	5.
+	Id: B000ZBEOI8
+	Title: The Rage
+	Brand: Andrew Divoff
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	
+Ground truth: 
+['6304435096', '6304045425', 'B00031TXAY', '630344315X', 'B000ZBEOI8']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2BXZM08OG625Z
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                              title                                   brand                                                          category
+3    A2BXZM08OG625Z  0002247399      3  1319932800                                                               A Dance with Dragons  Visit Amazon's George R.R. Martin Page                 ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+171  A2BXZM08OG625Z  0061733636      5  1335916800  Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime      Visit Amazon's John Heilemann Page  ['Books', 'Politics & Social Sciences', 'Politics & Government']
+393  A2BXZM08OG625Z  0143170104      2  1343520000                                  The Girl Who Played with Fire (Millennium Series)       Visit Amazon's Stieg Larsson Page                 ['Books', 'Literature & Fiction', 'Contemporary']
+669  A2BXZM08OG625Z  0312850093      5  1342310400                                   The Eye of the World (The Wheel of Time, Book 1)       Visit Amazon's Robert Jordan Page   ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                              title           brand                                                                                            category
+0  A2BXZM08OG625Z  B0059XTU1S      3  1363046400  The Hobbit: An Unexpected Journey  Martin Freeman                               ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+1  A2BXZM08OG625Z  6302622948      5  1286496000                          Kafka VHS    Jeremy Irons                                            ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+2  A2BXZM08OG625Z  0790729342      5  1344729600                   The Road Warrior      Mel Gibson                    ['Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Sci-Fi Action']
+3  A2BXZM08OG625Z  B001OQCV2E      2  1268956800                               2012     John Cusack  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4  A2BXZM08OG625Z  630305725X      3  1245110400                The Longest Day VHS      John Wayne      ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']
+Correct items for test user:
+['6302622948', '0790729342', '630305725X', 'B0059XTU1S', 'B001OQCV2E']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Game Change: Obama and the Clintons, McCain and Palin, and the Race of a Lifetime
+	Brand: Visit Amazon's John Heilemann Page
+	Categories: ['Books', 'Politics & Social Sciences', 'Politics & Government']
+	2.
+	Title: The Eye of the World (The Wheel of Time, Book 1)
+	Brand: Visit Amazon's Robert Jordan Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: A Dance with Dragons
+	Brand: Visit Amazon's George R.R. Martin Page
+	Categories: ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+	2.
+	Title: The Girl Who Played with Fire (Millennium Series)
+	Brand: Visit Amazon's Stieg Larsson Page
+	Categories: ['Books', 'Literature & Fiction', 'Contemporary']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B0059XTU1S
+	Title: The Hobbit: An Unexpected Journey
+	Brand: Martin Freeman
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	2.
+	Id: 6302622948
+	Title: Kafka VHS
+	Brand: Jeremy Irons
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	3.
+	Id: 0790729342
+	Title: The Road Warrior
+	Brand: Mel Gibson
+	Categories: ['Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Sci-Fi Action']
+	4.
+	Id: B001OQCV2E
+	Title: 2012
+	Brand: John Cusack
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	5.
+	Id: 630305725X
+	Title: The Longest Day VHS
+	Brand: John Wayne
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']
+	
+Ground truth: 
+['6302622948', '0790729342', '630305725X', 'B0059XTU1S', 'B001OQCV2E']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2J9COKR9JAZUQ
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                        title                                    brand                                                category
+4     A2J9COKR9JAZUQ  0002247399      4  1313280000         A Dance with Dragons   Visit Amazon's George R.R. Martin Page       ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+15    A2J9COKR9JAZUQ  0007447868      4  1311897600            A Feast for Crows  Visit Amazon's George R. R. Martin Page       ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+1127  A2J9COKR9JAZUQ  044619803X      5  1303430400                Naamah's Kiss     Visit Amazon's Jacqueline Carey Page   ['Books', 'Science Fiction &amp; Fantasy', 'Fantasy']
+1695  A2J9COKR9JAZUQ  0756403146      3  1295568000  Black Sun Rising (Coldfire)        Visit Amazon's C.S. Friedman Page  ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                               title           brand                                                                                                                        category
+0  A2J9COKR9JAZUQ  B0002YLCFQ      4  1296000000                         King Arthur      Clive Owen                                                          ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+1  A2J9COKR9JAZUQ  B00003CXR3      5  1295481600  Crouching Tiger, Hidden Dragon VHS    Yun-Fat Chow  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'Sony Pictures Classics', 'All Sony Pictures Classics']
+2  A2J9COKR9JAZUQ  B004EPZ07K      3  1316995200                       Green Lantern   Ryan Reynolds                                                           ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+3  A2J9COKR9JAZUQ  B0059XTU1S      5  1364860800   The Hobbit: An Unexpected Journey  Martin Freeman                                                           ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4  A2J9COKR9JAZUQ  B004EPYZU8      4  1319155200                        Sucker Punch  Emily Browning                                                           ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+5  A2J9COKR9JAZUQ  B005LAII7G      4  1364860800                               Dredd     Lena Headey                                                          ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+6  A2J9COKR9JAZUQ  B002VPTJNQ      4  1311033600                             Whip It      Ellen Page                                                                                     ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+Correct items for test user:
+['B00003CXR3', 'B0059XTU1S', 'B0002YLCFQ', 'B002VPTJNQ', 'B004EPYZU8']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Naamah's Kiss
+	Brand: Visit Amazon's Jacqueline Carey Page
+	Categories: ['Books', 'Science Fiction &amp; Fantasy', 'Fantasy']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: A Dance with Dragons
+	Brand: Visit Amazon's George R.R. Martin Page
+	Categories: ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+	2.
+	Title: A Feast for Crows
+	Brand: Visit Amazon's George R. R. Martin Page
+	Categories: ['Books', 'Science Fiction & Fantasy', 'Fantasy']
+	3.
+	Title: Black Sun Rising (Coldfire)
+	Brand: Visit Amazon's C.S. Friedman Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B0002YLCFQ
+	Title: King Arthur
+	Brand: Clive Owen
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+	2.
+	Id: B00003CXR3
+	Title: Crouching Tiger, Hidden Dragon VHS
+	Brand: Yun-Fat Chow
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'Sony Pictures Classics', 'All Sony Pictures Classics']
+	3.
+	Id: B004EPZ07K
+	Title: Green Lantern
+	Brand: Ryan Reynolds
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	4.
+	Id: B0059XTU1S
+	Title: The Hobbit: An Unexpected Journey
+	Brand: Martin Freeman
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	5.
+	Id: B004EPYZU8
+	Title: Sucker Punch
+	Brand: Emily Browning
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	6.
+	Id: B005LAII7G
+	Title: Dredd
+	Brand: Lena Headey
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+	7.
+	Id: B002VPTJNQ
+	Title: Whip It
+	Brand: Ellen Page
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+	
+Ground truth: 
+['B00003CXR3', 'B0059XTU1S', 'B0002YLCFQ', 'B002VPTJNQ', 'B004EPYZU8']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A280SRFAJSU41S
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                      title                                brand                                                        category
+5     A280SRFAJSU41S  0002311216      3  1360281600                                                                     Passenger to Frankfurt  Visit Amazon's Agatha Christie Page            ['Books', 'Mystery, Thriller & Suspense', 'Mystery']
+6     A280SRFAJSU41S  0002318075      4  1365292800                                                    Third Girl (Agatha Christie Collection)  Visit Amazon's Agatha Christie Page            ['Books', 'Mystery, Thriller & Suspense', 'Mystery']
+3153  A280SRFAJSU41S  1935806270      5  1357516800  Intact: a First-hand Account of the D-day Invasion from a Fifth Rangers Company Commander                    John C. Raaen Jr.  ['Books', 'Biographies & Memoirs', 'Leaders & Notable People']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                       title               brand                                                   category
+0  A280SRFAJSU41S  B003R0MEZ4      3  1397347200                    Criminal Minds: Season 6        Joe Mantegna   ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+1  A280SRFAJSU41S  B003R0MEZO      5  1360281600  CSI: Crime Scene Investigation - Season 11  Laurence Fishburne   ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+2  A280SRFAJSU41S  B0058YPILY      4  1397347200                    Criminal Minds: Season 7        Joe Mantegna   ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+3  A280SRFAJSU41S  B000NDEXFC      5  1266451200   Les Miserables in Concert: The Dream Cast      Alun Armstrong  ['Movies & TV', 'Musicals & Performing Arts', 'Musicals']
+4  A280SRFAJSU41S  B003FSTN70      5  1365292800   Criminal Minds: The Complete Fifth Season                <NA>            ['Movies & TV', 'Paramount Home Entertainment']
+Correct items for test user:
+['B000NDEXFC', 'B003R0MEZO', 'B003FSTN70', 'B0058YPILY', 'B003R0MEZ4']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Intact: a First-hand Account of the D-day Invasion from a Fifth Rangers Company Commander
+	Brand: John C. Raaen Jr.
+	Categories: ['Books', 'Biographies & Memoirs', 'Leaders & Notable People']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: Passenger to Frankfurt
+	Brand: Visit Amazon's Agatha Christie Page
+	Categories: ['Books', 'Mystery, Thriller & Suspense', 'Mystery']
+	2.
+	Title: Third Girl (Agatha Christie Collection)
+	Brand: Visit Amazon's Agatha Christie Page
+	Categories: ['Books', 'Mystery, Thriller & Suspense', 'Mystery']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B003R0MEZ4
+	Title: Criminal Minds: Season 6
+	Brand: Joe Mantegna
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	2.
+	Id: B003R0MEZO
+	Title: CSI: Crime Scene Investigation - Season 11
+	Brand: Laurence Fishburne
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	3.
+	Id: B0058YPILY
+	Title: Criminal Minds: Season 7
+	Brand: Joe Mantegna
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	4.
+	Id: B000NDEXFC
+	Title: Les Miserables in Concert: The Dream Cast
+	Brand: Alun Armstrong
+	Categories: ['Movies & TV', 'Musicals & Performing Arts', 'Musicals']
+	5.
+	Id: B003FSTN70
+	Title: Criminal Minds: The Complete Fifth Season
+	Categories: ['Movies & TV', 'Paramount Home Entertainment']
+	
+Ground truth: 
+['B000NDEXFC', 'B003R0MEZO', 'B003FSTN70', 'B0058YPILY', 'B003R0MEZ4']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A18N8JOLNS5D96
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                          title                                        brand                                                          category
+7     A18N8JOLNS5D96  0006470181      3   984614400                                                                                 Mr. American (Flashman Papers)  Visit Amazon's George MacDonald Fraser Page                                 ['Books', 'Literature & Fiction']
+1496  A18N8JOLNS5D96  0674059824      5  1388793600                                                     Triumphs of Experience: The Men of the Harvard Grant Study       Visit Amazon's George E. Vaillant Page  ['Books', 'New, Used &amp; Rental Textbooks', 'Social Sciences']
+2199  A18N8JOLNS5D96  0963215809      1  1374019200                                           The Franklin Cover-up: Child Abuse, Satanism, and Murder in Nebraska           Visit Amazon's John W. DeCamp Page                                  ['Books', 'History', 'Americas']
+2798  A18N8JOLNS5D96  1585429341      5  1388793600  Hidden Cities: Travels to the Secret Corners of the World's Great Metropolises: a Memoir of Urban Exploration              Visit Amazon's Moses Gates Page   ['Books', 'Reference', 'Writing, Research & Publishing Guides']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                      title                 brand                                                                                            category
+0  A18N8JOLNS5D96  B00003CXS4      5  1379894400                                     Snatch             Brad Pitt  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+1  A18N8JOLNS5D96  B0012Z368K      1  1256083200  Confessions of a Young American Housewife        Rebecca Brooke                                           ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+2  A18N8JOLNS5D96  630549570X      1  1283385600                           Teach Me Tonight         Judy Thompson                                           ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+3  A18N8JOLNS5D96  B0009ESSF6      1  1343174400      National Lampoon's Going the Distance     Christopher Jacot                      ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+4  A18N8JOLNS5D96  6300214559      1  1357344000                              Lady Jane VHS  Helena Bonham Carter               ['Movies & TV', 'Art House & International', 'By Country', 'United Kingdom', 'Drama']
+Correct items for test user:
+['B00003CXS4', 'B0012Z368K', '630549570X', 'B0009ESSF6', '6300214559']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Triumphs of Experience: The Men of the Harvard Grant Study
+	Brand: Visit Amazon's George E. Vaillant Page
+	Categories: ['Books', 'New, Used &amp; Rental Textbooks', 'Social Sciences']
+	2.
+	Title: Hidden Cities: Travels to the Secret Corners of the World's Great Metropolises: a Memoir of Urban Exploration
+	Brand: Visit Amazon's Moses Gates Page
+	Categories: ['Books', 'Reference', 'Writing, Research & Publishing Guides']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: Mr. American (Flashman Papers)
+	Brand: Visit Amazon's George MacDonald Fraser Page
+	Categories: ['Books', 'Literature & Fiction']
+	2.
+	Title: The Franklin Cover-up: Child Abuse, Satanism, and Murder in Nebraska
+	Brand: Visit Amazon's John W. DeCamp Page
+	Categories: ['Books', 'History', 'Americas']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B00003CXS4
+	Title: Snatch
+	Brand: Brad Pitt
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	2.
+	Id: B0012Z368K
+	Title: Confessions of a Young American Housewife
+	Brand: Rebecca Brooke
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	3.
+	Id: 630549570X
+	Title: Teach Me Tonight
+	Brand: Judy Thompson
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	4.
+	Id: B0009ESSF6
+	Title: National Lampoon's Going the Distance
+	Brand: Christopher Jacot
+	Categories: ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+	5.
+	Id: 6300214559
+	Title: Lady Jane VHS
+	Brand: Helena Bonham Carter
+	Categories: ['Movies & TV', 'Art House & International', 'By Country', 'United Kingdom', 'Drama']
+	
+Ground truth: 
+['B00003CXS4', 'B0012Z368K', '630549570X', 'B0009ESSF6', '6300214559']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AQ0AH4JYO78TI
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                                 title                                     brand                                                   category
+8     AQ0AH4JYO78TI  000649885X      5  1369958400                                                      Ship of Magic (Liveship Traders)            Visit Amazon's Robin Hobb Page         ['Books', 'Literature & Fiction', 'Genre Fiction']
+1782  AQ0AH4JYO78TI  076536543X      5  1381622400  Mistborn Trilogy Boxed Set (Mistborn, The Hero of Ages, &amp; The Well of Ascension)     Visit Amazon's Brandon Sanderson Page      ['Books', 'Science Fiction &amp; Fantasy', 'Fantasy']
+2567  AQ0AH4JYO78TI  1460955137      5  1362009600                                                                 Mississippi Innocents                     Betty Chisolm Hutzler     ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2995  AQ0AH4JYO78TI  1781080151      3  1368230400                                                     Sanctuary: The Outcast Chronicles  Visit Amazon's Rowena Cory Daniells Page  ['Books', 'Literature &amp; Fiction', 'World Literature']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                             title           brand                                                                                     category
+0  AQ0AH4JYO78TI  B004DOTKDM      5  1385510400  Ernest Goes to Camp / Ernest Scared Stupid / Ernest Goes to Jail      Jim Varney                                       ['Movies & TV', 'Independently Distributed', 'Comedy']
+1  AQ0AH4JYO78TI  6301798805      4  1376524800                                                  Silent Movie VHS            <NA>                                        ['Movies & TV', 'Classics', 'Silent Films', 'Comedy']
+2  AQ0AH4JYO78TI  B0059XTU1S      5  1385510400                                 The Hobbit: An Unexpected Journey  Martin Freeman                        ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+3  AQ0AH4JYO78TI  6301589106      5  1382313600                                                Young Einstein VHS   Yahoo Serious        ['Movies & TV', 'Art House & International', 'By Country', 'Australia & New Zealand']
+4  AQ0AH4JYO78TI  630179799X      5  1376524800                                   History of the World Part 1 VHS            <NA>  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+Correct items for test user:
+['630179799X', '6301589106', 'B004DOTKDM', 'B0059XTU1S', '6301798805']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Ship of Magic (Liveship Traders)
+	Brand: Visit Amazon's Robin Hobb Page
+	Categories: ['Books', 'Literature & Fiction', 'Genre Fiction']
+	2.
+	Title: Mistborn Trilogy Boxed Set (Mistborn, The Hero of Ages, &amp; The Well of Ascension)
+	Brand: Visit Amazon's Brandon Sanderson Page
+	Categories: ['Books', 'Science Fiction &amp; Fantasy', 'Fantasy']
+	3.
+	Title: Mississippi Innocents
+	Brand: Betty Chisolm Hutzler
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: Sanctuary: The Outcast Chronicles
+	Brand: Visit Amazon's Rowena Cory Daniells Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'World Literature']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B004DOTKDM
+	Title: Ernest Goes to Camp / Ernest Scared Stupid / Ernest Goes to Jail
+	Brand: Jim Varney
+	Categories: ['Movies & TV', 'Independently Distributed', 'Comedy']
+	2.
+	Id: 6301798805
+	Title: Silent Movie VHS
+	Categories: ['Movies & TV', 'Classics', 'Silent Films', 'Comedy']
+	3.
+	Id: B0059XTU1S
+	Title: The Hobbit: An Unexpected Journey
+	Brand: Martin Freeman
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	4.
+	Id: 6301589106
+	Title: Young Einstein VHS
+	Brand: Yahoo Serious
+	Categories: ['Movies & TV', 'Art House & International', 'By Country', 'Australia & New Zealand']
+	5.
+	Id: 630179799X
+	Title: History of the World Part 1 VHS
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+	
+Ground truth: 
+['630179799X', '6301589106', 'B004DOTKDM', 'B0059XTU1S', '6301798805']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A19EEKJ39PA47B
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                title                                 brand                                                               category
+9     A19EEKJ39PA47B  0006551807      5  1377388800                                                                                         The Namesake     Visit Amazon's Jhumpa Lahiri Page                      ['Books', 'Literature & Fiction', 'Contemporary']
+578   A19EEKJ39PA47B  0307945618      4  1379721600                                                 Cracking the SAT with 5 Practice Tests, 2014 Edition  Visit Amazon's Princeton Review Page             ['Books', 'Test Preparation', 'College &amp; High School']
+2277  A19EEKJ39PA47B  0982301871      2  1363046400  Lose Weight Without Dieting or Working Out: Discover Secrets to a Slimmer, Sexier and Healthier You          Visit Amazon's JJ Smith Page  ['Books', 'Health, Fitness &amp; Dieting', 'Diets &amp; Weight Loss']
+2894  A19EEKJ39PA47B  1596951141      5  1379721600                                                                Webster's American English Dictionary                       Merriam-Webster               ['Books', 'Reference', 'Dictionaries &amp; Thesauruses']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                title              brand                                                                                            category
+0  A19EEKJ39PA47B  B009NNM9OA      5  1382400000                                   42   Chadwick Boseman                                           ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+1  A19EEKJ39PA47B  B00AF6B22E      5  1363046400                         Flight Combo  Denzel Washington                               ['Movies & TV', 'Paramount Home Entertainment', 'Action & Adventure']
+2  A19EEKJ39PA47B  6304380941      4  1363046400  To Gillian on Her 37th Birthday VHS    Peter Gallagher  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+3  A19EEKJ39PA47B  6300214583      4  1363046400                       First Born VHS          Teri Garr                                            ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+4  A19EEKJ39PA47B  B0089LX8II      5  1382400000                       The Expatriate      Aaron Eckhart                             ['Movies & TV', 'Genre for Featured Categories', 'Mystery & Thrillers']
+5  A19EEKJ39PA47B  079074676X      5  1363046400                  Victor Victoria VHS      Julie Andrews              ['Movies & TV', 'Art House & International', 'By Country', 'United Kingdom', 'Comedy']
+6  A19EEKJ39PA47B  B005S9ELM6      5  1361923200                                 Argo      Kyle Chandler                               ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+7  A19EEKJ39PA47B  B005LAIGYQ      5  1363046400                         Act of Valor    Roselyn Sanchez                              ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+8  A19EEKJ39PA47B  B00DCLT8RA      5  1379721600                            Sharknado     Jaason Simmons                                                                ['Movies & TV', 'Blu-ray', 'Movies']
+9  A19EEKJ39PA47B  B005LAIHW2      5  1363046400   Madagascar 3: Europe's Most Wanted        Ben Stiller                                                    ['Movies & TV', 'Studio Specials', 'DreamWorks']
+Correct items for test user:
+['B005S9ELM6', 'B00AF6B22E', '079074676X', 'B005LAIGYQ', 'B005LAIHW2']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: The Namesake
+	Brand: Visit Amazon's Jhumpa Lahiri Page
+	Categories: ['Books', 'Literature & Fiction', 'Contemporary']
+	2.
+	Title: Webster's American English Dictionary
+	Brand: Merriam-Webster
+	Categories: ['Books', 'Reference', 'Dictionaries &amp; Thesauruses']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: Cracking the SAT with 5 Practice Tests, 2014 Edition
+	Brand: Visit Amazon's Princeton Review Page
+	Categories: ['Books', 'Test Preparation', 'College &amp; High School']
+	2.
+	Title: Lose Weight Without Dieting or Working Out: Discover Secrets to a Slimmer, Sexier and Healthier You
+	Brand: Visit Amazon's JJ Smith Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Diets &amp; Weight Loss']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B009NNM9OA
+	Title: 42
+	Brand: Chadwick Boseman
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	2.
+	Id: B00AF6B22E
+	Title: Flight Combo
+	Brand: Denzel Washington
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Action & Adventure']
+	3.
+	Id: 6304380941
+	Title: To Gillian on Her 37th Birthday VHS
+	Brand: Peter Gallagher
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	4.
+	Id: 6300214583
+	Title: First Born VHS
+	Brand: Teri Garr
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	5.
+	Id: B0089LX8II
+	Title: The Expatriate
+	Brand: Aaron Eckhart
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Mystery & Thrillers']
+	6.
+	Id: 079074676X
+	Title: Victor Victoria VHS
+	Brand: Julie Andrews
+	Categories: ['Movies & TV', 'Art House & International', 'By Country', 'United Kingdom', 'Comedy']
+	7.
+	Id: B005S9ELM6
+	Title: Argo
+	Brand: Kyle Chandler
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	8.
+	Id: B005LAIGYQ
+	Title: Act of Valor
+	Brand: Roselyn Sanchez
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+	9.
+	Id: B00DCLT8RA
+	Title: Sharknado
+	Brand: Jaason Simmons
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	10.
+	Id: B005LAIHW2
+	Title: Madagascar 3: Europe's Most Wanted
+	Brand: Ben Stiller
+	Categories: ['Movies & TV', 'Studio Specials', 'DreamWorks']
+	
+Ground truth: 
+['B005S9ELM6', 'B00AF6B22E', '079074676X', 'B005LAIGYQ', 'B005LAIHW2']
+-------------------
+=================================================================
+0-shot scenario
+No explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AXJ1QYBUL86ON
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                          title                                   brand                                            category
+10    AXJ1QYBUL86ON  0007152531      2  1169337600                                                    The Solace of Leaving Early        Visit Amazon's Haven Kimmel Page   ['Books', 'Literature & Fiction', 'Contemporary']
+806   AXJ1QYBUL86ON  0345420748      2  1175126400                                                               While I Was Gone          Visit Amazon's Sue Miller Page  ['Books', 'Literature & Fiction', 'Genre Fiction']
+1449  AXJ1QYBUL86ON  0634078615      5  1325376000                    Play Ukulele Today!: A Complete Guide to the Basics Level 1  Visit Amazon's Barrett Tagliarino Page        ['Books', 'Arts &amp; Photography', 'Music']
+2451  AXJ1QYBUL86ON  1423486684      5  1323734400  Play Ukulele Today! Complete Kit: Includes Everything You Need to Play Today!                       Hal Leonard Corp.        ['Books', 'Arts &amp; Photography', 'Music']
+2960  AXJ1QYBUL86ON  1612383955      3  1357948800                                                        Rick Steves' Spain 2013         Visit Amazon's Rick Steves Page                       ['Books', 'Travel', 'Europe']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                              title                  brand                                                                                     category
+0  AXJ1QYBUL86ON  B002UPA4ZY      4  1261180800        Andrea Bocelli / David Foster: My Christmas         Andrea Bocelli                                          ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+1  AXJ1QYBUL86ON  B0013LRKYO      4  1341187200                                       Music Within      Rebecca De Mornay               ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+2  AXJ1QYBUL86ON  6300216977      1  1362873600                                Ordinary People VHS      Donald Sutherland                                     ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+3  AXJ1QYBUL86ON  B00067Z2SM      5  1205366400  Tantric Toning Workout with Stephanie de Phillipo  Stephanie de Phillipo                       ['Movies & TV', 'Genre for Featured Categories', 'Exercise & Fitness']
+4  AXJ1QYBUL86ON  B000YAA68C      2  1378425600                                    P.S. I Love You           Hilary Swank                                   ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+5  AXJ1QYBUL86ON  B000TV1ST2      2  1198886400                                          Two Weeks            Sally Field               ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+6  AXJ1QYBUL86ON  B00005JNP4      2  1123718400                         Upside of Anger (DVD) (WS)            Mike Binder                                                  ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+7  AXJ1QYBUL86ON  B004Z29XEI      3  1335052800                                         Like Crazy         Felicity Jones                                     ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+8  AXJ1QYBUL86ON  B008OGIPJA      3  1368057600                            Silver Linings Playbook                   <NA>                                                         ['Movies & TV', 'Blu-ray', 'Movies']
+9  AXJ1QYBUL86ON  6305714886      3  1336176000                                   Brokedown Palace           Claire Danes  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+Correct items for test user:
+['B00067Z2SM', 'B002UPA4ZY', 'B0013LRKYO', 'B004Z29XEI', '6305714886']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain, that he or she liked in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+        Rating: <rating from 1 to 5 the user gave to the item> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 2 movies. Your answer must be in the following format: 
+' Items ranking: <list of top 2 recommended movies' ids>.
+  Explanation: <your explanation>. '
+
+sample_user_prompts: 
+[]
+assistant_prompts: 
+[]
+user_prompt: 
+I liked the following cds : 
+1.
+	Title: Play Ukulele Today!: A Complete Guide to the Basics Level 1
+	Brand: Visit Amazon's Barrett Tagliarino Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	2.
+	Title: Play Ukulele Today! Complete Kit: Includes Everything You Need to Play Today!
+	Brand: Hal Leonard Corp.
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	 
+Instead, I disliked the following cds : 
+1.
+	Title: The Solace of Leaving Early
+	Brand: Visit Amazon's Haven Kimmel Page
+	Categories: ['Books', 'Literature & Fiction', 'Contemporary']
+	2.
+	Title: While I Was Gone
+	Brand: Visit Amazon's Sue Miller Page
+	Categories: ['Books', 'Literature & Fiction', 'Genre Fiction']
+	3.
+	Title: Rick Steves' Spain 2013
+	Brand: Visit Amazon's Rick Steves Page
+	Categories: ['Books', 'Travel', 'Europe']
+	 
+Rank and return the top 2 movies from the following ones: 
+1.
+	Id: B002UPA4ZY
+	Title: Andrea Bocelli / David Foster: My Christmas
+	Brand: Andrea Bocelli
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+	2.
+	Id: B0013LRKYO
+	Title:  Music Within
+	Brand: Rebecca De Mornay
+	Categories: ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+	3.
+	Id: 6300216977
+	Title: Ordinary People VHS
+	Brand: Donald Sutherland
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	4.
+	Id: B00067Z2SM
+	Title: Tantric Toning Workout with Stephanie de Phillipo
+	Brand: Stephanie de Phillipo
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Exercise & Fitness']
+	5.
+	Id: B000YAA68C
+	Title: P.S. I Love You
+	Brand: Hilary Swank
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	6.
+	Id: B000TV1ST2
+	Title: Two Weeks
+	Brand: Sally Field
+	Categories: ['Movies & TV', 'Studio Specials', 'MGM Home Entertainment', 'All MGM Titles']
+	7.
+	Id: B00005JNP4
+	Title: Upside of Anger (DVD) (WS)
+	Brand: Mike Binder
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+	8.
+	Id: B004Z29XEI
+	Title: Like Crazy
+	Brand: Felicity Jones
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	9.
+	Id: B008OGIPJA
+	Title: Silver Linings Playbook
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	10.
+	Id: 6305714886
+	Title: Brokedown Palace
+	Brand: Claire Danes
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+	
+Ground truth: 
+['B00067Z2SM', 'B002UPA4ZY', 'B0013LRKYO', 'B004Z29XEI', '6305714886']
+-------------------

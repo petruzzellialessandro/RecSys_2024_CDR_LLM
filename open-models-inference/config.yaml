@@ -1,0 +1,23 @@
+model_dir: ale_priv/CDR/mistral_15_LORA_merged
+dataset_path: ale_priv/CDR/inferenceCDR/conf_to_test_mistral
+torch_dtype: bf16
+generation_parameters:
+  #do_sample: True
+  #top_k: 50
+  #top_k: 0
+  #temperature: 0.6
+  #top_p: 0.95
+  max_new_tokens: 256
+
+input_format: "raw"
+input_format_parameters:
+  text_field: "input"
+
+batch_size: 8
+padding_side: "left"
+model_name_high:  mistral-chat-lora
+output_dir: ale_priv/CDR/inferenceCDR/res_mistral
+dataset_setting: zero_shot
+
+pretrained_parameters:
+  torch_dtype: bf16

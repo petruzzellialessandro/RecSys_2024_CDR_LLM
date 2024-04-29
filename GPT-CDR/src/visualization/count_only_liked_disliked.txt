@@ -1,0 +1,96 @@
+
+-------------------------------------------------
+The selected test case is: books35_cds510!
+Datasets loaded!
+Users with only liked items: 195
+Users with only disliked items: 62
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: books35_movies510!
+Datasets loaded!
+Users with only liked items: 182
+Users with only disliked items: 50
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: books35_movies810!
+Datasets loaded!
+Users with only liked items: 69
+Users with only disliked items: 19
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: books35_cds810!
+Datasets loaded!
+Users with only liked items: 66
+Users with only disliked items: 19
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: cds35_books510!
+Datasets loaded!
+Users with only liked items: 460
+Users with only disliked items: 65
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: cds35_movies510!
+Datasets loaded!
+Users with only liked items: 407
+Users with only disliked items: 63
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: cds35_books810!
+Datasets loaded!
+Users with only liked items: 155
+Users with only disliked items: 24
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: cds35_movies810!
+Datasets loaded!
+Users with only liked items: 141
+Users with only disliked items: 21
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: movies35_books510!
+Datasets loaded!
+Users with only liked items: 302
+Users with only disliked items: 120
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: movies35_cds510!
+Datasets loaded!
+Users with only liked items: 320
+Users with only disliked items: 102
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: movies35_books810!
+Datasets loaded!
+Users with only liked items: 129
+Users with only disliked items: 43
+-------------------------------------------------
+
+
+-------------------------------------------------
+The selected test case is: movies35_cds810!
+Datasets loaded!
+Users with only liked items: 96
+Users with only disliked items: 32
+-------------------------------------------------
+

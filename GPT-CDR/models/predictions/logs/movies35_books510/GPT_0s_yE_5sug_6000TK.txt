@@ -1,0 +1,3030 @@
+
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: ACAYM33O3NL3B
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                             title           brand                                                         category
+4036  ACAYM33O3NL3B  B0042EJDJY      5  1301443200                                                        Still Bill    Bill Withers  ['Movies & TV', 'Genre for Featured Categories', 'Documentary']
+4348  ACAYM33O3NL3B  B005M1O5K8      4  1376956800                                             A Heartland Christmas  Amber Marshall              ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+4595  ACAYM33O3NL3B  B009DJKKKE      5  1376956800  Heartland: The Complete Fifth Season - Season 5 Canadian version  Amber Marshall        ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                              title                                 brand                                                                  category
+0  ACAYM33O3NL3B  1583942475      4  1365292800                   The Art of Raw Food: Delicious, Simple Dishes for Healthy Living      Visit Amazon's Jens Casupei Page  ['Books', 'Crafts, Hobbies &amp; Home', 'Home Improvement &amp; Design']
+1  ACAYM33O3NL3B  0312334524      5  1333670400                                 The Angels of Morgan Hill (Women of Faith Fiction)    Visit Amazon's Donna VanLiere Page                    ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2  ACAYM33O3NL3B  0765326264      5  1312761600                                                A Dog's Purpose: A Novel for Humans  Visit Amazon's W. Bruce Cameron Page                        ['Books', 'Literature & Fiction', 'Genre Fiction']
+3  ACAYM33O3NL3B  0310247527      4  1382227200                                          One Tuesday Morning (9/11 Series, Book 1)   Visit Amazon's Karen Kingsbury Page     ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+4  ACAYM33O3NL3B  1887542868      5  1236211200                                                                Annie's Second Wind     Visit Amazon's Wally Carlson Page                  ['Books', 'Literature &amp; Fiction', "Women's Fiction"]
+5  ACAYM33O3NL3B  0310257719      4  1384387200                                    Beyond Tuesday Morning (September 11 Series #2)   Visit Amazon's Karen Kingsbury Page     ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+6  ACAYM33O3NL3B  1575666286      4  1365292800  The Gerson Therapy: The Proven Nutritional Program for Cancer and Other Illnesses  Visit Amazon's Charlotte Gerson Page        ['Books', 'Health, Fitness &amp; Dieting', 'Alternative Medicine']
+Correct items for test user:
+['1887542868', '0765326264', '0312334524', '1583942475', '1575666286']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Still Bill
+	Brand: Bill Withers
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Documentary']
+	2.
+	Title: Heartland: The Complete Fifth Season - Season 5 Canadian version
+	Brand: Amber Marshall
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: A Heartland Christmas
+	Brand: Amber Marshall
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 1583942475
+	Title: The Art of Raw Food: Delicious, Simple Dishes for Healthy Living
+	Brand: Visit Amazon's Jens Casupei Page
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Home Improvement &amp; Design']
+	2.
+	Id: 0312334524
+	Title: The Angels of Morgan Hill (Women of Faith Fiction)
+	Brand: Visit Amazon's Donna VanLiere Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	3.
+	Id: 0765326264
+	Title: A Dog's Purpose: A Novel for Humans
+	Brand: Visit Amazon's W. Bruce Cameron Page
+	Categories: ['Books', 'Literature & Fiction', 'Genre Fiction']
+	4.
+	Id: 0310247527
+	Title: One Tuesday Morning (9/11 Series, Book 1)
+	Brand: Visit Amazon's Karen Kingsbury Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	5.
+	Id: 1887542868
+	Title: Annie's Second Wind
+	Brand: Visit Amazon's Wally Carlson Page
+	Categories: ['Books', 'Literature &amp; Fiction', "Women's Fiction"]
+	6.
+	Id: 0310257719
+	Title: Beyond Tuesday Morning (September 11 Series #2)
+	Brand: Visit Amazon's Karen Kingsbury Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	7.
+	Id: 1575666286
+	Title: The Gerson Therapy: The Proven Nutritional Program for Cancer and Other Illnesses
+	Brand: Visit Amazon's Charlotte Gerson Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Alternative Medicine']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [0312334524, 0310247527, 0310257719, 1887542868, 0765326264].
+Explanation: Based on the user's liked movies, which are "Still Bill" and "Heartland: The Complete Fifth Season - Season 5 Canadian version", we can see that the user is interested in movies in the genres of Documentary and Drama. 
+
+Among the given books, the top 5 recommended books are:
+1. "The Angels of Morgan Hill (Women of Faith Fiction)" - This book falls under the genre of Fiction, which aligns with the user's interest in Drama movies.
+2. "One Tuesday Morning (9/11 Series, Book 1)" - This book is categorized as Christian Books & Bibles and Literature & Fiction, which may appeal to the user's interest in Drama movies.
+3. "Beyond Tuesday Morning (September 11 Series #2)" - This book is a sequel to "One Tuesday Morning" and falls under the same categories, making it a potential recommendation for the user.
+4. "Annie's Second Wind" - This book is categorized as Women's Fiction, which may be of interest to the user who liked "Heartland: The Complete Fifth Season - Season 5 Canadian version".
+5. "A Dog's Purpose: A Novel for Humans" - This book is categorized as Literature & Fiction and Genre Fiction, which aligns with the user's interest in Drama movies.
+
+These recommendations are based on the similarity between the genres of the user's liked movies and the categories of the recommended books.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1CTO6QJL5H909
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                   title            brand                                                                                            category
+4057  A1CTO6QJL5H909  B00466HN86      4  1328313600              Courageous             <NA>                                                                           ['Movies & TV', 'Movies']
+4143  A1CTO6QJL5H909  B004LWZWFQ      4  1353024000  The Amazing Spider-Man  Andrew Garfield  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4602  A1CTO6QJL5H909  B009ISQ3DI      5  1354752000        Father of Lights    Darren Wilson                                     ['Movies & TV', 'Genre for Featured Categories', 'Documentary']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                           title                           brand                                                       category
+0  A1CTO6QJL5H909  0800734408      5  1346198400  More Glimpses of Heaven: Inspiring True Stories of Hope and Peace at the End of Life's Journey                 Trudy RN Harris  ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+1  A1CTO6QJL5H909  0955237777      4  1357948800             The Fall of Lucifer (The Chronicles of Brothers) (Chronicles of Brothers, Book One)  Visit Amazon's Wendy Alec Page  ['Books', 'Christian Books & Bibles', 'Literature & Fiction']
+2  A1CTO6QJL5H909  1602665168      5  1337817600                                                         Revealing Heaven: An Eyewitness Account                        Kat Kerr  ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+3  A1CTO6QJL5H909  0801015626      4  1337817600                                                                       The Hurt &amp; The Healer                   Andrew Farley  ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+4  A1CTO6QJL5H909  0957149832      5  1358553600                Pale Horse (Chronicles Of Brothers: Volume 4): Book Four (Chronicle of Brothers)  Visit Amazon's Wendy Alec Page  ['Books', 'Christian Books & Bibles', 'Literature & Fiction']
+5  A1CTO6QJL5H909  1609578635      5  1337817600                                                                             Revealing Heaven II    Visit Amazon's Kat Kerr Page                       ['Books', 'Religion &amp; Spirituality']
+Correct items for test user:
+['1602665168', '1609578635', '0800734408', '0957149832', '0801015626']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Father of Lights
+	Brand: Darren Wilson
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Documentary']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Courageous
+	Categories: ['Movies & TV', 'Movies']
+	2.
+	Title: The Amazing Spider-Man
+	Brand: Andrew Garfield
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0800734408
+	Title: More Glimpses of Heaven: Inspiring True Stories of Hope and Peace at the End of Life's Journey
+	Brand: Trudy RN Harris
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+	2.
+	Id: 0955237777
+	Title: The Fall of Lucifer (The Chronicles of Brothers) (Chronicles of Brothers, Book One)
+	Brand: Visit Amazon's Wendy Alec Page
+	Categories: ['Books', 'Christian Books & Bibles', 'Literature & Fiction']
+	3.
+	Id: 1602665168
+	Title: Revealing Heaven: An Eyewitness Account
+	Brand: Kat Kerr
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+	4.
+	Id: 0801015626
+	Title: The Hurt &amp; The Healer
+	Brand: Andrew Farley
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+	5.
+	Id: 0957149832
+	Title: Pale Horse (Chronicles Of Brothers: Volume 4): Book Four (Chronicle of Brothers)
+	Brand: Visit Amazon's Wendy Alec Page
+	Categories: ['Books', 'Christian Books & Bibles', 'Literature & Fiction']
+	6.
+	Id: 1609578635
+	Title: Revealing Heaven II
+	Brand: Visit Amazon's Kat Kerr Page
+	Categories: ['Books', 'Religion &amp; Spirituality']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0955237777', '0957149832', '0800734408', '1602665168', '0801015626'].
+Explanation: Based on the user's liked and disliked movies, we can see that the user is interested in Christian books and documentaries. Therefore, the recommended books are selected from the Christian Books & Bibles category. 
+
+The top 5 recommended books are:
+1. The Fall of Lucifer (The Chronicles of Brothers) (Chronicles of Brothers, Book One) - This book is from the Christian Books & Bibles category and is the first book in the Chronicles of Brothers series. It aligns with the user's interest in Christian literature and fiction.
+2. Pale Horse (Chronicles Of Brothers: Volume 4): Book Four (Chronicle of Brothers) - This book is also from the Chronicles of Brothers series and is the fourth book in the series. It continues the user's interest in Christian literature and fiction.
+3. More Glimpses of Heaven: Inspiring True Stories of Hope and Peace at the End of Life's Journey - This book is from the Christian Living category and aligns with the user's interest in documentaries and Christian books.
+4. Revealing Heaven: An Eyewitness Account - This book is from the Christian Living category and provides an eyewitness account of heaven, which aligns with the user's interest in documentaries and Christian books.
+5. The Hurt & The Healer - This book is from the Christian Living category and explores the concept of healing, which aligns with the user's interest in Christian books.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3Q7WCGW664I0C
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                          title          brand                                                                                    category
+4078  A3Q7WCGW664I0C  B004AC6PXA      5  1327622400  LeapFrog: The Amazing Alphabet Amusement Park           <NA>  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4180  A3Q7WCGW664I0C  B004YK29BK      5  1327622400              LeapFrog: Sing and Learn With Us!  T.j. Cummings  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4385  A3Q7WCGW664I0C  B005T3P28I      5  1327622400               Meet the Phonics - Letter Sounds      Animation                       ['Movies & TV', 'Genre for Featured Categories', 'Special Interests']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                          title                                    brand                                                                category
+0  A3Q7WCGW664I0C  0061065919      5  1247270400              The Case of the Flying Phantom (New Adventures of Mary-Kate &amp; Ashley, No. 18)                          Mary-Kate Olsen               ['Books', "Children's Books", 'Literature &amp; Fiction']
+1  A3Q7WCGW664I0C  1561709247      5  1232323200                                                                              Until Today Cards       Visit Amazon's Iyanla Vanzant Page  ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+2  A3Q7WCGW664I0C  0847824438      5  1247270400                                                                                   Living Color          Visit Amazon's Paula Pryke Page         ['Books', 'Crafts, Hobbies &amp; Home', 'Crafts &amp; Hobbies']
+3  A3Q7WCGW664I0C  1600590934      5  1369699200                               From Your Grandfather: A Gift of Memory for My Grandchild (AARP)                                     Lark      ['Books', 'Parenting &amp; Relationships', 'Family Relationships']
+4  A3Q7WCGW664I0C  1932319646      3  1369699200                                                                   My Dad: His Story, His Words            Visit Amazon's Dan Zadra Page          ['Books', 'Parenting & Relationships', 'Family Relationships']
+5  A3Q7WCGW664I0C  1561709395      5  1242604800                                                 Tips for Daily Living Cards (Large Card Decks)       Visit Amazon's Iyanla Vanzant Page                       ['Books', 'Self-Help', 'Personal Transformation']
+6  A3Q7WCGW664I0C  158816523X      5  1232323200  Country Living 750 Great Ideas for Decorating on a Budget: Transform Your Home Inside and Out                     Nancy Mernit Soriano                                                                      []
+7  A3Q7WCGW664I0C  0739474464      5  1327622400                                                                                   Left to Tell  Visit Amazon's Immaculee Ilibagiza Page               ['Books', 'Literature &amp; Fiction', 'World Literature']
+8  A3Q7WCGW664I0C  0735823111      5  1319673600                                                       Rainbow Fish Gift of Sharing: Cloth Book                           Marcus Pfister                                ['Books', "Children's Books", 'Animals']
+Correct items for test user:
+['1561709247', '158816523X', '1561709395', '0061065919', '0847824438']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: LeapFrog: The Amazing Alphabet Amusement Park
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	2.
+	Title: LeapFrog: Sing and Learn With Us!
+	Brand: T.j. Cummings
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	3.
+	Title: Meet the Phonics - Letter Sounds
+	Brand: Animation
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Special Interests']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0061065919
+	Title: The Case of the Flying Phantom (New Adventures of Mary-Kate &amp; Ashley, No. 18)
+	Brand: Mary-Kate Olsen
+	Categories: ['Books', "Children's Books", 'Literature &amp; Fiction']
+	2.
+	Id: 1561709247
+	Title: Until Today Cards
+	Brand: Visit Amazon's Iyanla Vanzant Page
+	Categories: ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+	3.
+	Id: 0847824438
+	Title: Living Color
+	Brand: Visit Amazon's Paula Pryke Page
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Crafts &amp; Hobbies']
+	4.
+	Id: 1600590934
+	Title: From Your Grandfather: A Gift of Memory for My Grandchild (AARP)
+	Brand: Lark
+	Categories: ['Books', 'Parenting &amp; Relationships', 'Family Relationships']
+	5.
+	Id: 1932319646
+	Title: My Dad: His Story, His Words
+	Brand: Visit Amazon's Dan Zadra Page
+	Categories: ['Books', 'Parenting & Relationships', 'Family Relationships']
+	6.
+	Id: 1561709395
+	Title: Tips for Daily Living Cards (Large Card Decks)
+	Brand: Visit Amazon's Iyanla Vanzant Page
+	Categories: ['Books', 'Self-Help', 'Personal Transformation']
+	7.
+	Id: 158816523X
+	Title: Country Living 750 Great Ideas for Decorating on a Budget: Transform Your Home Inside and Out
+	Brand: Nancy Mernit Soriano
+	Categories: []
+	8.
+	Id: 0739474464
+	Title: Left to Tell
+	Brand: Visit Amazon's Immaculee Ilibagiza Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'World Literature']
+	9.
+	Id: 0735823111
+	Title: Rainbow Fish Gift of Sharing: Cloth Book
+	Brand: Marcus Pfister
+	Categories: ['Books', "Children's Books", 'Animals']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0735823111', '1561709247', '0847824438', '1600590934', '1932319646'].
+Explanation: Based on the user's liked movies, which are educational and targeted towards children, I recommend the following books:
+1. 'Rainbow Fish Gift of Sharing: Cloth Book': This book is a children's book about animals, which aligns with the user's interest in educational and children-focused content.
+2. 'Until Today Cards': This book falls under the category of New Age & Spirituality, which may appeal to the user's interest in self-improvement and personal growth.
+3. 'Living Color': This book is about crafts and hobbies, which may be of interest to the user as it aligns with the educational and creative nature of the liked movies.
+4. 'From Your Grandfather: A Gift of Memory for My Grandchild (AARP)': This book falls under the category of parenting and family relationships, which may resonate with the user's interest in educational content related to family dynamics.
+5. 'My Dad: His Story, His Words': This book also falls under the category of parenting and family relationships, providing an opportunity for the user to explore and reflect on their own family dynamics.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3K0IVT8MTDGMZ
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                            title               brand                                                                                    category
+4089  A3K0IVT8MTDGMZ  B004CYVZ36      5  1294876800                                            The Last Play at Shea          Billy Joel  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4292  A3K0IVT8MTDGMZ  B005HWAOCU      3  1317513600                  4 Ed Sullivan Shows Starring The Rolling Stones  The Rolling Stones                                      ['Movies & TV', 'Music Artists', 'The Rolling Stones']
+4561  A3K0IVT8MTDGMZ  B0095PQFFU      4  1354406400  The Rollong Stones - Crossfire Hurricane [Japan DVD] VQBD-10117                <NA>                                                                   ['Movies & TV', 'Movies']
+4664  A3K0IVT8MTDGMZ  B00B8PRDHE      5  1364860800      Ringo Starr And His All Starr Band 2012: Ringo At The Ryman                <NA>                              ['Movies & TV', 'Music Artists', 'The Beatles', 'Ringo Starr']
+4775  A3K0IVT8MTDGMZ  B00F0JG7E4      3  1383696000                                  Sweet Summer Su: Hyde Park Live      Rolling Stones                                      ['Movies & TV', 'Music Artists', 'The Rolling Stones']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                 title                                                                                                                                             brand                                                         category
+0  A3K0IVT8MTDGMZ  0879309687      5  1270598400                  Fab Four FAQ 2.0: The Beatles' Solo Years, 1970-1980                                                                                                              Visit Amazon's Robert Rodriguez Page                     ['Books', 'Arts &amp; Photography', 'Music']
+1  A3K0IVT8MTDGMZ  1926592093      5  1269993600                                             Beatles Deeper Undercover                                                                                                                              Kristofer Engelhardt                     ['Books', 'Arts &amp; Photography', 'Music']
+2  A3K0IVT8MTDGMZ  0634022296      4  1295308800                                   The Beatles Complete Chord Songbook                                                                                                                   Visit Amazon's The Beatles Page                     ['Books', 'Arts &amp; Photography', 'Music']
+3  A3K0IVT8MTDGMZ  0810882221      5  1346630400  Still the Greatest: The Essential Songs of The Beatles' Solo Careers  Andrew Grant Jackson author  1965: The Most Revolutionary Year in Music and Still the Greatest: The Essential Songs of the Beatles' Solo Careers                     ['Books', 'Arts &amp; Photography', 'Music']
+4  A3K0IVT8MTDGMZ  0989255514      5  1390608000                     Changin' Times: 101 Days That Shaped A Generation                                                                                                                                        Al Sussman                                             ['Books', 'History']
+5  A3K0IVT8MTDGMZ  0989255506      5  1387584000                 Solo in the 70s: John, Paul, George, Ringo: 1970-1980                                                                                                              Visit Amazon's Robert Rodriguez Page  ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+Correct items for test user:
+['1926592093', '0879309687', '0810882221', '0989255506', '0989255514']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Last Play at Shea
+	Brand: Billy Joel
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	2.
+	Title: Ringo Starr And His All Starr Band 2012: Ringo At The Ryman
+	Categories: ['Movies & TV', 'Music Artists', 'The Beatles', 'Ringo Starr']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: 4 Ed Sullivan Shows Starring The Rolling Stones
+	Brand: The Rolling Stones
+	Categories: ['Movies & TV', 'Music Artists', 'The Rolling Stones']
+	2.
+	Title: The Rollong Stones - Crossfire Hurricane [Japan DVD] VQBD-10117
+	Categories: ['Movies & TV', 'Movies']
+	3.
+	Title: Sweet Summer Su: Hyde Park Live
+	Brand: Rolling Stones
+	Categories: ['Movies & TV', 'Music Artists', 'The Rolling Stones']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0879309687
+	Title: Fab Four FAQ 2.0: The Beatles' Solo Years, 1970-1980
+	Brand: Visit Amazon's Robert Rodriguez Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	2.
+	Id: 1926592093
+	Title: Beatles Deeper Undercover
+	Brand: Kristofer Engelhardt
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	3.
+	Id: 0634022296
+	Title: The Beatles Complete Chord Songbook
+	Brand: Visit Amazon's The Beatles Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	4.
+	Id: 0810882221
+	Title: Still the Greatest: The Essential Songs of The Beatles' Solo Careers
+	Brand: Andrew Grant Jackson author  1965: The Most Revolutionary Year in Music and Still the Greatest: The Essential Songs of the Beatles' Solo Careers
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	5.
+	Id: 0989255514
+	Title: Changin' Times: 101 Days That Shaped A Generation
+	Brand: Al Sussman
+	Categories: ['Books', 'History']
+	6.
+	Id: 0989255506
+	Title: Solo in the 70s: John, Paul, George, Ringo: 1970-1980
+	Brand: Visit Amazon's Robert Rodriguez Page
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0879309687', '1926592093', '0634022296', '0810882221', '0989255506'].
+Explanation: Based on the user's liked movies, which are related to music artists like Billy Joel and Ringo Starr, and the disliked movies, which are related to The Rolling Stones, it can be inferred that the user has a preference for music-related content, particularly related to The Beatles. 
+
+Among the candidate books, the top 5 recommended books are:
+1. 'Fab Four FAQ 2.0: The Beatles' Solo Years, 1970-1980'
+2. 'Beatles Deeper Undercover'
+3. 'The Beatles Complete Chord Songbook'
+4. 'Still the Greatest: The Essential Songs of The Beatles' Solo Careers'
+5. 'Solo in the 70s: John, Paul, George, Ringo: 1970-1980'
+
+These books are recommended because they are all related to The Beatles, which aligns with the user's preference for music-related content. The books cover various aspects of The Beatles' career, including their solo years, chord songbook, essential songs, and biographies. Therefore, these books are likely to be of interest to the user based on their liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1NY71DI2EIUTP
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                 title             brand                                                                                            category
+4121  A1NY71DI2EIUTP  B004IZJL30      5  1390608000                          Let It Roll: Live in Germany              <NA>                                                                           ['Movies & TV', 'Movies']
+4478  A1NY71DI2EIUTP  B0074XZWTK      4  1390089600         Blackberry Smoke: Live At The Georgia Theatre  Blackberry Smoke                         ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4811  A1NY71DI2EIUTP  B00IN3KZ9C      4  1404604800  A Matter of Trust: The Bridge to Russia: The Concert        Billy Joel  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                                                        title                                brand                                                                  category
+0  A1NY71DI2EIUTP  0762440708      4  1372723200                                                 Hamburger America: Completely Revised and Updated Edition: A State-by-State Guide to 150 Great Burger Joints      Visit Amazon's George Motz Page                 ['Books', 'Travel', 'Food, Lodging &amp; Transportation']
+1  A1NY71DI2EIUTP  0307476332      5  1390608000                                                                                                            Aftershock: The Next Economy and America's Future  Visit Amazon's Robert B. Reich Page  ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+2  A1NY71DI2EIUTP  0470187670      4  1372723200                                                                                                                  Burger Bar: Build Your Own Ultimate Burgers    Visit Amazon's Hubert Keller Page          ['Books', 'Cookbooks, Food &amp; Wine', 'Cooking by Ingredient']
+3  A1NY71DI2EIUTP  0345804376      5  1390608000                                                  Beyond Outrage: Expanded Edition: What has gone wrong with our economy and our democracy, and how to fix it  Visit Amazon's Robert B. Reich Page  ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+4  A1NY71DI2EIUTP  0812992881      4  1381881600  What You Want Is in the Limo: On the Road with Led Zeppelin, Alice Cooper, and the Who in 1973, the Year the Sixties Died and the Modern Rock Star Was Born   Visit Amazon's Michael Walker Page                              ['Books', 'Arts &amp; Photography', 'Music']
+Correct items for test user:
+['0307476332', '0345804376', '0762440708', '0470187670', '0812992881']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Let It Roll: Live in Germany
+	Categories: ['Movies & TV', 'Movies']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Blackberry Smoke: Live At The Georgia Theatre
+	Brand: Blackberry Smoke
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	2.
+	Title: A Matter of Trust: The Bridge to Russia: The Concert
+	Brand: Billy Joel
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0762440708
+	Title: Hamburger America: Completely Revised and Updated Edition: A State-by-State Guide to 150 Great Burger Joints
+	Brand: Visit Amazon's George Motz Page
+	Categories: ['Books', 'Travel', 'Food, Lodging &amp; Transportation']
+	2.
+	Id: 0307476332
+	Title: Aftershock: The Next Economy and America's Future
+	Brand: Visit Amazon's Robert B. Reich Page
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	3.
+	Id: 0470187670
+	Title: Burger Bar: Build Your Own Ultimate Burgers
+	Brand: Visit Amazon's Hubert Keller Page
+	Categories: ['Books', 'Cookbooks, Food &amp; Wine', 'Cooking by Ingredient']
+	4.
+	Id: 0345804376
+	Title: Beyond Outrage: Expanded Edition: What has gone wrong with our economy and our democracy, and how to fix it
+	Brand: Visit Amazon's Robert B. Reich Page
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	5.
+	Id: 0812992881
+	Title: What You Want Is in the Limo: On the Road with Led Zeppelin, Alice Cooper, and the Who in 1973, the Year the Sixties Died and the Modern Rock Star Was Born
+	Brand: Visit Amazon's Michael Walker Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0812992881', '0307476332', '0345804376', '0762440708', '0470187670'].
+Explanation: Based on the user's liked and disliked movies, it seems that the user enjoys live concert movies. Therefore, I have ranked the books that are related to music and entertainment higher. 
+
+The top recommended book is "What You Want Is in the Limo: On the Road with Led Zeppelin, Alice Cooper, and the Who in 1973, the Year the Sixties Died and the Modern Rock Star Was Born" by Michael Walker. This book is about the music industry and provides an inside look at the lives of famous rock stars in the 1970s. Since the user enjoyed live concert movies, this book might be of interest as it offers a similar behind-the-scenes perspective on the music industry.
+
+The second recommended book is "Aftershock: The Next Economy and America's Future" by Robert B. Reich. Although not directly related to music, this book discusses the economy and social sciences, which might be of interest to the user based on their dislike of movies related to politics and government.
+
+The third recommended book is "Beyond Outrage: Expanded Edition: What has gone wrong with our economy and our democracy, and how to fix it" by Robert B. Reich. This book also discusses politics and government, which might be of interest to the user based on their dislike of movies related to politics and government.
+
+The fourth recommended book is "Hamburger America: Completely Revised and Updated Edition: A State-by-State Guide to 150 Great Burger Joints" by George Motz. Although not directly related to music, this book combines the user's interest in travel and food, which might be of interest to them.
+
+The fifth recommended book is "Burger Bar: Build Your Own Ultimate Burgers" by Hubert Keller. This book is a cookbook that focuses on cooking burgers, which aligns with the user's interest in food and cooking.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3VOM1IAGT7JXI
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                           title           brand                                                                                        category
+4134  A3VOM1IAGT7JXI  B004LWZW24      4  1394236800                       Insidious  Patrick Wilson                                      ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+4136  A3VOM1IAGT7JXI  B004LWZW4M      5  1387065600  Rise of the Planet of the Apes    James Franco  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']
+4570  A3VOM1IAGT7JXI  B009934S5M      2  1381104000         Star Trek Into Darkness      Simon Pegg                                                            ['Movies & TV', 'Blu-ray', 'Movies']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                        title                                 brand                                                                category
+0  A3VOM1IAGT7JXI  0896893324      5  1180483200  Antique Trader Antiques &amp; Collectibles Price Guide 2007                         Kyle Husfloen  ['Books', 'Crafts, Hobbies &amp; Home', 'Antiques &amp; Collectibles']
+1  A3VOM1IAGT7JXI  0615659055      5  1382227200               Taps on the Walls: Poems from the Hanoi Hilton      Visit Amazon's John Borling Page                         ['Books', 'Literature &amp; Fiction', 'Poetry']
+2  A3VOM1IAGT7JXI  0345499662      1  1222905600  In Odd We Trust (Graphic Novel) (Odd Thomas Graphic Novels)      Visit Amazon's Queenie Chan Page                  ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+3  A3VOM1IAGT7JXI  0399162941      5  1395446400                             Alternate Histories of the World  Visit Amazon's Matthew Buchholz Page        ['Books', 'Literature &amp; Fiction', 'History &amp; Criticism']
+4  A3VOM1IAGT7JXI  0345437772      5  1394236800                     Sugar Busters! Quick &amp; Easy Cookbook                   H. Leighton Steward                 ['Books', 'Cookbooks, Food &amp; Wine', 'Special Diet']
+5  A3VOM1IAGT7JXI  1574325256      5  1180483200                        Schroeder's Antiques Price Guide 2007                         Not Available  ['Books', 'Crafts, Hobbies &amp; Home', 'Antiques &amp; Collectibles']
+Correct items for test user:
+['0896893324', '1574325256', '0615659055', '0345437772', '0399162941']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Rise of the Planet of the Apes
+	Brand: James Franco
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'Action', 'General']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Insidious
+	Brand: Patrick Wilson
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	2.
+	Title: Star Trek Into Darkness
+	Brand: Simon Pegg
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0896893324
+	Title: Antique Trader Antiques &amp; Collectibles Price Guide 2007
+	Brand: Kyle Husfloen
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Antiques &amp; Collectibles']
+	2.
+	Id: 0615659055
+	Title: Taps on the Walls: Poems from the Hanoi Hilton
+	Brand: Visit Amazon's John Borling Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Poetry']
+	3.
+	Id: 0345499662
+	Title: In Odd We Trust (Graphic Novel) (Odd Thomas Graphic Novels)
+	Brand: Visit Amazon's Queenie Chan Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	4.
+	Id: 0399162941
+	Title: Alternate Histories of the World
+	Brand: Visit Amazon's Matthew Buchholz Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'History &amp; Criticism']
+	5.
+	Id: 0345437772
+	Title: Sugar Busters! Quick &amp; Easy Cookbook
+	Brand: H. Leighton Steward
+	Categories: ['Books', 'Cookbooks, Food &amp; Wine', 'Special Diet']
+	6.
+	Id: 1574325256
+	Title: Schroeder's Antiques Price Guide 2007
+	Brand: Not Available
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Antiques &amp; Collectibles']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0615659055', '0345499662', '0896893324', '1574325256', '0399162941'].
+Explanation: Based on the user's liked and disliked movies, I will recommend books that are related to the categories of the liked movies and not related to the categories of the disliked movies. 
+
+The user liked the movie "Rise of the Planet of the Apes" which falls under the categories "Movies & TV", "Studio Specials", "20th Century Fox Home Entertainment", "Action", and "General". From the given books, the book "Taps on the Walls: Poems from the Hanoi Hilton" falls under the category "Literature & Fiction" which is similar to the category of the liked movie. Therefore, it is ranked first.
+
+The user disliked the movies "Insidious" and "Star Trek Into Darkness" which fall under the categories "Movies & TV", "Genre for Featured Categories", "Horror", and "Blu-ray". None of the given books fall under these categories. 
+
+The remaining books are then ranked based on their relevance to the liked movie's categories. The book "Antique Trader Antiques & Collectibles Price Guide 2007" falls under the category "Crafts, Hobbies & Home" which is similar to the category of the liked movie. Therefore, it is ranked second. 
+
+The book "In Odd We Trust (Graphic Novel) (Odd Thomas Graphic Novels)" falls under the category "Literature & Fiction" which is similar to the category of the liked movie. Therefore, it is ranked third. 
+
+The book "Schroeder's Antiques Price Guide 2007" falls under the category "Crafts, Hobbies & Home" which is similar to the category of the liked movie. Therefore, it is ranked fourth. 
+
+The book "Alternate Histories of the World" falls under the category "Literature & Fiction" which is similar to the category of the liked movie. Therefore, it is ranked fifth.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2JSSM8CF23412
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                    title           brand                                                    category
+4172  A2JSSM8CF23412  B004UXUX4Q      4  1360022400          The Descendants  George Clooney  ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+4336  A2JSSM8CF23412  B005LAIIQC      3  1356912000        The Bourne Legacy   Jeremy Renner                 ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+4567  A2JSSM8CF23412  B009934S5M      4  1381104000  Star Trek Into Darkness      Simon Pegg                        ['Movies & TV', 'Blu-ray', 'Movies']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                               title                                  brand                                                                   category
+0  A2JSSM8CF23412  0307939693      5  1397433600                                                                                                    The Orphan Master's Son: A Novel       Visit Amazon's Adam Johnson Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+1  A2JSSM8CF23412  0671315676      4  1359072000                                                                                                              Dont Sweat Small Stuff    Visit Amazon's Richard Carlson Page                          ['Books', 'Self-Help', 'Personal Transformation']
+2  A2JSSM8CF23412  0307886263      4  1358985600                                                                            Is Everyone Hanging Out Without Me? (And Other Concerns)       Visit Amazon's Mindy Kaling Page            ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+3  A2JSSM8CF23412  160358286X      4  1375228800                          The Art of Fermentation: An In-Depth Exploration of Essential Concepts and Processes from around the World  Visit Amazon's Sandor Ellix Katz Page               ['Books', 'Cookbooks, Food & Wine', 'Cooking by Ingredient']
+4  A2JSSM8CF23412  140278709X      5  1353974400  The Beekman 1802 Heirloom Cookbook: Heirloom fruits and vegetables, and more than 100 heritage recipes to inspire every generation                        Dr. Brent Ridge    ['Books', 'Cookbooks, Food &amp; Wine', 'Regional &amp; International']
+5  A2JSSM8CF23412  1594488371      3  1397433600                                 Anything That Moves: Renegade Chefs, Fearless Eaters, and the Making of a New American Food Culture      Visit Amazon's Dana Goodyear Page            ['Books', 'Biographies & Memoirs', 'Professionals & Academics']
+Correct items for test user:
+['140278709X', '0307939693', '0307886263', '0671315676', '160358286X']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: The Descendants
+	Brand: George Clooney
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	2.
+	Title: The Bourne Legacy
+	Brand: Jeremy Renner
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+	3.
+	Title: Star Trek Into Darkness
+	Brand: Simon Pegg
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0307939693
+	Title: The Orphan Master's Son: A Novel
+	Brand: Visit Amazon's Adam Johnson Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	2.
+	Id: 0671315676
+	Title: Dont Sweat Small Stuff
+	Brand: Visit Amazon's Richard Carlson Page
+	Categories: ['Books', 'Self-Help', 'Personal Transformation']
+	3.
+	Id: 0307886263
+	Title: Is Everyone Hanging Out Without Me? (And Other Concerns)
+	Brand: Visit Amazon's Mindy Kaling Page
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+	4.
+	Id: 160358286X
+	Title: The Art of Fermentation: An In-Depth Exploration of Essential Concepts and Processes from around the World
+	Brand: Visit Amazon's Sandor Ellix Katz Page
+	Categories: ['Books', 'Cookbooks, Food & Wine', 'Cooking by Ingredient']
+	5.
+	Id: 140278709X
+	Title: The Beekman 1802 Heirloom Cookbook: Heirloom fruits and vegetables, and more than 100 heritage recipes to inspire every generation
+	Brand: Dr. Brent Ridge
+	Categories: ['Books', 'Cookbooks, Food &amp; Wine', 'Regional &amp; International']
+	6.
+	Id: 1594488371
+	Title: Anything That Moves: Renegade Chefs, Fearless Eaters, and the Making of a New American Food Culture
+	Brand: Visit Amazon's Dana Goodyear Page
+	Categories: ['Books', 'Biographies & Memoirs', 'Professionals & Academics']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0307886263', '1594488371', '140278709X', '160358286X', '0671315676'].
+Explanation: Based on the user's liked movies, which are in the comedy and action genres, I have recommended books that are related to food, cooking, and biographies. The top-ranked book, "Is Everyone Hanging Out Without Me? (And Other Concerns)", is a biography by Mindy Kaling, who is known for her comedic roles. The second-ranked book, "Anything That Moves: Renegade Chefs, Fearless Eaters, and the Making of a New American Food Culture", is a book about the food culture in America, which might appeal to the user's interest in movies related to food. The third-ranked book, "The Beekman 1802 Heirloom Cookbook: Heirloom fruits and vegetables, and more than 100 heritage recipes to inspire every generation", is a cookbook that focuses on regional and international cuisine, which might be of interest to the user. The fourth-ranked book, "The Art of Fermentation: An In-Depth Exploration of Essential Concepts and Processes from around the World", is a book about the process of fermentation in cooking, which might appeal to the user's interest in cooking. Finally, the fifth-ranked book, "Dont Sweat Small Stuff", is a self-help book that might provide the user with some valuable insights and tips for personal transformation.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3PVKIMH1F9OI6
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                         title              brand                                                                                            category
+4175  A3PVKIMH1F9OI6  B004V2S4L0      4  1392422400  Medium: Complete Series Pack  Patricia Arquette                                            ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+4479  A3PVKIMH1F9OI6  B007549W62      1  1392768000                   Divide, The      Lauren German                                          ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+4709  A3PVKIMH1F9OI6  B00CNIDHM0      1  1395878400                Flying Monkeys        Mike Kimmel  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4814  A3PVKIMH1F9OI6  B00KFNF2DM      3  1401580800        The World Wars Digital         Don Meehan                                                 ['Movies & TV', 'A&E Home Video', 'All A&E Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                           title                                 brand                                                                  category
+0  A3PVKIMH1F9OI6  145151705X      5  1347148800                                                                                  Zombie Fallout         Visit Amazon's Mark Tufo Page                    ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+1  A3PVKIMH1F9OI6  0345294270      4  1402185600                                                                                      Off Season      Visit Amazon's Jack Ketchum Page                    ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2  A3PVKIMH1F9OI6  1490406379      1  1388620800                                                                 Colony Z: The Island (Volume 1)     Visit Amazon's Luke Shephard Page           ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+3  A3PVKIMH1F9OI6  1499732376      4  1403913600                                                                                      Last Woman  Visit Amazon's Jacqueline Druga Page                    ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+4  A3PVKIMH1F9OI6  1452610304      5  1344297600                                                                The Book of Riley: A Zombie Tale         Visit Amazon's Mark Tufo Page                    ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+5  A3PVKIMH1F9OI6  1620402807      3  1387238400  The Kennedy Half-Century: The Presidency, Assassination, and Lasting Legacy of John F. Kennedy                       Larry J. Sabato  ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+6  A3PVKIMH1F9OI6  0143122029      2  1387238400              American Nations: A History of the Eleven Rival Regional Cultures of North America     Visit Amazon's Colin Woodard Page                                          ['Books', 'History', 'Americas']
+7  A3PVKIMH1F9OI6  1925047571      5  1397347200                                                                                   Brutal Planet    Visit Amazon's Sean P. Murphy Page                    ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+Correct items for test user:
+['1452610304', '145151705X', '1925047571', '0345294270', '1499732376']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: Medium: Complete Series Pack
+	Brand: Patricia Arquette
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	2.
+	Title: Divide, The
+	Brand: Lauren German
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Horror']
+	3.
+	Title: Flying Monkeys
+	Brand: Mike Kimmel
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	4.
+	Title: The World Wars Digital
+	Brand: Don Meehan
+	Categories: ['Movies & TV', 'A&E Home Video', 'All A&E Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 145151705X
+	Title: Zombie Fallout
+	Brand: Visit Amazon's Mark Tufo Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	2.
+	Id: 0345294270
+	Title: Off Season
+	Brand: Visit Amazon's Jack Ketchum Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	3.
+	Id: 1490406379
+	Title: Colony Z: The Island (Volume 1)
+	Brand: Visit Amazon's Luke Shephard Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+	4.
+	Id: 1499732376
+	Title: Last Woman
+	Brand: Visit Amazon's Jacqueline Druga Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	5.
+	Id: 1452610304
+	Title: The Book of Riley: A Zombie Tale
+	Brand: Visit Amazon's Mark Tufo Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	6.
+	Id: 1620402807
+	Title: The Kennedy Half-Century: The Presidency, Assassination, and Lasting Legacy of John F. Kennedy
+	Brand: Larry J. Sabato
+	Categories: ['Books', 'Politics &amp; Social Sciences', 'Politics &amp; Government']
+	7.
+	Id: 0143122029
+	Title: American Nations: A History of the Eleven Rival Regional Cultures of North America
+	Brand: Visit Amazon's Colin Woodard Page
+	Categories: ['Books', 'History', 'Americas']
+	8.
+	Id: 1925047571
+	Title: Brutal Planet
+	Brand: Visit Amazon's Sean P. Murphy Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [145151705X, 0345294270, 1490406379, 1499732376, 1452610304].
+Explanation: Based on the user's liked and disliked movies, I will recommend books that are similar in genre and theme. 
+
+From the user's liked movies, I can see that they have an interest in drama and horror genres. Therefore, I will prioritize books that fall under the genre fiction category. 
+
+The top 5 recommended books are:
+
+1. Zombie Fallout (Id: 145151705X): This book is a genre fiction novel that falls under the zombie apocalypse theme, which aligns with the user's interest in horror movies.
+
+2. Off Season (Id: 0345294270): This book is also a genre fiction novel and is known for its horror elements. It is written by Jack Ketchum, who is a renowned author in the horror genre.
+
+3. Colony Z: The Island (Volume 1) (Id: 1490406379): This book is an action and adventure novel set in a post-apocalyptic world, which shares similarities with the user's interest in drama movies.
+
+4. Last Woman (Id: 1499732376): This genre fiction novel explores the theme of survival in a post-apocalyptic world, which aligns with the user's interest in drama and horror movies.
+
+5. The Book of Riley: A Zombie Tale (Id: 1452610304): This book is another genre fiction novel that revolves around the zombie apocalypse theme, which is similar to the user's liked movies.
+
+These recommendations are based on the assumption that the user's preference for drama and horror genres in movies will translate into an interest in similar themes in books.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AJWQ0YLZ5U8GD
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                                                                                         title                  brand                                                                     category
+4200  AJWQ0YLZ5U8GD  B0052Y0FCC      3  1315612800                                                                     Emerson Lake &amp; Palmer  Emerson Lake & Palmer                   ['Movies & TV', 'Music Artists', 'Emerson, Lake & Palmer']
+4272  AJWQ0YLZ5U8GD  B005FPT2E0      5  1332028800                                                George Harrison - Living in the Material World                   <NA>                                         ['Movies & TV', 'Blu-ray', 'Movies']
+4600  AJWQ0YLZ5U8GD  B009IDGMMK      5  1381017600                                                                                       Hermano        Fernando Moreno                        ['Movies & TV', 'Independently Distributed', 'Drama']
+4612  AJWQ0YLZ5U8GD  B00A4O1EPW      5  1364860800  InstruMENTAL Inspirations: Mike Portnoy, Billy Sheehan, Tony MacAlpine &amp; Derek Sherinian                   <NA>  ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4806  AJWQ0YLZ5U8GD  B00IAR2CHY      5  1404604800                                                                               Your Inner Fish                      .                  ['Movies & TV', 'Independently Distributed', 'Documentary']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                                         title                                        brand                                                                   category
+0  AJWQ0YLZ5U8GD  8427034830      3  1251590400                            Memorias de un exorcista/ Memoirs of an Exorcist (Spanish Edition)                          Jose Antonio Fortea     ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+1  AJWQ0YLZ5U8GD  1594770824      4  1386028800           Fulcanelli and the Alchemical Revival: The Man Behind the Mystery of the Cathedrals  Visit Amazon's Genevi&egrave;ve Dubois Page                           ['Books', 'Biographies & Memoirs', 'Historical']
+2  AJWQ0YLZ5U8GD  0374291357      4  1376784000  The Wisdom of Psychopaths: What Saints, Spies, and Serial Killers Can Teach Us About Success             Visit Amazon's Kevin Dutton Page  ['Books', 'Health, Fitness &amp; Dieting', 'Psychology &amp; Counseling']
+3  AJWQ0YLZ5U8GD  1405133562      5  1218326400                                      Spiral Dynamics: Mastering Values, Leadership and Change                        Prof. Don Edward Beck                ['Books', 'New, Used &amp; Rental Textbooks', 'Humanities']
+4  AJWQ0YLZ5U8GD  0553380990      5  1398124800                            Radical Acceptance: Embracing Your Life With the Heart of a Buddha               Visit Amazon's Tara Brach Page  ['Books', 'Health, Fitness &amp; Dieting', 'Psychology &amp; Counseling']
+5  AJWQ0YLZ5U8GD  0547247990      5  1248307200                                                                                 How We Decide             Visit Amazon's Jonah Lehrer Page           ['Books', 'Business &amp; Money', 'Management &amp; Leadership']
+6  AJWQ0YLZ5U8GD  078797756X      5  1315612800                                     Beyond Revenge: The Evolution of the Forgiveness Instinct                           Michael McCullough                                    ['Books', 'Self-Help', 'Relationships']
+Correct items for test user:
+['1405133562', '0547247990', '078797756X', '0553380990', '0374291357']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: George Harrison - Living in the Material World
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	2.
+	Title: Hermano
+	Brand: Fernando Moreno
+	Categories: ['Movies & TV', 'Independently Distributed', 'Drama']
+	3.
+	Title: InstruMENTAL Inspirations: Mike Portnoy, Billy Sheehan, Tony MacAlpine &amp; Derek Sherinian
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	4.
+	Title: Your Inner Fish
+	Brand: .
+	Categories: ['Movies & TV', 'Independently Distributed', 'Documentary']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Emerson Lake &amp; Palmer
+	Brand: Emerson Lake & Palmer
+	Categories: ['Movies & TV', 'Music Artists', 'Emerson, Lake & Palmer']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 8427034830
+	Title: Memorias de un exorcista/ Memoirs of an Exorcist (Spanish Edition)
+	Brand: Jose Antonio Fortea
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+	2.
+	Id: 1594770824
+	Title: Fulcanelli and the Alchemical Revival: The Man Behind the Mystery of the Cathedrals
+	Brand: Visit Amazon's Genevi&egrave;ve Dubois Page
+	Categories: ['Books', 'Biographies & Memoirs', 'Historical']
+	3.
+	Id: 0374291357
+	Title: The Wisdom of Psychopaths: What Saints, Spies, and Serial Killers Can Teach Us About Success
+	Brand: Visit Amazon's Kevin Dutton Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Psychology &amp; Counseling']
+	4.
+	Id: 1405133562
+	Title: Spiral Dynamics: Mastering Values, Leadership and Change
+	Brand: Prof. Don Edward Beck
+	Categories: ['Books', 'New, Used &amp; Rental Textbooks', 'Humanities']
+	5.
+	Id: 0553380990
+	Title: Radical Acceptance: Embracing Your Life With the Heart of a Buddha
+	Brand: Visit Amazon's Tara Brach Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Psychology &amp; Counseling']
+	6.
+	Id: 0547247990
+	Title: How We Decide
+	Brand: Visit Amazon's Jonah Lehrer Page
+	Categories: ['Books', 'Business &amp; Money', 'Management &amp; Leadership']
+	7.
+	Id: 078797756X
+	Title: Beyond Revenge: The Evolution of the Forgiveness Instinct
+	Brand: Michael McCullough
+	Categories: ['Books', 'Self-Help', 'Relationships']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [1405133562, 0553380990, 0374291357, 1594770824, 0547247990].
+Explanation: Based on the user's liked movies, which include documentaries, music videos & concerts, and drama, I recommend the following books:
+
+1. Spiral Dynamics: Mastering Values, Leadership and Change (Id: 1405133562): This book explores the concept of values and leadership, which aligns with the user's interest in documentaries and independent films.
+
+2. Radical Acceptance: Embracing Your Life With the Heart of a Buddha (Id: 0553380990): This book focuses on psychology and counseling, which relates to the user's interest in music videos & concerts and documentaries.
+
+3. The Wisdom of Psychopaths: What Saints, Spies, and Serial Killers Can Teach Us About Success (Id: 0374291357): This book delves into the psychology of individuals with psychopathic traits, which connects to the user's interest in documentaries and independent films.
+
+4. Fulcanelli and the Alchemical Revival: The Man Behind the Mystery of the Cathedrals (Id: 1594770824): This book falls under the category of historical biographies, which may appeal to the user's interest in documentaries and drama.
+
+5. How We Decide (Id: 0547247990): This book explores the decision-making process, which aligns with the user's interest in documentaries and independent films.
+
+These recommendations are based on the similarity between the user's liked movies and the content of the recommended books.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1SQZ1VH4HTSU1
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                  title                brand                                                                                            category
+4258  A1SQZ1VH4HTSU1  B005DETYW8      5  1375228800  Celtic Thunder: Storm   Celtic Thunder Ltd                         ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4287  A1SQZ1VH4HTSU1  B005GRTNVE      3  1341792000         Live In London                 <NA>  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4470  A1SQZ1VH4HTSU1  B007146EEY      5  1341792000                Il Volo              Il Volo                         ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4553  A1SQZ1VH4HTSU1  B0091AUSKW      4  1360540800         3 Blind Saints  Richard Speight Jr.                                          ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                       title                                brand                                                                   category
+0  A1SQZ1VH4HTSU1  1433671522      5  1351123200                                                                                          The Chair: A Novel  Visit Amazon's James L. Rubart Page      ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+1  A1SQZ1VH4HTSU1  0785274073      5  1384992000                                             Out of the Silence: A Personal Testimony of God's Healing Power     Visit Amazon's Duane Miller Page     ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+2  A1SQZ1VH4HTSU1  1611735270      5  1331683200  The Harbinger: The Ancient Mystery That Holds the Secret of America's Future (Thorndike Christian Mystery)    Visit Amazon's Jonathan Cahn Page      ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+3  A1SQZ1VH4HTSU1  1401686052      5  1355443200                                                                           Soul's Gate (A Well Spring Novel)  Visit Amazon's James L. Rubart Page      ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+4  A1SQZ1VH4HTSU1  1414331738      5  1325721600                                                                  Inside Threat (A Riley Covington Thriller)       Visit Amazon's Jason Elam Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+5  A1SQZ1VH4HTSU1  0805448888      5  1292457600                                                                                              Rooms: A Novel  Visit Amazon's James L. Rubart Page      ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+Correct items for test user:
+['0805448888', '1414331738', '1611735270', '1433671522', '1401686052']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Celtic Thunder: Storm
+	Brand: Celtic Thunder Ltd
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	2.
+	Title: Il Volo
+	Brand: Il Volo
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Live In London
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	2.
+	Title: 3 Blind Saints
+	Brand: Richard Speight Jr.
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 1433671522
+	Title: The Chair: A Novel
+	Brand: Visit Amazon's James L. Rubart Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	2.
+	Id: 0785274073
+	Title: Out of the Silence: A Personal Testimony of God's Healing Power
+	Brand: Visit Amazon's Duane Miller Page
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+	3.
+	Id: 1611735270
+	Title: The Harbinger: The Ancient Mystery That Holds the Secret of America's Future (Thorndike Christian Mystery)
+	Brand: Visit Amazon's Jonathan Cahn Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	4.
+	Id: 1401686052
+	Title: Soul's Gate (A Well Spring Novel)
+	Brand: Visit Amazon's James L. Rubart Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	5.
+	Id: 1414331738
+	Title: Inside Threat (A Riley Covington Thriller)
+	Brand: Visit Amazon's Jason Elam Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	6.
+	Id: 0805448888
+	Title: Rooms: A Novel
+	Brand: Visit Amazon's James L. Rubart Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Literature &amp; Fiction']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [1433671522, 1611735270, 1401686052, 0805448888, 0785274073].
+Explanation: Based on the user's liked movies, which are music videos and concerts, and the disliked movies, which include comedy and studio specials, I would recommend books that fall under the category of Christian books and literature. 
+
+1. The Chair: A Novel (Id: 1433671522): This book is a Christian fiction novel, which aligns with the user's preference for Christian books and literature.
+
+2. The Harbinger: The Ancient Mystery That Holds the Secret of America's Future (Id: 1611735270): This book is also a Christian book, specifically a Christian mystery novel. It combines elements of mystery and spirituality, which might appeal to the user.
+
+3. Soul's Gate (A Well Spring Novel) (Id: 1401686052): This book is another Christian fiction novel by James L. Rubart, the same author as the first recommended book. It explores themes of spirituality and faith, which could resonate with the user.
+
+4. Rooms: A Novel (Id: 0805448888): This book is a Christian fiction novel that delves into the concept of spiritual rooms and explores themes of redemption and forgiveness. It aligns with the user's preference for Christian books and literature.
+
+5. Out of the Silence: A Personal Testimony of God's Healing Power (Id: 0785274073): This book is a personal testimony of God's healing power, which falls under the category of biographies and memoirs. It might appeal to the user's interest in spirituality and personal experiences.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3GZWTAEGOMZU3
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                      title               brand                                                                     category
+4259  A3GZWTAEGOMZU3  B005DETYW8      5  1369699200      Celtic Thunder: Storm  Celtic Thunder Ltd  ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4447  A3GZWTAEGOMZU3  B006PF64AO      5  1369699200                     Voyage      Celtic Thunder  ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+4643  A3GZWTAEGOMZU3  B00AX5B0QU      5  1379894400  Celtic Thunder: Mythology      Celtic Thunder  ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                           title                                  brand                                                                category
+0  A3GZWTAEGOMZU3  0375723463      3  1369699200                                                    The Official Blackbook Price Guide to United States Coins 2013, 51st Edition                 Thomas E. Hudgeons Jr.  ['Books', 'Crafts, Hobbies &amp; Home', 'Antiques &amp; Collectibles']
+1  A3GZWTAEGOMZU3  1934490253      5  1379808000  I Just Don't Like the Sound of No! My Story About Accepting No for an Answer and Disagreeing the Right Way! (Best Me I Can Be)         Visit Amazon's Julia Cook Page         ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+2  A3GZWTAEGOMZU3  0310708257      5  1381190400                                                                        The Jesus Storybook Bible: Every Story Whispers His Name  Visit Amazon's Sally Lloyd-Jones Page                              ['Books', "Children's Books", 'Religions']
+3  A3GZWTAEGOMZU3  1934490350      5  1380672000                                                         Teamwork Isn't My Thing, and I Don't Like to Share! (Best Me I Can Be!)         Visit Amazon's Julia Cook Page         ['Books', 'Education &amp; Teaching', 'Schools &amp; Teaching']
+4  A3GZWTAEGOMZU3  0811722260      5  1379894400                   Basic Freshwater Fishing: Step-by-step Guide to Tackle and Know-how that Catch the Favorite Fish in Your Area     Visit Amazon's Cliff Hauptman Page             ['Books', 'Sports &amp; Outdoors', 'Hunting &amp; Fishing']
+5  A3GZWTAEGOMZU3  0811727653      5  1379808000                                       Freshwater Fishing Tips &amp; Techniques: A Fully Illustrated Guide to Freshwater Fishing        Visit Amazon's Gene Kugach Page             ['Books', 'Sports &amp; Outdoors', 'Hunting &amp; Fishing']
+6  A3GZWTAEGOMZU3  0974778974      5  1380672000                                                                                  My Mouth Is a Volcano (Children's/Life Skills)         Visit Amazon's Julia Cook Page         ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+7  A3GZWTAEGOMZU3  1934490431      5  1379808000                                                 I Just Want to Do It My Way! My Story about Staying on Task and Asking for Help         Visit Amazon's Julia Cook Page         ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+Correct items for test user:
+['1934490253', '0811727653', '1934490431', '0811722260', '1934490350']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Celtic Thunder: Storm
+	Brand: Celtic Thunder Ltd
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	2.
+	Title: Voyage
+	Brand: Celtic Thunder
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	3.
+	Title: Celtic Thunder: Mythology
+	Brand: Celtic Thunder
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0375723463
+	Title: The Official Blackbook Price Guide to United States Coins 2013, 51st Edition
+	Brand: Thomas E. Hudgeons Jr.
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Antiques &amp; Collectibles']
+	2.
+	Id: 1934490253
+	Title: I Just Don't Like the Sound of No! My Story About Accepting No for an Answer and Disagreeing the Right Way! (Best Me I Can Be)
+	Brand: Visit Amazon's Julia Cook Page
+	Categories: ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+	3.
+	Id: 0310708257
+	Title: The Jesus Storybook Bible: Every Story Whispers His Name
+	Brand: Visit Amazon's Sally Lloyd-Jones Page
+	Categories: ['Books', "Children's Books", 'Religions']
+	4.
+	Id: 1934490350
+	Title: Teamwork Isn't My Thing, and I Don't Like to Share! (Best Me I Can Be!)
+	Brand: Visit Amazon's Julia Cook Page
+	Categories: ['Books', 'Education &amp; Teaching', 'Schools &amp; Teaching']
+	5.
+	Id: 0811722260
+	Title: Basic Freshwater Fishing: Step-by-step Guide to Tackle and Know-how that Catch the Favorite Fish in Your Area
+	Brand: Visit Amazon's Cliff Hauptman Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Hunting &amp; Fishing']
+	6.
+	Id: 0811727653
+	Title: Freshwater Fishing Tips &amp; Techniques: A Fully Illustrated Guide to Freshwater Fishing
+	Brand: Visit Amazon's Gene Kugach Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Hunting &amp; Fishing']
+	7.
+	Id: 0974778974
+	Title: My Mouth Is a Volcano (Children's/Life Skills)
+	Brand: Visit Amazon's Julia Cook Page
+	Categories: ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+	8.
+	Id: 1934490431
+	Title: I Just Want to Do It My Way! My Story about Staying on Task and Asking for Help
+	Brand: Visit Amazon's Julia Cook Page
+	Categories: ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['1934490253', '1934490431', '0974778974', '0310708257', '1934490350'].
+Explanation: Based on the user's liked movies, which are all music videos and concerts, I recommend books that are related to children's books and growing up. The top 5 recommended books are:
+1. "I Just Don't Like the Sound of No! My Story About Accepting No for an Answer and Disagreeing the Right Way!" - This book is about teaching children how to accept "no" for an answer and how to disagree in a respectful way.
+2. "I Just Want to Do It My Way! My Story about Staying on Task and Asking for Help" - This book is about teaching children the importance of staying on task and asking for help when needed.
+3. "My Mouth Is a Volcano" - This book is about teaching children about self-control and not interrupting others when they are speaking.
+4. "The Jesus Storybook Bible: Every Story Whispers His Name" - This book is a collection of Bible stories that are written in a way that children can understand and relate to.
+5. "Teamwork Isn't My Thing, and I Don't Like to Share!" - This book is about teaching children the importance of teamwork and sharing.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3TUFHEE8KSD6R
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                 title                brand                                               category
+4261  A3TUFHEE8KSD6R  B005DJ7AYC      5  1369785600  Masterpiece Contemporary: Page Eight           Bill Nighy  ['Movies & TV', 'Independently Distributed', 'Drama']
+4637  A3TUFHEE8KSD6R  B00ARA4SLU      4  1369785600                             Hitchcock      Anthony Hopkins            ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+4666  A3TUFHEE8KSD6R  B00BB62EII      2  1369785600                        Future Weather  Perla Haney-Jardine  ['Movies & TV', 'Independently Distributed', 'Drama']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                  title                               brand                                                                   category
+0  A3TUFHEE8KSD6R  0375836357      3  1191283200                                                         London Calling    Visit Amazon's Edward Bloor Page            ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+1  A3TUFHEE8KSD6R  1582974861      4  1216166400  Book in a Month: The Fool-Proof System for Writing a Novel in 30 Days               Victoria Lynn Schmidt            ['Books', 'Reference', 'Writing, Research & Publishing Guides']
+2  A3TUFHEE8KSD6R  1250003717      5  1349481600                   The Resistance: A Thriller (A Louis Morgon Thriller)   Visit Amazon's Peter Steiner Page                       ['Books', 'Mystery, Thriller & Suspense', 'Mystery']
+3  A3TUFHEE8KSD6R  0385746520      5  1248652800                                                The Winter War: A Novel  Visit Amazon's William Durbin Page            ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+4  A3TUFHEE8KSD6R  0446402400      4  1248652800                                                      The Secret Speech   Visit Amazon's Tom Rob Smith Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+Correct items for test user:
+['0385746520', '1250003717', '1582974861', '0446402400', '0375836357']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Masterpiece Contemporary: Page Eight
+	Brand: Bill Nighy
+	Categories: ['Movies & TV', 'Independently Distributed', 'Drama']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Hitchcock
+	Brand: Anthony Hopkins
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'DTS']
+	2.
+	Title: Future Weather
+	Brand: Perla Haney-Jardine
+	Categories: ['Movies & TV', 'Independently Distributed', 'Drama']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0375836357
+	Title: London Calling
+	Brand: Visit Amazon's Edward Bloor Page
+	Categories: ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+	2.
+	Id: 1582974861
+	Title: Book in a Month: The Fool-Proof System for Writing a Novel in 30 Days
+	Brand: Victoria Lynn Schmidt
+	Categories: ['Books', 'Reference', 'Writing, Research & Publishing Guides']
+	3.
+	Id: 1250003717
+	Title: The Resistance: A Thriller (A Louis Morgon Thriller)
+	Brand: Visit Amazon's Peter Steiner Page
+	Categories: ['Books', 'Mystery, Thriller & Suspense', 'Mystery']
+	4.
+	Id: 0385746520
+	Title: The Winter War: A Novel
+	Brand: Visit Amazon's William Durbin Page
+	Categories: ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+	5.
+	Id: 0446402400
+	Title: The Secret Speech
+	Brand: Visit Amazon's Tom Rob Smith Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['1250003717', '0446402400', '0385746520', '1582974861', '0375836357'].
+Explanation: Based on the user's liked and disliked movies, I have ranked the candidate books. The top 5 recommended books are as follows:
+
+1. The Resistance: A Thriller (A Louis Morgon Thriller): This book falls under the category of Mystery, Thriller & Suspense, which aligns with the user's preference for drama movies. It is likely to provide a similar level of excitement and suspense.
+
+2. The Secret Speech: This book is also categorized as Mystery, Thriller & Suspense, which matches the user's preference. It offers a thrilling and suspenseful storyline, making it a suitable recommendation.
+
+3. The Winter War: A Novel: This book belongs to the Teen & Young Adult category, which is similar to the user's liked movie category. It may provide an engaging and relatable story for the user.
+
+4. Book in a Month: The Fool-Proof System for Writing a Novel in 30 Days: This book falls under the Reference category, specifically focusing on writing, research, and publishing guides. Although it is not directly related to the user's liked movies, it can be a valuable resource for aspiring writers or individuals interested in the creative process.
+
+5. London Calling: This book is categorized as Teen & Young Adult, which aligns with the user's preference. It may offer an engaging and relatable story for young readers.
+
+Overall, the recommended books are chosen based on their genre and category similarity to the user's liked movies, ensuring a higher likelihood of enjoyment and satisfaction.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2CXFW9UCTELEO
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                      title           brand                                        category
+4263  A2CXFW9UCTELEO  B005E7SEOI      5  1333756800  The Honeymooners: Lost Episodes 1951-1957  Jackie Gleason         ['Movies & TV', 'Boxed Sets', 'Comedy']
+4431  A2CXFW9UCTELEO  B006HH5YK6      4  1330128000           Carpenters - In Performance 1972      Carpenters  ['Movies & TV', 'Music Artists', 'Carpenters']
+4611  A2CXFW9UCTELEO  B00A3Z1BXC      5  1361491200                 Carpenters - Live Rarities      Carpenters  ['Movies & TV', 'Music Artists', 'Carpenters']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                      title                                   brand                                                                category
+0  A2CXFW9UCTELEO  1451636873      2  1325462400                                     A Moment in Time: An American Story of Baseball, Heartbreak, and Grace        Visit Amazon's Ralph Branca Page                       ['Books', 'Sports &amp; Outdoors', 'Biographies']
+1  A2CXFW9UCTELEO  0803220391      5  1334361600                                                 Connie Mack: The Turbulent and Triumphant Years, 1915-1931     Visit Amazon's Norman L. Macht Page                                        ['Books', 'History', 'Americas']
+2  A2CXFW9UCTELEO  0805093079      5  1326844800  Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)       Visit Amazon's Bill O'Reilly Page  ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+3  A2CXFW9UCTELEO  031608607X      5  1366156800       The House That Ruth Built: A New Stadium, the First Yankees Championship, and the Redemption of 1923    Visit Amazon's Robert Weintraub Page                                        ['Books', 'History', 'Americas']
+4  A2CXFW9UCTELEO  0399128468      5  1324252800                                                              Bums: An Oral History of the Brooklyn Dodgers     Visit Amazon's Peter Golenbock Page                                   ['Books', 'Literature &amp; Fiction']
+5  A2CXFW9UCTELEO  1578603234      5  1321315200                                 Remember the AFL: The Ultimate Fan's Guide to the American Football League       Visit Amazon's David Steidel Page                     ['Books', 'Sports &amp; Outdoors', 'Miscellaneous']
+6  A2CXFW9UCTELEO  0802717780      2  1337299200                                                                   Bill Veeck: Baseball's Greatest Maverick        Visit Amazon's Paul Dickson Page                       ['Books', 'Sports &amp; Outdoors', 'Biographies']
+7  A2CXFW9UCTELEO  0140108734      4  1324252800                                      Diz: The Story of Dizzy Dean and Baseball During the Great Depression      Visit Amazon's Robert Gregory Page                           ['Books', 'Sports & Outdoors', 'Biographies']
+8  A2CXFW9UCTELEO  0684853914      4  1328313600                                                                              Joe DiMaggio: The Hero's Life  Visit Amazon's Richard Ben Cramer Page                       ['Books', 'Sports &amp; Outdoors', 'Biographies']
+9  A2CXFW9UCTELEO  0803222068      4  1308960000                                               Tris Speaker: The Rough-and-Tumble Life of a Baseball Legend      Visit Amazon's Timothy M. Gay Page                       ['Books', 'Sports &amp; Outdoors', 'Biographies']
+Correct items for test user:
+['1578603234', '0399128468', '0805093079', '0803220391', '031608607X']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Honeymooners: Lost Episodes 1951-1957
+	Brand: Jackie Gleason
+	Categories: ['Movies & TV', 'Boxed Sets', 'Comedy']
+	2.
+	Title: Carpenters - Live Rarities
+	Brand: Carpenters
+	Categories: ['Movies & TV', 'Music Artists', 'Carpenters']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Carpenters - In Performance 1972
+	Brand: Carpenters
+	Categories: ['Movies & TV', 'Music Artists', 'Carpenters']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 1451636873
+	Title: A Moment in Time: An American Story of Baseball, Heartbreak, and Grace
+	Brand: Visit Amazon's Ralph Branca Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Biographies']
+	2.
+	Id: 0803220391
+	Title: Connie Mack: The Turbulent and Triumphant Years, 1915-1931
+	Brand: Visit Amazon's Norman L. Macht Page
+	Categories: ['Books', 'History', 'Americas']
+	3.
+	Id: 0805093079
+	Title: Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series)
+	Brand: Visit Amazon's Bill O'Reilly Page
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Leaders &amp; Notable People']
+	4.
+	Id: 031608607X
+	Title: The House That Ruth Built: A New Stadium, the First Yankees Championship, and the Redemption of 1923
+	Brand: Visit Amazon's Robert Weintraub Page
+	Categories: ['Books', 'History', 'Americas']
+	5.
+	Id: 0399128468
+	Title: Bums: An Oral History of the Brooklyn Dodgers
+	Brand: Visit Amazon's Peter Golenbock Page
+	Categories: ['Books', 'Literature &amp; Fiction']
+	6.
+	Id: 1578603234
+	Title: Remember the AFL: The Ultimate Fan's Guide to the American Football League
+	Brand: Visit Amazon's David Steidel Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Miscellaneous']
+	7.
+	Id: 0802717780
+	Title: Bill Veeck: Baseball's Greatest Maverick
+	Brand: Visit Amazon's Paul Dickson Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Biographies']
+	8.
+	Id: 0140108734
+	Title: Diz: The Story of Dizzy Dean and Baseball During the Great Depression
+	Brand: Visit Amazon's Robert Gregory Page
+	Categories: ['Books', 'Sports & Outdoors', 'Biographies']
+	9.
+	Id: 0684853914
+	Title: Joe DiMaggio: The Hero's Life
+	Brand: Visit Amazon's Richard Ben Cramer Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Biographies']
+	10.
+	Id: 0803222068
+	Title: Tris Speaker: The Rough-and-Tumble Life of a Baseball Legend
+	Brand: Visit Amazon's Timothy M. Gay Page
+	Categories: ['Books', 'Sports &amp; Outdoors', 'Biographies']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [0803222068, 0805093079, 0802717780, 031608607X, 0684853914].
+Explanation: Based on the user's liked movies, which are in the comedy and music genres, I recommend books that are related to sports and biographies. The top 5 recommended books are:
+
+1. Tris Speaker: The Rough-and-Tumble Life of a Baseball Legend: This book is a biography of Tris Speaker, a baseball legend. It is likely to appeal to the user's interest in biographies and sports.
+
+2. Killing Lincoln: The Shocking Assassination that Changed America Forever (Bill O'Reilly's Killing Series): This book is a historical account of the assassination of Abraham Lincoln. It combines history and biographies, which aligns with the user's interests.
+
+3. Bill Veeck: Baseball's Greatest Maverick: This book is a biography of Bill Veeck, a prominent figure in baseball. It explores his unconventional approach to the sport, which may resonate with the user's interest in sports and biographies.
+
+4. The House That Ruth Built: A New Stadium, the First Yankees Championship, and the Redemption of 1923: This book delves into the history of the New York Yankees and their first championship. It combines sports and history, which are relevant to the user's preferences.
+
+5. Joe DiMaggio: The Hero's Life: This book is a biography of Joe DiMaggio, a legendary baseball player. It offers insights into his life and career, appealing to the user's interest in sports and biographies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3MW8B6I2LXVWR
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                   title          brand                                                    category
+4278  A3MW8B6I2LXVWR  B005G0919K      4  1341878400  Studio Ghibli: The Borrower Arrietty DVD (Licensed boxed version, Japanese audio version with Eng Sub)           <NA>                                   ['Movies & TV', 'Movies']
+4404  A3MW8B6I2LXVWR  B00632KSYM      4  1364947200                                                        Triple-Feature: Alexander Revisited / Troy / 300  Gerard Butler                        ['Movies & TV', 'Blu-ray', 'Movies']
+4405  A3MW8B6I2LXVWR  B00634MLIQ      5  1364947200                                                                 V for Vendetta / Watchmen / Constantine   Hugo Weaving                        ['Movies & TV', 'Blu-ray', 'Movies']
+4646  A3MW8B6I2LXVWR  B00AZMFONG      4  1389657600                                                                                           Stand Up Guys      Al Pacino  ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                         title                                    brand                                                         category
+0  A3MW8B6I2LXVWR  0007327064      5  1371427200                                                                                                 DEEPLY ODD PB          Visit Amazon's Dean Koontz Page               ['Books', 'Literature & Fiction', 'Genre Fiction']
+1  A3MW8B6I2LXVWR  0857662627      5  1384560000                                                                                                            Vn       Visit Amazon's Madeline Ashby Page               ['Books', 'Literature & Fiction', 'Genre Fiction']
+2  A3MW8B6I2LXVWR  1878087002      4  1387411200                                   The Charcoal Foundry (Build Your Own Metal Working Shop from Scrap, Vol. 1)     Visit Amazon's David J. Gingery Page  ['Books', 'Crafts, Hobbies &amp; Home', 'Crafts &amp; Hobbies']
+3  A3MW8B6I2LXVWR  1566637929      4  1384560000  The Founders' Second Amendment: Origins of the Right to Bear Arms (Independent Studies in Political Economy)  Visit Amazon's Stephen P. Halbrook Page                                 ['Books', 'History', 'Americas']
+4  A3MW8B6I2LXVWR  071563318X      3  1384560000                                           The Zombie Survival Guide: Complete Protection from the Living Dead           Visit Amazon's Max Brooks Page       ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+5  A3MW8B6I2LXVWR  0307346609      5  1384560000                                                                World War Z: An Oral History of the Zombie War           Visit Amazon's Max Brooks Page                      ['Books', 'Humor & Entertainment', 'Humor']
+Correct items for test user:
+['0007327064', '0857662627', '0307346609', '1566637929', '1878087002']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: V for Vendetta / Watchmen / Constantine
+	Brand: Hugo Weaving
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Studio Ghibli: The Borrower Arrietty DVD (Licensed boxed version, Japanese audio version with Eng Sub)
+	Categories: ['Movies & TV', 'Movies']
+	2.
+	Title: Triple-Feature: Alexander Revisited / Troy / 300
+	Brand: Gerard Butler
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	3.
+	Title: Stand Up Guys
+	Brand: Al Pacino
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0007327064
+	Title: DEEPLY ODD PB
+	Brand: Visit Amazon's Dean Koontz Page
+	Categories: ['Books', 'Literature & Fiction', 'Genre Fiction']
+	2.
+	Id: 0857662627
+	Title: Vn
+	Brand: Visit Amazon's Madeline Ashby Page
+	Categories: ['Books', 'Literature & Fiction', 'Genre Fiction']
+	3.
+	Id: 1878087002
+	Title: The Charcoal Foundry (Build Your Own Metal Working Shop from Scrap, Vol. 1)
+	Brand: Visit Amazon's David J. Gingery Page
+	Categories: ['Books', 'Crafts, Hobbies &amp; Home', 'Crafts &amp; Hobbies']
+	4.
+	Id: 1566637929
+	Title: The Founders' Second Amendment: Origins of the Right to Bear Arms (Independent Studies in Political Economy)
+	Brand: Visit Amazon's Stephen P. Halbrook Page
+	Categories: ['Books', 'History', 'Americas']
+	5.
+	Id: 071563318X
+	Title: The Zombie Survival Guide: Complete Protection from the Living Dead
+	Brand: Visit Amazon's Max Brooks Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	6.
+	Id: 0307346609
+	Title: World War Z: An Oral History of the Zombie War
+	Brand: Visit Amazon's Max Brooks Page
+	Categories: ['Books', 'Humor & Entertainment', 'Humor']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['071563318X', '0307346609', '1566637929', '0007327064', '0857662627'].
+Explanation: Based on the user's liked movies, which include V for Vendetta, Watchmen, and Constantine, I recommend the following books:
+1. The Zombie Survival Guide: Complete Protection from the Living Dead - This book is related to the user's interest in movies with a similar theme of survival and the supernatural.
+2. World War Z: An Oral History of the Zombie War - Another book by Max Brooks, the author of The Zombie Survival Guide, which explores the concept of a zombie apocalypse.
+3. The Founders' Second Amendment: Origins of the Right to Bear Arms - This book delves into the history and origins of the right to bear arms, which may appeal to the user's interest in action-packed movies.
+4. DEEPLY ODD PB - A genre fiction book that may align with the user's preference for movies in the same genre.
+5. Vn - A genre fiction book that may resonate with the user's interest in movies with a similar theme.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1J53DKRFDHVXY
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                    title            brand                                                                                            category
+4315  A1J53DKRFDHVXY  B005LAIHQS      1  1357948800           Men in Black 3       Will Smith  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4552  A1J53DKRFDHVXY  B00915G6R6      2  1380844800  The Good Wife: Season 4  Anika Noni Rose                                            ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+4766  A1J53DKRFDHVXY  B00EO2I6PQ      2  1384041600           Computer Chess    Wiley Wiggins                                          ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                     title                              brand                                                         category
+0  A1J53DKRFDHVXY  0978774434      5  1344816000                                                                                                     Chase     Visit Amazon's Zack Mason Page               ['Books', 'Literature & Fiction', 'Genre Fiction']
+1  A1J53DKRFDHVXY  1934356816      5  1323388800  New Programmer's Survival Manual: Navigate Your Workplace, Cube Farm, or Startup (Pragmatic Programmers)                   Joshua D. Carter               ['Books', 'Computers & Technology', 'Programming']
+2  A1J53DKRFDHVXY  0312864590      2  1355961600                                                       Crossroads of Twilight (The Wheel of Time, Book 10)  Visit Amazon's Robert Jordan Page  ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+3  A1J53DKRFDHVXY  0978774418      5  1323043200                                                                                                     Shift     Visit Amazon's Zack Mason Page           ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+4  A1J53DKRFDHVXY  0142408425      1  1355270400                                                      The Burning Bridge (The Ranger's Apprentice, Book 2)  Visit Amazon's John Flanagan Page       ['Books', "Children's Books", 'Science Fiction & Fantasy']
+5  A1J53DKRFDHVXY  0978774450      5  1352505600                                                                                                      Turn     Visit Amazon's Zack Mason Page           ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+Correct items for test user:
+['0978774418', '1934356816', '0978774434', '0978774450', '0312864590']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: Men in Black 3
+	Brand: Will Smith
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	2.
+	Title: The Good Wife: Season 4
+	Brand: Anika Noni Rose
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Drama']
+	3.
+	Title: Computer Chess
+	Brand: Wiley Wiggins
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Comedy']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0978774434
+	Title: Chase
+	Brand: Visit Amazon's Zack Mason Page
+	Categories: ['Books', 'Literature & Fiction', 'Genre Fiction']
+	2.
+	Id: 1934356816
+	Title: New Programmer's Survival Manual: Navigate Your Workplace, Cube Farm, or Startup (Pragmatic Programmers)
+	Brand: Joshua D. Carter
+	Categories: ['Books', 'Computers & Technology', 'Programming']
+	3.
+	Id: 0312864590
+	Title: Crossroads of Twilight (The Wheel of Time, Book 10)
+	Brand: Visit Amazon's Robert Jordan Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+	4.
+	Id: 0978774418
+	Title: Shift
+	Brand: Visit Amazon's Zack Mason Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	5.
+	Id: 0142408425
+	Title: The Burning Bridge (The Ranger's Apprentice, Book 2)
+	Brand: Visit Amazon's John Flanagan Page
+	Categories: ['Books', "Children's Books", 'Science Fiction & Fantasy']
+	6.
+	Id: 0978774450
+	Title: Turn
+	Brand: Visit Amazon's Zack Mason Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['1934356816', '0312864590', '0978774418', '0978774434', '0142408425'].
+Explanation: Based on the user's liked and disliked movies, I will recommend books that are similar in genre or theme. 
+
+From the user's liked movies, I can see that they have a preference for movies in the "Comedy" and "Action & Adventure" genres. Therefore, I will prioritize books that fall into these genres.
+
+The top recommended book, "New Programmer's Survival Manual: Navigate Your Workplace, Cube Farm, or Startup", falls into the "Computers & Technology" category, which aligns with the user's interest in movies related to technology. This book may appeal to the user's interest in the tech industry.
+
+The second recommended book, "Crossroads of Twilight (The Wheel of Time, Book 10)", falls into the "Action & Adventure" category, which matches the user's preference for movies in this genre. This book is part of a popular fantasy series and may provide a similar level of excitement and adventure.
+
+The third recommended book, "Shift", falls into the "Genre Fiction" category, which is similar to the user's liked movies that fall into the "Comedy" genre. This book may provide a light-hearted and entertaining reading experience.
+
+The fourth recommended book, "Chase", falls into the "Genre Fiction" category, which aligns with the user's preference for movies in the "Comedy" genre. This book may offer a humorous and enjoyable story.
+
+The fifth recommended book, "The Burning Bridge (The Ranger's Apprentice, Book 2)", falls into the "Science Fiction & Fantasy" category, which is similar to the user's liked movies that fall into the "Action & Adventure" genre. This book may provide an exciting and imaginative reading experience.
+
+Overall, these recommended books are chosen based on their alignment with the user's liked movies in terms of genre and theme, aiming to provide a similar level of enjoyment and engagement.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A3MBTITH7V1XU6
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                    title             brand                                                                                     category
+4322  A3MBTITH7V1XU6  B005LAIIB2      2  1398124800  The Big Wedding Digital    Robert De Niro   ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4330  A3MBTITH7V1XU6  B005LAIIMG      2  1402876800              World War Z         Brad Pitt                        ['Movies & TV', 'Paramount Home Entertainment', 'Action & Adventure']
+4726  A3MBTITH7V1XU6  B00DB43PLI      3  1398124800       Summer in February    Dominic Cooper                                                         ['Movies & TV', 'Blu-ray', 'Movies']
+4788  A3MBTITH7V1XU6  B00G4Q3KOC      1  1396137600         12 Years a Slave  Chiwetel Ejiofor  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                           title                                     brand                                                   category
+0  A3MBTITH7V1XU6  0026009102      5  1387670400                                                                                                The Fountainhead              Visit Amazon's Ayn Rand Page          ['Books', 'Literature & Fiction', 'Contemporary']
+1  A3MBTITH7V1XU6  0590100483      5  1387670400                                                                                                      Mouse Mess  Visit Amazon's Linnea Asplind Riley Page  ['Books', "Children's Books", 'Literature &amp; Fiction']
+2  A3MBTITH7V1XU6  1592576117      4  1387670400                                                         The Complete Idiot's Guide to Staging your Home to Sell            Visit Amazon's Julie Dana Page           ['Books', 'Business &amp; Money', 'Real Estate']
+3  A3MBTITH7V1XU6  0515087491      5  1387670400                                                                                   Semper Fi (The Corps, Book 1)        Visit Amazon's W.E.B. Griffin Page     ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+4  A3MBTITH7V1XU6  0989389200      5  1387670400                                                                     2014 Death &amp; Taxes Poster (1 Page Book)                                 Timeplots                            ['Books', 'Arts & Photography']
+5  A3MBTITH7V1XU6  0141188936      5  1387670400                                                                                                  Atlas Shrugged              Visit Amazon's Ayn Rand Page    ['Books', 'New, Used & Rental Textbooks', 'Humanities']
+6  A3MBTITH7V1XU6  1423123786      4  1387670400                                                                               Birnbaum's Walt Disney World 2011                           Birnbaum Guides                       ['Books', 'Travel', 'United States']
+7  A3MBTITH7V1XU6  0007158505      5  1387670400  The Sneetches and Other Stories: Yellow Back Book (Dr Seuss - Yellow Back Book) (Dr. Seuss: Yellow Back Books)             Visit Amazon's Dr. Seuss Page      ['Books', "Children's Books", 'Literature & Fiction']
+Correct items for test user:
+['0026009102', '0590100483', '0515087491', '0989389200', '0141188936']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+ 
+Instead, I disliked the following movies : 
+1.
+	Title: The Big Wedding Digital
+	Brand: Robert De Niro
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	2.
+	Title: World War Z
+	Brand: Brad Pitt
+	Categories: ['Movies & TV', 'Paramount Home Entertainment', 'Action & Adventure']
+	3.
+	Title: Summer in February
+	Brand: Dominic Cooper
+	Categories: ['Movies & TV', 'Blu-ray', 'Movies']
+	4.
+	Title: 12 Years a Slave
+	Brand: Chiwetel Ejiofor
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0026009102
+	Title: The Fountainhead
+	Brand: Visit Amazon's Ayn Rand Page
+	Categories: ['Books', 'Literature & Fiction', 'Contemporary']
+	2.
+	Id: 0590100483
+	Title: Mouse Mess
+	Brand: Visit Amazon's Linnea Asplind Riley Page
+	Categories: ['Books', "Children's Books", 'Literature &amp; Fiction']
+	3.
+	Id: 1592576117
+	Title: The Complete Idiot's Guide to Staging your Home to Sell
+	Brand: Visit Amazon's Julie Dana Page
+	Categories: ['Books', 'Business &amp; Money', 'Real Estate']
+	4.
+	Id: 0515087491
+	Title: Semper Fi (The Corps, Book 1)
+	Brand: Visit Amazon's W.E.B. Griffin Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	5.
+	Id: 0989389200
+	Title: 2014 Death &amp; Taxes Poster (1 Page Book)
+	Brand: Timeplots
+	Categories: ['Books', 'Arts & Photography']
+	6.
+	Id: 0141188936
+	Title: Atlas Shrugged
+	Brand: Visit Amazon's Ayn Rand Page
+	Categories: ['Books', 'New, Used & Rental Textbooks', 'Humanities']
+	7.
+	Id: 1423123786
+	Title: Birnbaum's Walt Disney World 2011
+	Brand: Birnbaum Guides
+	Categories: ['Books', 'Travel', 'United States']
+	8.
+	Id: 0007158505
+	Title: The Sneetches and Other Stories: Yellow Back Book (Dr Seuss - Yellow Back Book) (Dr. Seuss: Yellow Back Books)
+	Brand: Visit Amazon's Dr. Seuss Page
+	Categories: ['Books', "Children's Books", 'Literature & Fiction']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0026009102', '0141188936', '0590100483', '0515087491', '0989389200'].
+Explanation: Based on the user's liked movies, I have recommended books that are in the same categories as the liked movies. The top 5 recommended books are:
+1. The Fountainhead: This book falls under the category of 'Literature & Fiction' which is similar to the user's liked movies.
+2. Atlas Shrugged: This book is also by the same author as The Fountainhead and falls under the category of 'New, Used & Rental Textbooks' which is similar to the user's liked movies.
+3. Mouse Mess: This book falls under the category of "Children's Books" which is similar to the user's liked movies.
+4. Semper Fi (The Corps, Book 1): This book falls under the category of 'Genre Fiction' which is similar to the user's liked movies.
+5. 2014 Death & Taxes Poster (1 Page Book): This book falls under the category of 'Arts & Photography' which is similar to the user's liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1LR140UM9IREE
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                   title           brand                                                                      category
+4324  A1LR140UM9IREE  B005LAIIFS      5  1395532800  Rise of the Guardians: Easter Gift Set      Chris Pine  ['Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Animation']
+4365  A1LR140UM9IREE  B005RYF5JA      5  1395532800                   Celtic Woman: Believe    Celtic Woman                              ['Movies & TV', 'Music Artists', 'Celtic Woman']
+4642  A1LR140UM9IREE  B00AX5B0QU      5  1370563200               Celtic Thunder: Mythology  Celtic Thunder   ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                 title                                  brand                                                                   category
+0  A1LR140UM9IREE  0345806751      5  1370563200        Fifty Shades of Grey: Inner Goddess: A Journal          Visit Amazon's E L James Page        ['Books', 'Reference', 'Writing, Research &amp; Publishing Guides']
+1  A1LR140UM9IREE  0345510100      5  1402704000  To Romance a Charming Rogue (Courtship Wars, Book 4)      Visit Amazon's Nicole Jordan Page                     ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2  A1LR140UM9IREE  0399158073      5  1379894400                                   Prince of Ravenscar  Visit Amazon's Catherine Coulter Page                     ['Books', 'Literature &amp; Fiction', 'United States']
+3  A1LR140UM9IREE  0399157328      5  1383436800                            Backfire (An FBI Thriller)  Visit Amazon's Catherine Coulter Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+4  A1LR140UM9IREE  0399157336      5  1383436800                           Bombshell (An FBI Thriller)  Visit Amazon's Catherine Coulter Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+5  A1LR140UM9IREE  0399164731      5  1383436800                                         The Final Cut  Visit Amazon's Catherine Coulter Page                   ['Books', 'Mystery, Thriller &amp; Suspense', 'Mystery']
+Correct items for test user:
+['0345806751', '0399158073', '0399157328', '0399157336', '0399164731']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Rise of the Guardians: Easter Gift Set
+	Brand: Chris Pine
+	Categories: ['Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Animation']
+	2.
+	Title: Celtic Woman: Believe
+	Brand: Celtic Woman
+	Categories: ['Movies & TV', 'Music Artists', 'Celtic Woman']
+	3.
+	Title: Celtic Thunder: Mythology
+	Brand: Celtic Thunder
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Music Videos & Concerts']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0345806751
+	Title: Fifty Shades of Grey: Inner Goddess: A Journal
+	Brand: Visit Amazon's E L James Page
+	Categories: ['Books', 'Reference', 'Writing, Research &amp; Publishing Guides']
+	2.
+	Id: 0345510100
+	Title: To Romance a Charming Rogue (Courtship Wars, Book 4)
+	Brand: Visit Amazon's Nicole Jordan Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	3.
+	Id: 0399158073
+	Title: Prince of Ravenscar
+	Brand: Visit Amazon's Catherine Coulter Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'United States']
+	4.
+	Id: 0399157328
+	Title: Backfire (An FBI Thriller)
+	Brand: Visit Amazon's Catherine Coulter Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	5.
+	Id: 0399157336
+	Title: Bombshell (An FBI Thriller)
+	Brand: Visit Amazon's Catherine Coulter Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	6.
+	Id: 0399164731
+	Title: The Final Cut
+	Brand: Visit Amazon's Catherine Coulter Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Mystery']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0399158073', '0399157328', '0399157336', '0345510100', '0399164731'].
+Explanation: Based on the user's liked movies, which are in the categories of 'Movies & TV', 'Science Fiction & Fantasy', 'Science Fiction', 'Animation', 'Music Artists', 'Celtic Woman', and 'Genre for Featured Categories', the recommender system suggests books that are in similar categories. The recommended books are in the categories of 'Books', 'Literature & Fiction', 'United States', 'Mystery, Thriller & Suspense', and 'Genre Fiction'. These books are likely to appeal to the user's interests as they share similar themes or genres with the liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AUGQPAQSODFZS
+Liked items in the base domain:
+            user_id     item_id rating   timestamp               title                  brand                                                                                    category
+4328  AUGQPAQSODFZS  B005LAIILM      5  1379721600              Parker          Jason Statham                      ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+4545  AUGQPAQSODFZS  B0090SI4HO      5  1388534400      The Last Stand  Arnold Schwarzenegger  ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+4658  AUGQPAQSODFZS  B00B5DWH5W      5  1379721600  Divorce Invitation       Jonathan Bennett                                      ['Movies & TV', 'Independently Distributed', 'Comedy']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                                         title                                   brand                                                                   category
+0  AUGQPAQSODFZS  0898706408      5  1361059200  Salt of the Earth: The Church at the End of the Millennium-  An Interview With Peter Seewald                           Peter Seewald                                              ['Books', 'History', 'World']
+1  AUGQPAQSODFZS  0805098542      5  1394409600                                                Killing Jesus (Bill O'Reilly's Killing Series)       Visit Amazon's Bill O'Reilly Page                                              ['Books', 'History', 'World']
+2  AUGQPAQSODFZS  0446539880      5  1392163200                                Robert Ludlum's (TM) The Utopia Experiment (Covert-One series)          Visit Amazon's Kyle Mills Page            ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+3  AUGQPAQSODFZS  0446564508      5  1395878400                                       Robert Ludlum's (TM) The Janson Command (Janson series)       Visit Amazon's Paul Garrison Page            ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+4  AUGQPAQSODFZS  023070025X      5  1290470400                                                         The Diamond Hunters [Sound Recording]        Visit Amazon's Wilbur Smith Page                                                                         []
+5  AUGQPAQSODFZS  044651862X      5  1300665600                                                          The Celestine Prophecy: An Adventure      Visit Amazon's James Redfield Page                     ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+6  AUGQPAQSODFZS  0446539864      5  1377043200                                                           Robert Ludlum's The Bourne Sanction  Visit Amazon's Eric Van Lustbader Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+7  AUGQPAQSODFZS  0399151435      5  1402963200                                                             A Death In Vienna (Silva, Daniel)        Visit Amazon's Daniel Silva Page  ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+8  AUGQPAQSODFZS  0867169257      5  1388534400                                        Mysteries of the Virgin Mary: Living our Lady's Graces  Visit Amazon's Peter John Cameron Page                       ['Books', 'Christian Books & Bibles', 'Catholicism']
+Correct items for test user:
+['023070025X', '044651862X', '0898706408', '0446539864', '0867169257']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Parker
+	Brand: Jason Statham
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+	2.
+	Title: The Last Stand
+	Brand: Arnold Schwarzenegger
+	Categories: ['Movies & TV', 'Studio Specials', 'Lionsgate Home Entertainment', 'All Lionsgate Titles']
+	3.
+	Title: Divorce Invitation
+	Brand: Jonathan Bennett
+	Categories: ['Movies & TV', 'Independently Distributed', 'Comedy']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0898706408
+	Title: Salt of the Earth: The Church at the End of the Millennium-  An Interview With Peter Seewald
+	Brand: Peter Seewald
+	Categories: ['Books', 'History', 'World']
+	2.
+	Id: 0805098542
+	Title: Killing Jesus (Bill O'Reilly's Killing Series)
+	Brand: Visit Amazon's Bill O'Reilly Page
+	Categories: ['Books', 'History', 'World']
+	3.
+	Id: 0446539880
+	Title: Robert Ludlum's (TM) The Utopia Experiment (Covert-One series)
+	Brand: Visit Amazon's Kyle Mills Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+	4.
+	Id: 0446564508
+	Title: Robert Ludlum's (TM) The Janson Command (Janson series)
+	Brand: Visit Amazon's Paul Garrison Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Action &amp; Adventure']
+	5.
+	Id: 023070025X
+	Title: The Diamond Hunters [Sound Recording]
+	Brand: Visit Amazon's Wilbur Smith Page
+	Categories: []
+	6.
+	Id: 044651862X
+	Title: The Celestine Prophecy: An Adventure
+	Brand: Visit Amazon's James Redfield Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	7.
+	Id: 0446539864
+	Title: Robert Ludlum's The Bourne Sanction
+	Brand: Visit Amazon's Eric Van Lustbader Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	8.
+	Id: 0399151435
+	Title: A Death In Vienna (Silva, Daniel)
+	Brand: Visit Amazon's Daniel Silva Page
+	Categories: ['Books', 'Mystery, Thriller &amp; Suspense', 'Thrillers &amp; Suspense']
+	9.
+	Id: 0867169257
+	Title: Mysteries of the Virgin Mary: Living our Lady's Graces
+	Brand: Visit Amazon's Peter John Cameron Page
+	Categories: ['Books', 'Christian Books & Bibles', 'Catholicism']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0446539880', '0446564508', '044651862X', '0446539864', '0805098542'].
+Explanation: Based on the user's liked movies, which are action and adventure films, I recommend books that fall into the same genre. The top 5 recommended books are:
+1. "Robert Ludlum's (TM) The Utopia Experiment (Covert-One series)": This book is categorized as action and adventure, which aligns with the user's preference for action movies.
+2. "Robert Ludlum's (TM) The Janson Command (Janson series)": Another action and adventure book from the same series as the previous recommendation.
+3. "The Celestine Prophecy: An Adventure": This book is categorized as genre fiction and may appeal to the user's interest in adventure.
+4. "Robert Ludlum's The Bourne Sanction": Another action and thriller book from the popular Bourne series.
+5. "Killing Jesus (Bill O'Reilly's Killing Series)": Although not directly related to action and adventure, this historical book may provide an interesting change of pace for the user.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: ARA8A1XTCN0D6
+Liked items in the base domain:
+            user_id     item_id rating   timestamp          title        brand                                                               category
+4371  ARA8A1XTCN0D6  B005S9EK1S      5  1356566400  The Lucky One    Zac Efron  ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+4509  ARA8A1XTCN0D6  B0080BFW7W      5  1356566400   Let It Shine         <NA>              ['Movies & TV', 'Fully Loaded DVDs', 'Extended Editions']
+4543  ARA8A1XTCN0D6  B0090SI3HU      5  1359072000   Liberal Arts  Josh Radnor                             ['Movies & TV', 'First to Know', 'Movies']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                  title                            brand                                                         category
+0  ARA8A1XTCN0D6  0345542215      5  1355097600           The Paperboy (Movie Tie-in Edition): A Novel  Visit Amazon's Pete Dexter Page           ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+1  ARA8A1XTCN0D6  0060724544      5  1368316800       The Princess Diaries, Volume VII: Party Princess    Visit Amazon's Meg Cabot Page  ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+2  ARA8A1XTCN0D6  0061232920      5  1404691200       The Princess Diaries, Volume X: Forever Princess    Visit Amazon's Meg Cabot Page          ['Books', 'Teen & Young Adult', 'Literature & Fiction']
+3  ARA8A1XTCN0D6  0060847166      5  1368316800  Sweet Sixteen Princess (Princess Diaries, Vol. 7 1/2)    Visit Amazon's Meg Cabot Page          ['Books', 'Teen & Young Adult', 'Literature & Fiction']
+4  ARA8A1XTCN0D6  0060724560      5  1371600000       Princess on the Brink (Princess Diaries, Vol. 8)    Visit Amazon's Meg Cabot Page  ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+5  ARA8A1XTCN0D6  0060571314      5  1363737600    Project Princess (The Princess Diaries, Vol. 4 1/2)    Visit Amazon's Meg Cabot Page  ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+6  ARA8A1XTCN0D6  0060096128      5  1363737600      Princess Diaries, Volume V: Princess in Pink, The    Visit Amazon's Meg Cabot Page        ['Books', "Children's Books", 'Geography &amp; Cultures']
+Correct items for test user:
+['0345542215', '0060571314', '0060096128', '0060724544', '0060847166']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: The Lucky One
+	Brand: Zac Efron
+	Categories: ['Movies & TV', 'Studio Specials', 'Warner Home Video', 'All Titles']
+	2.
+	Title: Let It Shine
+	Categories: ['Movies & TV', 'Fully Loaded DVDs', 'Extended Editions']
+	3.
+	Title: Liberal Arts
+	Brand: Josh Radnor
+	Categories: ['Movies & TV', 'First to Know', 'Movies']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0345542215
+	Title: The Paperboy (Movie Tie-in Edition): A Novel
+	Brand: Visit Amazon's Pete Dexter Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	2.
+	Id: 0060724544
+	Title: The Princess Diaries, Volume VII: Party Princess
+	Brand: Visit Amazon's Meg Cabot Page
+	Categories: ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+	3.
+	Id: 0061232920
+	Title: The Princess Diaries, Volume X: Forever Princess
+	Brand: Visit Amazon's Meg Cabot Page
+	Categories: ['Books', 'Teen & Young Adult', 'Literature & Fiction']
+	4.
+	Id: 0060847166
+	Title: Sweet Sixteen Princess (Princess Diaries, Vol. 7 1/2)
+	Brand: Visit Amazon's Meg Cabot Page
+	Categories: ['Books', 'Teen & Young Adult', 'Literature & Fiction']
+	5.
+	Id: 0060724560
+	Title: Princess on the Brink (Princess Diaries, Vol. 8)
+	Brand: Visit Amazon's Meg Cabot Page
+	Categories: ['Books', "Children's Books", 'Growing Up &amp; Facts of Life']
+	6.
+	Id: 0060571314
+	Title: Project Princess (The Princess Diaries, Vol. 4 1/2)
+	Brand: Visit Amazon's Meg Cabot Page
+	Categories: ['Books', 'Teen &amp; Young Adult', 'Literature &amp; Fiction']
+	7.
+	Id: 0060096128
+	Title: Princess Diaries, Volume V: Princess in Pink, The
+	Brand: Visit Amazon's Meg Cabot Page
+	Categories: ['Books', "Children's Books", 'Geography &amp; Cultures']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['0060724544', '0061232920', '0060847166', '0060724560', '0060571314'].
+Explanation: Based on the user's liked movies, which include movies in the 'Movies & TV' category and movies featuring actors like Zac Efron and Josh Radnor, I recommend books from the 'Teen & Young Adult' and 'Children's Books' categories. The recommended books are from the 'Princess Diaries' series by Meg Cabot, which is a popular series among teenagers and young adults. These books have similar themes of coming-of-age, romance, and self-discovery, which align with the user's liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A21P5MI0892X9N
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                   title             brand                                                                                     category
+4398  A21P5MI0892X9N  B0060MYM3S      5  1369094400                                                                               Game of Thrones: Season 2       Alfie Allen                                                     ['Movies & TV', 'HBO', 'All HBO Titles']
+4680  A21P5MI0892X9N  B00BMRTPEM      4  1403049600  The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom     Rupert Graves                            ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+4698  A21P5MI0892X9N  B00C8CQRQ4      5  1403049600                                                                               Game of Thrones: Season 3           Various                                                     ['Movies & TV', 'HBO', 'All HBO Titles']
+4789  A21P5MI0892X9N  B00G4Q3KOC      3  1403049600                                                                                        12 Years a Slave  Chiwetel Ejiofor  ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                title                               brand                                                              category
+0  A21P5MI0892X9N  0936185929      5  1403049600  The Tao of Healthy Eating: Dietary Wisdom According to Traditional Chinese Medicine       Visit Amazon's Bob Flaws Page    ['Books', 'Health, Fitness &amp; Dieting', 'Alternative Medicine']
+1  A21P5MI0892X9N  0399159347      4  1391385600                                                                 The Husband's Secret  Visit Amazon's Liane Moriarty Page                ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+2  A21P5MI0892X9N  0307582884      4  1402704000                     The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)   Visit Amazon's James Dashner Page               ['Books', 'Teen & Young Adult', 'Literature & Fiction']
+3  A21P5MI0892X9N  1469227886      5  1403049600           The Bloodletter's Daughter: A Novel of Old Bohemia (Novels of Old Bohemia)  Visit Amazon's Linda Lafferty Page                ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+4  A21P5MI0892X9N  0425259854      5  1388188800                                                         Dark Witch (Cousins O'Dwyer)    Visit Amazon's Nora Roberts Page                ['Books', 'Literature &amp; Fiction', 'United States']
+5  A21P5MI0892X9N  0425259862      4  1397433600                                                       Shadow Spell (Cousins O'Dwyer)    Visit Amazon's Nora Roberts Page                ['Books', 'Literature &amp; Fiction', 'United States']
+6  A21P5MI0892X9N  0007444117      5  1389398400                                                                            Allegiant   Visit Amazon's Veronica Roth Page             ['Books', 'Science Fiction & Fantasy', 'Science Fiction']
+7  A21P5MI0892X9N  0345505387      2  1386806400                                                The Exile: An Outlander Graphic Novel  Visit Amazon's Diana Gabaldon Page            ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+8  A21P5MI0892X9N  1409103803      5  1386806400                                                  A Trail of Fire (Outlander Omnibus)                                <NA>                                                                    []
+9  A21P5MI0892X9N  0062117262      4  1399075200                                                                                Taken     Visit Amazon's Erin Bowman Page  ['Books', 'Teen &amp; Young Adult', 'Science Fiction &amp; Fantasy']
+Correct items for test user:
+['1409103803', '0425259854', '0007444117', '0936185929', '1469227886']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Game of Thrones: Season 2
+	Brand: Alfie Allen
+	Categories: ['Movies & TV', 'HBO', 'All HBO Titles']
+	2.
+	Title: Game of Thrones: Season 3
+	Brand: Various
+	Categories: ['Movies & TV', 'HBO', 'All HBO Titles']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom
+	Brand: Rupert Graves
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	2.
+	Title: 12 Years a Slave
+	Brand: Chiwetel Ejiofor
+	Categories: ['Movies & TV', 'Studio Specials', '20th Century Fox Home Entertainment', 'All Fox Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0936185929
+	Title: The Tao of Healthy Eating: Dietary Wisdom According to Traditional Chinese Medicine
+	Brand: Visit Amazon's Bob Flaws Page
+	Categories: ['Books', 'Health, Fitness &amp; Dieting', 'Alternative Medicine']
+	2.
+	Id: 0399159347
+	Title: The Husband's Secret
+	Brand: Visit Amazon's Liane Moriarty Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	3.
+	Id: 0307582884
+	Title: The Maze Runner (Maze Runner, Book One) (The Maze Runner Series)
+	Brand: Visit Amazon's James Dashner Page
+	Categories: ['Books', 'Teen & Young Adult', 'Literature & Fiction']
+	4.
+	Id: 1469227886
+	Title: The Bloodletter's Daughter: A Novel of Old Bohemia (Novels of Old Bohemia)
+	Brand: Visit Amazon's Linda Lafferty Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	5.
+	Id: 0425259854
+	Title: Dark Witch (Cousins O'Dwyer)
+	Brand: Visit Amazon's Nora Roberts Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'United States']
+	6.
+	Id: 0425259862
+	Title: Shadow Spell (Cousins O'Dwyer)
+	Brand: Visit Amazon's Nora Roberts Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'United States']
+	7.
+	Id: 0007444117
+	Title: Allegiant
+	Brand: Visit Amazon's Veronica Roth Page
+	Categories: ['Books', 'Science Fiction & Fantasy', 'Science Fiction']
+	8.
+	Id: 0345505387
+	Title: The Exile: An Outlander Graphic Novel
+	Brand: Visit Amazon's Diana Gabaldon Page
+	Categories: ['Books', 'Comics &amp; Graphic Novels', 'Graphic Novels']
+	9.
+	Id: 1409103803
+	Title: A Trail of Fire (Outlander Omnibus)
+	Categories: []
+	10.
+	Id: 0062117262
+	Title: Taken
+	Brand: Visit Amazon's Erin Bowman Page
+	Categories: ['Books', 'Teen &amp; Young Adult', 'Science Fiction &amp; Fantasy']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['1409103803', '0425259854', '0425259862', '0345505387', '0007444117'].
+Explanation: Based on the user's liked items, which are both seasons of Game of Thrones, I recommend books that are in the same genre as the TV series. The top 5 recommended books are:
+1. "A Trail of Fire (Outlander Omnibus)": This book is recommended because it falls under the same category as the liked items, which is "Books". Although it doesn't have specific categories listed, it is likely to be related to fantasy or historical fiction, which are similar to Game of Thrones.
+2. "Dark Witch (Cousins O'Dwyer)": This book is recommended because it falls under the category of "Literature & Fiction" and is set in the United States. While it may not be directly related to Game of Thrones, it shares some similarities in terms of genre and setting.
+3. "Shadow Spell (Cousins O'Dwyer)": This book is recommended for the same reasons as the previous one. It is also part of the Cousins O'Dwyer series, which suggests it may have similar themes or elements as Game of Thrones.
+4. "The Exile: An Outlander Graphic Novel": This book is recommended because it falls under the category of "Comics & Graphic Novels" and is a graphic novel. While it may not have the same depth as Game of Thrones, it offers a visual storytelling experience that fans of the TV series may enjoy.
+5. "Allegiant": This book is recommended because it falls under the category of "Science Fiction & Fantasy" and specifically "Science Fiction". While it may not have the same medieval fantasy setting as Game of Thrones, it offers a different type of fantasy story that may appeal to fans of the genre.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: AOSNI67AU487S
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                  title         brand                                                                                            category
+4521  AOSNI67AU487S  B00855YWJM      5  1340755200      Una Noche De Luna          <NA>                                                                    ['Movies & TV', 'Blu-ray', 'TV']
+4691  AOSNI67AU487S  B00C391Y3I      5  1371168000  Judas Priest: Epitaph  Judas Priest  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+4795  AOSNI67AU487S  B00GMV8KGW      1  1395360000    Inside Llewyn Davis   Oscar Isaac  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                                                                                 title                               brand                                                         category
+0  AOSNI67AU487S  031603438X      1  1325030400                                                                                                                                  Life  Visit Amazon's Keith Richards Page                     ['Books', 'Arts &amp; Photography', 'Music']
+1  AOSNI67AU487S  0743290879      1  1278979200  Dile adis a tus temores (How to Overcome Fear): Como vencer los miedos y vivir completamente feliz (Atria Espanol) (Spanish Edition)     Visit Amazon's Marcos Witt Page    ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+2  AOSNI67AU487S  1451620829      2  1359331200                                                                                         Makeup to Breakup: My Life In and Out of Kiss     Visit Amazon's Peter Criss Page                     ['Books', 'Arts &amp; Photography', 'Music']
+3  AOSNI67AU487S  1451694563      1  1369699200                                                                                          Sex, Drugs, Ratt &amp; Roll: My Life in Rock  Visit Amazon's Stephen Pearcy Page  ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+4  AOSNI67AU487S  0061353116      2  1277337600                                                                            El Regalo del Tiempo: Cartas a mis hijos (Spanish Edition)     Visit Amazon's Jorge Ramos Page     ['Books', 'Literature & Fiction', 'Essays & Correspondence']
+5  AOSNI67AU487S  0446548049      1  1286150400                                                    Tattoos &amp; Tequila: To Hell and Back with One of Rock's Most Notorious Frontmen      Visit Amazon's Vince Neil Page                     ['Books', 'Arts &amp; Photography', 'Music']
+Correct items for test user:
+['0061353116', '1451620829', '0743290879', '0446548049', '031603438X']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Una Noche De Luna
+	Categories: ['Movies & TV', 'Blu-ray', 'TV']
+	2.
+	Title: Judas Priest: Epitaph
+	Brand: Judas Priest
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Inside Llewyn Davis
+	Brand: Oscar Isaac
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 031603438X
+	Title: Life
+	Brand: Visit Amazon's Keith Richards Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	2.
+	Id: 0743290879
+	Title: Dile adis a tus temores (How to Overcome Fear): Como vencer los miedos y vivir completamente feliz (Atria Espanol) (Spanish Edition)
+	Brand: Visit Amazon's Marcos Witt Page
+	Categories: ['Books', 'Christian Books &amp; Bibles', 'Christian Living']
+	3.
+	Id: 1451620829
+	Title: Makeup to Breakup: My Life In and Out of Kiss
+	Brand: Visit Amazon's Peter Criss Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	4.
+	Id: 1451694563
+	Title: Sex, Drugs, Ratt &amp; Roll: My Life in Rock
+	Brand: Visit Amazon's Stephen Pearcy Page
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+	5.
+	Id: 0061353116
+	Title: El Regalo del Tiempo: Cartas a mis hijos (Spanish Edition)
+	Brand: Visit Amazon's Jorge Ramos Page
+	Categories: ['Books', 'Literature & Fiction', 'Essays & Correspondence']
+	6.
+	Id: 0446548049
+	Title: Tattoos &amp; Tequila: To Hell and Back with One of Rock's Most Notorious Frontmen
+	Brand: Visit Amazon's Vince Neil Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['1451620829', '0446548049', '1451694563', '031603438X', '0061353116'].
+Explanation: Based on the user's liked movies, which are related to music and entertainment, I have ranked the books accordingly. 
+
+1. 'Makeup to Breakup: My Life In and Out of Kiss' by Peter Criss: This book is about the life of Peter Criss, the drummer of the rock band Kiss. It provides insights into the music industry and the personal experiences of a musician.
+
+2. 'Tattoos & Tequila: To Hell and Back with One of Rock's Most Notorious Frontmen' by Vince Neil: This book is a memoir by Vince Neil, the lead vocalist of the rock band Mötley Crüe. It offers a behind-the-scenes look at the rock and roll lifestyle and the challenges faced by a frontman.
+
+3. 'Sex, Drugs, Ratt & Roll: My Life in Rock' by Stephen Pearcy: This book is a memoir by Stephen Pearcy, the lead vocalist of the rock band Ratt. It delves into the highs and lows of the rock and roll lifestyle, including the struggles with addiction and the music industry.
+
+4. 'Life' by Keith Richards: This book is an autobiography by Keith Richards, the guitarist of the Rolling Stones. It provides a firsthand account of his life in the music industry, including his experiences with drugs, fame, and creativity.
+
+5. 'El Regalo del Tiempo: Cartas a mis hijos' by Jorge Ramos: This book is a collection of essays and correspondence by Jorge Ramos, a renowned journalist and author. Although not directly related to music, it offers valuable insights and reflections on life, family, and personal growth.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A1Y75ZO1L4NKBX
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                                                                                   title          brand                                                           category
+4564  A1Y75ZO1L4NKBX  B00979JV00      5  1370390400                                                           Downton Abbey: Series 1-3 + Christmas Special           <NA>                ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+4648  A1Y75ZO1L4NKBX  B00B00HUC0      5  1370390400                                                                         Maverick: The Complete Season 2   James Garner       ['Movies & TV', 'Genre for Featured Categories', 'Westerns']
+4679  A1Y75ZO1L4NKBX  B00BMRTPEM      5  1398297600  The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom  Rupert Graves  ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                          title                               brand                                                           category
+0  A1Y75ZO1L4NKBX  0060885599      5  1390867200                                Billy Lynn's Long Halftime Walk    Visit Amazon's Ben Fountain Page             ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+1  A1Y75ZO1L4NKBX  0399160477      5  1404432000                                  Command Authority (Jack Ryan)      Visit Amazon's Tom Clancy Page            ['Books', 'Literature & Fiction', 'Action & Adventure']
+2  A1Y75ZO1L4NKBX  039915731X      5  1326067200                                                      Locked On      Visit Amazon's Tom Clancy Page            ['Books', 'Literature & Fiction', 'Action & Adventure']
+3  A1Y75ZO1L4NKBX  0446580848      5  1365638400                               The Panther (A John Corey Novel)  Visit Amazon's Nelson DeMille Page  ['Books', 'Mystery, Thriller & Suspense', 'Thrillers & Suspense']
+4  A1Y75ZO1L4NKBX  0399157557      5  1326067200                        Victory and Honor (Honor Bound, Book 6)  Visit Amazon's W.E.B. Griffin Page            ['Books', 'Literature & Fiction', 'Action & Adventure']
+5  A1Y75ZO1L4NKBX  1250018021      5  1390867200  Ghosts of Bungo Suido: A Novel (P. T. Deutermann WWII Novels)                    P. T. Deutermann             ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+6  A1Y75ZO1L4NKBX  0312599447      4  1307145600                                         Pacific Glory: A Novel                    P. T. Deutermann             ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+Correct items for test user:
+['039915731X', '0399157557', '0446580848', '0060885599', '1250018021']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Downton Abbey: Series 1-3 + Christmas Special
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas']
+	2.
+	Title: Maverick: The Complete Season 2
+	Brand: James Garner
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Westerns']
+	3.
+	Title: The White Queen - Complete Series The White Queen: Series 1  NON-USA FORMAT, PAL, Reg.2 United Kingdom
+	Brand: Rupert Graves
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Kids & Family']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 0060885599
+	Title: Billy Lynn's Long Halftime Walk
+	Brand: Visit Amazon's Ben Fountain Page
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	2.
+	Id: 0399160477
+	Title: Command Authority (Jack Ryan)
+	Brand: Visit Amazon's Tom Clancy Page
+	Categories: ['Books', 'Literature & Fiction', 'Action & Adventure']
+	3.
+	Id: 039915731X
+	Title: Locked On
+	Brand: Visit Amazon's Tom Clancy Page
+	Categories: ['Books', 'Literature & Fiction', 'Action & Adventure']
+	4.
+	Id: 0446580848
+	Title: The Panther (A John Corey Novel)
+	Brand: Visit Amazon's Nelson DeMille Page
+	Categories: ['Books', 'Mystery, Thriller & Suspense', 'Thrillers & Suspense']
+	5.
+	Id: 0399157557
+	Title: Victory and Honor (Honor Bound, Book 6)
+	Brand: Visit Amazon's W.E.B. Griffin Page
+	Categories: ['Books', 'Literature & Fiction', 'Action & Adventure']
+	6.
+	Id: 1250018021
+	Title: Ghosts of Bungo Suido: A Novel (P. T. Deutermann WWII Novels)
+	Brand: P. T. Deutermann
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	7.
+	Id: 0312599447
+	Title: Pacific Glory: A Novel
+	Brand: P. T. Deutermann
+	Categories: ['Books', 'Literature &amp; Fiction', 'Genre Fiction']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['039915731X', '0399160477', '0446580848', '0312599447', '1250018021'].
+Explanation: Based on the user's liked movies, which include genres like 'Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Westerns', and 'Kids & Family', I recommend books that fall into similar genres. 
+
+The top recommended book, 'Locked On', is an action and adventure novel by Tom Clancy, which aligns with the user's interest in movies with action and adventure elements. 
+
+The second recommended book, 'Command Authority (Jack Ryan)', is also an action and adventure novel by Tom Clancy, which again matches the user's preference for this genre. 
+
+The third recommended book, 'The Panther (A John Corey Novel)', is a thriller and suspense novel by Nelson DeMille, which corresponds to the user's interest in movies with suspenseful elements. 
+
+The fourth recommended book, 'Pacific Glory: A Novel', is a genre fiction novel by P. T. Deutermann, which aligns with the user's interest in movies from the 'Movies & TV' category. 
+
+The fifth recommended book, 'Ghosts of Bungo Suido: A Novel (P. T. Deutermann WWII Novels)', is a genre fiction novel by P. T. Deutermann, which again matches the user's preference for genre fiction.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2YQ6JQINP7HB7
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                                     title             brand                                                         category
+4584  A2YQ6JQINP7HB7  B009AMABH6      5  1374019200                                Cosmopolis  Robert Pattinson        ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+4742  A2YQ6JQINP7HB7  B00DNF1S28      3  1392422400                  Hitched For The Holidays     Joey Lawrence    ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Comedy']
+4745  A2YQ6JQINP7HB7  B00DNLZRLU      3  1392422400  Holiday Romance Collection Movie 10 Pack           Various  ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Romantic']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                                                                                            title                              brand                                                             category
+0  A2YQ6JQINP7HB7  1906617333      5  1384732800                                                                                       Robert Pattinson (Twilight Star) 2010 Wall Calendar 43D-10                           Europe 1                                       ['Books', 'Calendars', 'Arts']
+1  A2YQ6JQINP7HB7  0859654389      5  1375574400                                                                                                                       The Robert Pattinson Album  Visit Amazon's Paul Stenning Page      ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+2  A2YQ6JQINP7HB7  1438810458      5  1384732800                                                                                                              Robert Pattinson 2011 Wall Calendar                          DateWorks       ['Books', 'Arts &amp; Photography', 'Photography &amp; Video']
+3  A2YQ6JQINP7HB7  0316222461      5  1375660800  The Twilight Saga: The Complete Film Archive: Memories, Mementos, and Other Treasures from the Creative Team Behind the Beloved Motion Pictures   Visit Amazon's Robert Abele Page  ['Books', 'Teen &amp; Young Adult', 'Art, Music &amp; Photography']
+4  A2YQ6JQINP7HB7  B00CBK64PM      5  1376438400                                                                                                                   Robert Pattinson 2014 Calendar                   Dream Publishing               ['Books', 'Arts & Photography', 'Photography & Video']
+5  A2YQ6JQINP7HB7  1617010758      5  1374710400                                                                              Robert Pattinson 2013 Calendar (English, German and French Edition)                   Robert Pattinson               ['Books', 'Arts &amp; Photography', 'Performing Arts']
+Correct items for test user:
+['1617010758', '0859654389', '0316222461', 'B00CBK64PM', '1906617333']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Cosmopolis
+	Brand: Robert Pattinson
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Drama']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Hitched For The Holidays
+	Brand: Joey Lawrence
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Comedy']
+	2.
+	Title: Holiday Romance Collection Movie 10 Pack
+	Brand: Various
+	Categories: ['Movies & TV', 'Holidays & Seasonal', 'Christmas', 'Romantic']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 1906617333
+	Title: Robert Pattinson (Twilight Star) 2010 Wall Calendar 43D-10
+	Brand: Europe 1
+	Categories: ['Books', 'Calendars', 'Arts']
+	2.
+	Id: 0859654389
+	Title: The Robert Pattinson Album
+	Brand: Visit Amazon's Paul Stenning Page
+	Categories: ['Books', 'Biographies &amp; Memoirs', 'Arts &amp; Literature']
+	3.
+	Id: 1438810458
+	Title: Robert Pattinson 2011 Wall Calendar
+	Brand: DateWorks
+	Categories: ['Books', 'Arts &amp; Photography', 'Photography &amp; Video']
+	4.
+	Id: 0316222461
+	Title: The Twilight Saga: The Complete Film Archive: Memories, Mementos, and Other Treasures from the Creative Team Behind the Beloved Motion Pictures
+	Brand: Visit Amazon's Robert Abele Page
+	Categories: ['Books', 'Teen &amp; Young Adult', 'Art, Music &amp; Photography']
+	5.
+	Id: B00CBK64PM
+	Title: Robert Pattinson 2014 Calendar
+	Brand: Dream Publishing
+	Categories: ['Books', 'Arts & Photography', 'Photography & Video']
+	6.
+	Id: 1617010758
+	Title: Robert Pattinson 2013 Calendar (English, German and French Edition)
+	Brand: Robert Pattinson
+	Categories: ['Books', 'Arts &amp; Photography', 'Performing Arts']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [0316222461, 1438810458, 0859654389, 1906617333, B00CBK64PM].
+Explanation: Based on the user's liked movie "Cosmopolis" which falls under the category of "Drama", I recommend books that are related to arts, photography, and performing arts. The top 5 recommended books are:
+1. "The Twilight Saga: The Complete Film Archive: Memories, Mementos, and Other Treasures from the Creative Team Behind the Beloved Motion Pictures" (ID: 0316222461) - This book is related to the Twilight Saga movies, which are also in the drama genre.
+2. "Robert Pattinson 2011 Wall Calendar" (ID: 1438810458) - This book is a wall calendar featuring Robert Pattinson, the actor from "Cosmopolis".
+3. "The Robert Pattinson Album" (ID: 0859654389) - This book is a biography of Robert Pattinson, the actor from "Cosmopolis".
+4. "Robert Pattinson (Twilight Star) 2010 Wall Calendar 43D-10" (ID: 1906617333) - This book is a wall calendar featuring Robert Pattinson, who gained fame from the Twilight Saga movies.
+5. "Robert Pattinson 2014 Calendar" (ID: B00CBK64PM) - This book is a calendar featuring Robert Pattinson, the actor from "Cosmopolis".
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A9L4AULUR624S
+Liked items in the base domain:
+            user_id     item_id rating   timestamp                 title           brand                                                                category
+4589  A9L4AULUR624S  B009AMAOTQ      5  1394409600            Last Vegas  Robert De Niro                              ['Movies & TV', 'First to Know', 'Movies']
+4620  A9L4AULUR624S  B00AER6I78      5  1364601600  Best Of Duck Dynasty            <NA>                     ['Movies & TV', 'A&E Home Video', 'All A&E Titles']
+4802  A9L4AULUR624S  B00HX0KIAM      5  1402444800            Ride Along        Ice Cube  ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+Candidate items in the target domain:
+         user_id     item_id rating   timestamp                                                                      title                              brand                                                                category
+0  A9L4AULUR624S  B005S4EMHA      5  1364601600                                                   Wicca Power Spells eBook    Visit Amazon's Aurora Rede Page          ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+1  A9L4AULUR624S  1479259942      5  1365984000                                                             Magical Chants    Visit Amazon's Lady Gianne Page  ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+2  A9L4AULUR624S  1463517327      5  1364601600                                                 The Witches Book of Spells                         Roc Marten  ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+3  A9L4AULUR624S  B006OBDP8I      5  1365984000                             Simple Wiccan Magick Spells for Everyday eBook   Visit Amazon's Holly Zurich Page          ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+4  A9L4AULUR624S  B00C071P9Q      5  1402444800                                                        Wicca Candle Spells    Visit Amazon's Milla Walsh Page          ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+5  A9L4AULUR624S  1469963094      5  1365984000                                                        Magical Oil Recipes    Visit Amazon's Lady Gianne Page  ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+6  A9L4AULUR624S  1461003822      5  1364601600  The Modern Day Spellbook: A Collection of Spells for the Modern Day Witch                         Roc Marten          ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+7  A9L4AULUR624S  B0091NNUI6      5  1364601600                                                The Art of Spell Casting II  Visit Amazon's Schon Maharaj Page          ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+Correct items for test user:
+['B005S4EMHA', '1463517327', '1461003822', 'B0091NNUI6', '1479259942']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: Last Vegas
+	Brand: Robert De Niro
+	Categories: ['Movies & TV', 'First to Know', 'Movies']
+	2.
+	Title: Best Of Duck Dynasty
+	Categories: ['Movies & TV', 'A&E Home Video', 'All A&E Titles']
+	3.
+	Title: Ride Along
+	Brand: Ice Cube
+	Categories: ['Movies & TV', 'Genre for Featured Categories', 'Action & Adventure']
+	 
+Instead, I disliked the following movies : 
+ 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: B005S4EMHA
+	Title:  Wicca Power Spells eBook
+	Brand: Visit Amazon's Aurora Rede Page
+	Categories: ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+	2.
+	Id: 1479259942
+	Title: Magical Chants
+	Brand: Visit Amazon's Lady Gianne Page
+	Categories: ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+	3.
+	Id: 1463517327
+	Title: The Witches Book of Spells
+	Brand: Roc Marten
+	Categories: ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+	4.
+	Id: B006OBDP8I
+	Title:  Simple Wiccan Magick Spells for Everyday eBook
+	Brand: Visit Amazon's Holly Zurich Page
+	Categories: ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+	5.
+	Id: B00C071P9Q
+	Title:  Wicca Candle Spells
+	Brand: Visit Amazon's Milla Walsh Page
+	Categories: ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+	6.
+	Id: 1469963094
+	Title: Magical Oil Recipes
+	Brand: Visit Amazon's Lady Gianne Page
+	Categories: ['Books', 'Religion &amp; Spirituality', 'New Age &amp; Spirituality']
+	7.
+	Id: 1461003822
+	Title: The Modern Day Spellbook: A Collection of Spells for the Modern Day Witch
+	Brand: Roc Marten
+	Categories: ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+	8.
+	Id: B0091NNUI6
+	Title:  The Art of Spell Casting II
+	Brand: Visit Amazon's Schon Maharaj Page
+	Categories: ['Books', 'Religion & Spirituality', 'New Age & Spirituality']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: ['B005S4EMHA', '1479259942', '1463517327', 'B006OBDP8I', 'B00C071P9Q'].
+Explanation: Based on the user's liked movies, which include "Last Vegas" and "Ride Along", it seems that the user is interested in movies in the "Action & Adventure" genre. Therefore, I have recommended books from the "New Age & Spirituality" category that may have a similar theme or tone to the user's liked movies. These books include "Wicca Power Spells eBook", "Magical Chants", "The Witches Book of Spells", "Simple Wiccan Magick Spells for Everyday eBook", and "Wicca Candle Spells". These books may provide the user with a similar sense of adventure and excitement as their liked movies.
+-------------------
+=================================================================
+0-shot scenario
+Yes explanations - Yes suggestions
+=================================================================
+
+-------------------
+Test user id: A2WEH6H5AGO94E
+Liked items in the base domain:
+             user_id     item_id rating   timestamp                 title             brand                                                                                            category
+4712  A2WEH6H5AGO94E  B00CPTUNY2      4  1377734400  Fridays: The Best Of  Michael Richards                                                             ['Movies & TV', 'Boxed Sets', 'Comedy']
+4715  A2WEH6H5AGO94E  B00CUKTGSA      5  1385337600    To Be or Not to Be        Jack Benny                                                      ['Movies & TV', 'Criterion Collection', 'All']
+4741  A2WEH6H5AGO94E  B00DL47RQ2      4  1392163200          Blue Jasmine    Cate Blanchett  ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+Candidate items in the target domain:
+          user_id     item_id rating   timestamp                                                                            title                                   brand                                                category
+0  A2WEH6H5AGO94E  1606996169      1  1367366400                                         THE GRAMMAR OF ROCK: ART AND ARTLESSNESS   Visit Amazon's Alexander Theroux Page            ['Books', 'Arts &amp; Photography', 'Music']
+1  A2WEH6H5AGO94E  0517549913      4  1363564800                                  The Beaver Papers: The Story of the Lost Season                             Will Jacobs  ['Books', 'Arts &amp; Photography', 'Performing Arts']
+2  A2WEH6H5AGO94E  1476886792      3  1373241600                             Rhapsody in Black: The Life and Music of Roy Orbison          Visit Amazon's John Kruth Page            ['Books', 'Arts &amp; Photography', 'Music']
+3  A2WEH6H5AGO94E  1908279427      4  1404086400  Neil Sedaka Rock 'n' roll Survivor: The inside story of his incredible comeback       Visit Amazon's Rich Podolsky Page            ['Books', 'Arts &amp; Photography', 'Music']
+4  A2WEH6H5AGO94E  0806517727      4  1370995200                JFK: The CIA, Vietnam and the Plot to Assassinate John F. Kennedy  Visit Amazon's L. Fletcher Prouty Page                        ['Books', 'History', 'Americas']
+Correct items for test user:
+['0517549913', '0806517727', '1908279427', '1476886792', '1606996169']
+system_prompt: 
+You are a cross-domain recommender system. 
+The user will provide you a list of items from a base domain that he or she liked, and another list of items from the same base domain that he or she disliked. Both of them are in the following format: 
+    1. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+The user will also provide a list of candidate items from a target domain in the following format: 
+    1. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    2. 
+        Id: <item's id> 
+        Title: <item's title> 
+        Brand: <item's brand (if available)> 
+        Categories: <list of item's categories> 
+    3. 
+        ... 
+You must re-rank the candidate items based on the user's liked items and return the top 5 books. Your answer must be in the following format: 
+' Items ranking: <list of top 5 recommended books' ids>.
+  Explanation: <your explanation>. '
+
+Provide an explanation for your suggestion.
+user_prompt: 
+I liked the following movies : 
+1.
+	Title: To Be or Not to Be
+	Brand: Jack Benny
+	Categories: ['Movies & TV', 'Criterion Collection', 'All']
+	 
+Instead, I disliked the following movies : 
+1.
+	Title: Fridays: The Best Of
+	Brand: Michael Richards
+	Categories: ['Movies & TV', 'Boxed Sets', 'Comedy']
+	2.
+	Title: Blue Jasmine
+	Brand: Cate Blanchett
+	Categories: ['Movies & TV', 'Studio Specials', 'Sony Pictures Home Entertainment', 'All Sony Pictures Titles']
+	 
+Rank and return the top 5 books from the following ones: 
+1.
+	Id: 1606996169
+	Title: THE GRAMMAR OF ROCK: ART AND ARTLESSNESS
+	Brand: Visit Amazon's Alexander Theroux Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	2.
+	Id: 0517549913
+	Title: The Beaver Papers: The Story of the Lost Season
+	Brand: Will Jacobs
+	Categories: ['Books', 'Arts &amp; Photography', 'Performing Arts']
+	3.
+	Id: 1476886792
+	Title: Rhapsody in Black: The Life and Music of Roy Orbison
+	Brand: Visit Amazon's John Kruth Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	4.
+	Id: 1908279427
+	Title: Neil Sedaka Rock 'n' roll Survivor: The inside story of his incredible comeback
+	Brand: Visit Amazon's Rich Podolsky Page
+	Categories: ['Books', 'Arts &amp; Photography', 'Music']
+	5.
+	Id: 0806517727
+	Title: JFK: The CIA, Vietnam and the Plot to Assassinate John F. Kennedy
+	Brand: Visit Amazon's L. Fletcher Prouty Page
+	Categories: ['Books', 'History', 'Americas']
+	
+Provide an explanation for your suggestion.
+LLM answer: 
+Items ranking: [1606996169, 0517549913, 1476886792, 1908279427, 0806517727].
+Explanation: Based on the user's liked and disliked movies, we can see that the user is interested in movies from the 'Movies & TV' category. Therefore, it is likely that the user would also be interested in books related to arts, photography, and music. 
+
+Among the candidate books, the top 5 recommended books are:
+1. "THE GRAMMAR OF ROCK: ART AND ARTLESSNESS" by Alexander Theroux: This book is related to music, which aligns with the user's interest in movies from the 'Movies & TV' category.
+2. "The Beaver Papers: The Story of the Lost Season" by Will Jacobs: This book is related to performing arts, which again aligns with the user's interest in movies.
+3. "Rhapsody in Black: The Life and Music of Roy Orbison" by John Kruth: This book is specifically about music, which matches the user's interest.
+4. "Neil Sedaka Rock 'n' roll Survivor: The inside story of his incredible comeback" by Rich Podolsky: This book is also related to music, which is in line with the user's preference.
+5. "JFK: The CIA, Vietnam and the Plot to Assassinate John F. Kennedy" by L. Fletcher Prouty: Although not directly related to arts and music, this book falls under the category of history, which might be of interest to the user.
+
+Overall, these recommendations are based on the assumption that the user's interest in movies from the 'Movies & TV' category extends to related topics such as arts, photography, performing arts, and music.
+-------------------
